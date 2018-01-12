@@ -25,5 +25,7 @@ extern "C" {
 __global__ void runGPUR1(Cut_gpu *d_cut, solutionGpu *d_solution, unsigned int *seed, curandState_t* states, int nThreads, int precision);
 
 __global__ void runGPUR1_aleatory(Cut_gpu *d_cut, solutionGpu *d_solution, unsigned int *seed, curandState_t* states, int nThreads, int precision, int maxDenominator);
+
+__global__ void runGPUR2(Cut_gpu *d_cut, solutionGpu *d_solution, unsigned int *seed, curandState_t* states, int numberMaxConst, int *setConstraint,int nThreads, int precision, int maxDenominator);
 #endif /* GSOLUTION_CUH_ */
 

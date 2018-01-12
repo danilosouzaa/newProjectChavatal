@@ -4242,7 +4242,7 @@ double* lp_reduced_cost(LinearProgram* lp)
     return &((*(lp->_rc))[0]);
 }
 
-void lp_set_store_names(bool store)
+void lp_set_store_names(int store)
 {
     LPstoreNames = store;
 }

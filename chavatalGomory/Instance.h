@@ -1,6 +1,8 @@
 #ifndef INSTANCE_H
 #define  INSTANCE_H
 
+
+
 typedef struct{
     char name[255];
 }names;
@@ -21,9 +23,9 @@ typedef struct{
     double *rhs;//ok
     names *name_variables;//ok
     names *name_constraints;//ok
-    int *ub_variables;
-    int *lb_variables;
-    short int *type_variables; //(1 for binaries and 2 for real)
+    double *ub_variables;
+    double *lb_variables;
+    short int *type_variables; //(1 for binaries,and 2 for integer, 3 real)
 }Instance;
 
 

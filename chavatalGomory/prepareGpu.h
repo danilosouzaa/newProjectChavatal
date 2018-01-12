@@ -14,9 +14,9 @@ int verifyGpu();
 
 void setGpuThread(int nGpu);
 
-void initial_runGPU(Cut_gpu *h_cut, solutionGpu *h_solution, int numberMaxConst, int nRuns, int maxDenominator, int precision, int type);
+Cut_gpu* initial_runGPU(Cut_gpu *h_cut,Cut_gpu_aux *cut_aux, int numberMaxConst, int nRuns, int maxDenominator, int precision, int type);
 
-
+Cut_gpu* second_phase_runGPU(Cut_gpu *h_cut, Cut_gpu_aux *cut_aux, int numberMaxConst, int nRuns, int maxDenominator, int precision);
 
 
 #endif

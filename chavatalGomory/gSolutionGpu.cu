@@ -28,25 +28,20 @@ solutionGpu* createGPUsolution1(solutionGpu* h_solution, Cut_gpu* h_cut, int nRu
 }
 
 
-
-
-
-
-solutionGpu* createGPUsolution(solutionGpu* h_solution, Cut_gpu* h_cut,int numberMaxConst)
+solutionGpu* createGPUsolution2(solutionGpu* h_solution, Cut_gpu* h_cut,int numberMaxConst, int nRuns)
 {
-    int nThreads = 1;
-    int nBlocks=2;
+
     size_t size_solution =  sizeof(solutionGpu) +
-                            sizeof(TSMult)*(nThreads*nBlocks*4) +
-                            sizeof(TSConst)*(numberMaxConst*nThreads*nBlocks) +
-                            sizeof(TSPAux)*(nThreads*nBlocks);
+                            sizeof(TSMult)*(nRuns*4) +
+                            sizeof(TSConst)*(numberMaxConst*nRuns) +
+                            sizeof(TSPAux)*(nRuns);
 
     solutionGpu *d_sol;
     gpuMalloc((void**)&d_sol, size_solution);
     gpuMemset(d_sol,0,size_solution);
     h_solution->SMult = (TSMult*)(d_sol+1);
-    h_solution->SConst= (TSConst*)(h_solution->SMult + (nThreads*nBlocks*4));
-    h_solution->SPAux = (TSPAux*)(h_solution->SConst + (numberMaxConst*nBlocks*nThreads));
+    h_solution->SConst= (TSConst*)(h_solution->SMult + (nRuns*4));
+    h_solution->SPAux = (TSPAux*)(h_solution->SConst + (numberMaxConst*nRuns));
     gpuMemcpy(d_sol, h_solution, size_solution, cudaMemcpyHostToDevice);
     return d_sol;
 }
@@ -56,7 +51,7 @@ __global__ void runGPUR1(Cut_gpu *d_cut, solutionGpu *d_solution, unsigned int *
 {
 
 
-#define term  threadIdx.x + blockIdx.x*nThreads
+    #define term  threadIdx.x + blockIdx.x*nThreads
     __shared__ int *constraints;
     __shared__ int pos;
     curand_init(seed[term],term,0,&states[term]);
@@ -249,4 +244,111 @@ __global__ void runGPUR1_aleatory(Cut_gpu *d_cut, solutionGpu *d_solution, unsig
     {
         free(constraints);
     }
+}
+
+
+
+__global__ void runGPUR2(Cut_gpu *d_cut, solutionGpu *d_solution, unsigned int *seed, curandState_t* states, int numberMaxConst, int *setConstraint,int nThreads, int precision, int maxDenominator)
+{
+#define term  threadIdx.x + blockIdx.x*nThreads
+    int mult_1, mult_2, rest_a,rest_b, i, j, el, rhs1, rhs2, value_tes, violation = 0, aux, n1_best = -1, n2_best = -1, d1_best = -1, qnt_1, d2_best=-1;//, cont=0;
+
+    curand_init(seed[term],term,0,&states[term]);
+    int Numerator[20];
+    int Denominator[20];
+    int *Coef = (int*)malloc(sizeof(int)*(d_cut->numberVariables));
+    int *Coef2 = (int*)malloc(sizeof(int)*(d_cut->numberVariables));
+    for(i=0; i<20; i++)
+    {
+        Denominator[i]= curand(&states[term])%maxDenominator + 2;
+        Numerator[i] = curand(&states[term])%(Denominator[i]-1);
+    }
+    for(mult_1=0; mult_1<20; mult_1++)
+    {
+        memset(Coef,0,sizeof(int)*d_cut->numberVariables);
+        rhs1 = 0;
+        for(rest_a = 0; rest_a< numberMaxConst; rest_a++)
+        {
+            for(i=d_cut->ElementsConstraints[ setConstraint[term*numberMaxConst + rest_a] ]; i<d_cut->ElementsConstraints[ setConstraint[term*numberMaxConst + rest_a] + 1]; i++)
+            {
+
+                el = d_cut->Elements[i];
+                Coef[el] += d_cut->Coefficients[i] * Numerator[mult_1];
+            }
+            rhs1 += d_cut->rightSide[ setConstraint[term*numberMaxConst+rest_a] ] * Numerator[mult_1];
+            for(mult_2 = 0; mult_2<20; mult_2++)
+            {
+                memset(Coef2,0,sizeof(int)*d_cut->numberVariables);
+                value_tes = 0;
+                rhs2 = 0;
+                for(rest_b = rest_a + 1; rest_b<numberMaxConst; rest_b++)
+                {
+                    for(j=d_cut->ElementsConstraints[ setConstraint[term*numberMaxConst + rest_b] ]; j<d_cut->ElementsConstraints[ setConstraint[term*numberMaxConst + rest_b] + 1]; j++)
+                    {
+                        el = d_cut->Elements[j];
+                        Coef2[el] += d_cut->Coefficients[j] * Numerator[mult_2];
+                    }
+                    rhs2 += d_cut->rightSide[ setConstraint[term*numberMaxConst + rest_b] ]* Numerator[mult_2];
+                }
+                for(j=0; j<d_cut->numberVariables; j++)
+                {
+                    aux = Coef[j]<0 ? Coef[j]/Denominator[mult_1] - 1 : Coef[j]/Denominator[mult_1];
+                    value_tes += aux*d_cut->xAsterisc[j];
+                    aux = Coef2[j]<0 ? Coef2[j]/Denominator[mult_2] - 1 : Coef2[j]/Denominator[mult_2];
+                    value_tes += aux*d_cut->xAsterisc[j];
+                }
+                aux = rhs1<0 ? rhs1/Denominator[mult_1]-1 : rhs1/Denominator[mult_1];
+                aux +=  rhs2<0 ? rhs2/Denominator[mult_2]-1 : rhs2/Denominator[mult_2];
+
+
+                if((value_tes>aux*precision)&&(value_tes-(aux*precision)>violation))
+                {
+                    violation = value_tes-(aux*precision);
+                    n1_best = Numerator[mult_1];
+                    d1_best = Denominator[mult_1];
+                    n2_best = Numerator[mult_2];
+                    d2_best = Denominator[mult_2];
+                    qnt_1 = rest_a;
+                }
+
+
+            }
+        }
+
+    }
+    __syncthreads();
+
+    if(violation>0)
+    {
+        for(i=0; i<numberMaxConst; i++)
+        {
+            d_solution->SConst[i + threadIdx.x*numberMaxConst + blockIdx.x*numberMaxConst*nThreads] = setConstraint[term*numberMaxConst + i];//CPU ja vai ter
+        }
+
+        d_solution->SPAux[threadIdx.x + blockIdx.x*nThreads] = qnt_1;
+        d_solution->SMult[0 + threadIdx.x*4 + blockIdx.x*4*nThreads] = n1_best;
+        d_solution->SMult[1 + threadIdx.x*4 + blockIdx.x*4*nThreads] = d1_best;
+        d_solution->SMult[2 + threadIdx.x*4 + blockIdx.x*4*nThreads] = n2_best;
+        d_solution->SMult[3 + threadIdx.x*4 + blockIdx.x*4*nThreads] = d2_best;
+
+    }
+    else
+    {
+        for(i=0; i<numberMaxConst; i++)
+        {
+            d_solution->SConst[i + threadIdx.x*numberMaxConst + blockIdx.x*numberMaxConst*nThreads] = -1;
+        }
+        d_solution->SPAux[threadIdx.x + blockIdx.x*nThreads] = 0;
+        d_solution->SMult[0 + threadIdx.x*4 + blockIdx.x*4*nThreads] = -1;
+        d_solution->SMult[1 + threadIdx.x*4 + blockIdx.x*4*nThreads] = -1;
+        d_solution->SMult[2 + threadIdx.x*4 + blockIdx.x*4*nThreads] = -1;
+        d_solution->SMult[3 + threadIdx.x*4 + blockIdx.x*4*nThreads] = -1;
+    }
+
+
+
+    free(Coef);
+    free(Coef2);
+    __syncthreads();
+
 }

@@ -43,7 +43,15 @@
 #define CONS_OTHER        10
 #define CONS_NUMBER       11 /* number of types */
 
-
+/*newCut*/
+#define LP_CUT_NEW   7
+#define LPC_PREC     8
+#define LPC_RR       9
+#define LPC_CLIQUE  10
+#define LPC_CG      11
+#define LPC_CGGPU   12
+#define LPC_CGGPUR2   13
+#define LPC_ODDHOLES   14
 
 //just for gpu: number to constraints orig.
 #define RES_RR      14
@@ -205,7 +213,7 @@ typedef int (*lp_cb)( LinearProgram *lp, int whereFrom, const int *origCols, Lin
 void lp_set_callback( LinearProgram *lp, lp_cb callback, void *data );
 
 // global flag indicating if variable/row names will be stored, can save some memory when off
-void lp_set_store_names( bool store );
+void lp_set_store_names( int store );
 
 //include gurobi callback
 int mycallback(GRBmodel *model, void *cbdata, int where, void *usrdata);
