@@ -127,6 +127,7 @@ Cut_gpu* initial_runGPU(Cut_gpu *h_cut, Cut_gpu_aux *cut_aux, int numberMaxConst
         {
             printf("Number cuts generated in the phase 1: %d\n", cont);
             out_h_cut = createCutsOfPhaseOne(h_cut, cut_aux, h_solution_r1, cont,precision,nRuns);
+            printf("DEPOIS!");
         }
         else
         {
@@ -274,6 +275,7 @@ Cut_gpu* second_phase_runGPU(Cut_gpu *h_cut, Cut_gpu_aux *cut_aux, int numberMax
         }
         if(cont>0)
         {
+            printf("Number of Cuts in the second phase:%d\n",cont);
             out_cut_gpu = createCutsOfPhaseTwo(h_cut,cut_aux,h_solution_r2,numberMaxConst,cont,precision,nRuns,nT,nB);
         }
         else
@@ -289,7 +291,7 @@ Cut_gpu* second_phase_runGPU(Cut_gpu *h_cut, Cut_gpu_aux *cut_aux, int numberMax
             return h_cut;
 
         }
-        printf("Number of Cuts in the second phase:%d\n",cont);
+
 
     }
     free(consR1);

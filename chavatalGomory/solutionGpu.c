@@ -58,7 +58,9 @@ Cut_gpu* createCutsOfPhaseOne(Cut_gpu *h_cut, Cut_gpu_aux *cut_aux, solutionGpu 
     double violation_media = 0;
     double violation_max = 0;
     double violation_min = 100000;
-    double violation = 0;
+    double *violation = (double*)malloc(sizeof(double)*nCuts);
+
+
 
     Pos_el_temp[0] = 0;
     for(i = 0; i<nRuns; i++)
@@ -69,7 +71,7 @@ Cut_gpu* createCutsOfPhaseOne(Cut_gpu *h_cut, Cut_gpu_aux *cut_aux, solutionGpu 
             rhs = 0;
             tam = 0;
             lhs = 0 ;
-            violation = 0;
+            violation[c_aux] = 0;
             memset(Coef1,0,sizeof(int)*h_cut->numberVariables);
             constraint = h_solution->SConst[i];
             n1 = h_solution->SMult[i];
@@ -103,7 +105,7 @@ Cut_gpu* createCutsOfPhaseOne(Cut_gpu *h_cut, Cut_gpu_aux *cut_aux, solutionGpu 
                 rhs = rhs/d1;
             }
 
-            violation = lhs - (rhs*precision);
+            violation[c_aux] = lhs - (rhs*precision);
             //violation = violation - (rhs*1000);
             //printf("Violation:%f\n",violation);
             v_aux[tam] = rhs;
@@ -171,6 +173,7 @@ Cut_gpu* createCutsOfPhaseOne(Cut_gpu *h_cut, Cut_gpu_aux *cut_aux, solutionGpu 
     int k,p1,p2, minus_elements = 0;
     for(i=0; i<cuts_generated->numberConstrains - 1; i++)
     {
+
         for(j=i+1; j<cuts_generated->numberConstrains; j++)
         {
             if(validated[j]==0)
@@ -195,7 +198,7 @@ Cut_gpu* createCutsOfPhaseOne(Cut_gpu *h_cut, Cut_gpu_aux *cut_aux, solutionGpu 
                         }
                     }
                 }
-                if(aux==1)
+                if((aux==1)&&(j >= h_cut->numberConstrains))
                 {
                     validated[j]=1;
                     minus_elements += cuts_generated->ElementsConstraints[j+1]-cuts_generated->ElementsConstraints[j];
@@ -204,6 +207,7 @@ Cut_gpu* createCutsOfPhaseOne(Cut_gpu *h_cut, Cut_gpu_aux *cut_aux, solutionGpu 
             }
         }
     }
+
     printf("Number of repeat: %d \n", cont_aux);
     Cut_gpu* new_h_cut;
     new_h_cut = AllocationStructCut(cuts_generated->cont - minus_elements,cuts_generated->numberConstrains-cont_aux,cuts_generated->numberVariables);
@@ -214,9 +218,12 @@ Cut_gpu* createCutsOfPhaseOne(Cut_gpu *h_cut, Cut_gpu_aux *cut_aux, solutionGpu 
     {
         if(validated[i]==0)
         {
+            if(i>=h_cut->numberConstrains)
+            {
+                printf("violation %f\n",violation[i-h_cut->numberConstrains]);
+            }
             new_h_cut->rightSide[aux] = cuts_generated->rightSide[i];
             new_h_cut->typeConstraints[aux] = cuts_generated->typeConstraints[i];
-
             for(j = cuts_generated->ElementsConstraints[i]; j < cuts_generated->ElementsConstraints[i+1]; j++)
             {
                 new_h_cut->Coefficients[cont_aux] = cuts_generated->Coefficients[j];
@@ -224,6 +231,7 @@ Cut_gpu* createCutsOfPhaseOne(Cut_gpu *h_cut, Cut_gpu_aux *cut_aux, solutionGpu 
                 cont_aux++;
             }
             new_h_cut->ElementsConstraints[aux + 1] = cont_aux;
+
             aux++;
         }
 
@@ -248,7 +256,7 @@ Cut_gpu* createCutsOfPhaseOne(Cut_gpu *h_cut, Cut_gpu_aux *cut_aux, solutionGpu 
 Cut_gpu* createCutsOfPhaseTwo(Cut_gpu *h_cut, Cut_gpu_aux *cut_aux, solutionGpu *h_solution, int numberMaxConst, int nCuts, int precision, int nRuns, int nThreads,int nBlocks)
 {
     double value =0 ;
-    double value_violation = 0;
+    double *value_violation = (double*)malloc(sizeof(double)*nCuts);
     int *Coef1 = (int*)malloc(sizeof(int)*(h_cut->numberVariables));
     int *Coef2 = (int*)malloc(sizeof(int)*(h_cut->numberVariables));
 
@@ -311,21 +319,21 @@ Cut_gpu* createCutsOfPhaseTwo(Cut_gpu *h_cut, Cut_gpu_aux *cut_aux, solutionGpu 
                     Coef2[j] = Coef2[j]<0 ? Coef2[j]/d_2 - 1 : Coef2[j]/d_2;
 
                 rhs2 = rhs2<0 ? rhs2/d_2-1 : rhs2/d_2;
-                value_violation = 0;
+                value_violation[cont_aux] = 0;
                 for(j=0; j<h_cut->numberVariables; j++)
                 {
                     if(Coef1[j] + Coef2[j] != 0)
                     {
                         Coefs_temp[aux] = Coef1[j]+Coef2[j];
                         Elements_temp[aux] = j;
-                        value_violation += (Coef1[j]+Coef2[j])*h_cut->xAsterisc[j];
+                        value_violation[cont_aux] += (Coef1[j]+Coef2[j])*h_cut->xAsterisc[j];
                         aux++;
                     }
 
                 }
                 Pos_el_temp[cont_aux + 1] = aux;
                 rhs_temp[cont_aux] = rhs1 + rhs2;
-                value_violation -= (rhs1+rhs2);
+                value_violation[cont_aux] -= (rhs1+rhs2)*precision;
                 cont_aux++;
             }
         }
@@ -394,7 +402,7 @@ Cut_gpu* createCutsOfPhaseTwo(Cut_gpu *h_cut, Cut_gpu_aux *cut_aux, solutionGpu 
                         }
                     }
                 }
-                if(aux==1)
+                if((aux==1)&&(j >= h_cut->numberConstrains))
                 {
                     validated[j]=1;
                     minus_elements += cuts_generated->ElementsConstraints[j+1]-cuts_generated->ElementsConstraints[j];
@@ -415,7 +423,10 @@ Cut_gpu* createCutsOfPhaseTwo(Cut_gpu *h_cut, Cut_gpu_aux *cut_aux, solutionGpu 
         {
             new_h_cut->rightSide[aux] = cuts_generated->rightSide[i];
             new_h_cut->typeConstraints[aux] = cuts_generated->typeConstraints[i];
-
+            if(i>=h_cut->numberConstrains)
+            {
+                printf("Violation: %f\n", value_violation[i-h_cut->numberConstrains]);
+            }
             for(j = cuts_generated->ElementsConstraints[i]; j < cuts_generated->ElementsConstraints[i+1]; j++)
             {
                 new_h_cut->Coefficients[cont_aux] = cuts_generated->Coefficients[j];

@@ -160,7 +160,7 @@ LinearProgramPtr geraLP(const char *fileName, Instance *inst)
     free(index_temp);
 
     lp_write_lp(lp,fileName);
-    lp_set_max_seconds(lp,300);
+    //lp_set_max_seconds(lp,300);
 
     return lp;
 
@@ -244,7 +244,7 @@ LinearProgramPtr InsertCutsInLP(LinearProgramPtr lp,Cut_gpu *ccg, Cut_gpu_aux *c
     free(c_variables);
     free(namesVar);
     free(namesConst);
-    lp_write_lp(lp,"danilo_ccs.lp");
+    //lp_write_lp(lp,"danilo_ccs.lp");
 
     return lp;
 }
