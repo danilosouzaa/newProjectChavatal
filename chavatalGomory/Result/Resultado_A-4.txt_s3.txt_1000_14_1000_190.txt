@@ -1,0 +1,141 @@
+Read LP format model from file lp/A-4.txt.lp
+Reading time = 0.06 seconds
+: 961 rows, 10797 columns, 131727 nonzeros
+OKGPU
+Number cuts generated in the phase 1: 300
+Number of repeat: 287 
+violation 43.000000
+violation 30.000000
+violation 10.000000
+violation 13.000000
+violation 13.000000
+violation 198.000000
+violation 56.000000
+violation 306.000000
+violation 785.000000
+violation 576.000000
+violation 27.000000
+violation 714.000000
+violation 774.000000
+DEPOIS!Number of Cuts in the second phase:119
+Number of repeat: 90 
+Violation: 119.000000
+Violation: 1119.000000
+Violation: 856.000000
+Violation: 384.000000
+Violation: 541.000000
+Violation: 46.000000
+Violation: 591.000000
+Violation: 451.000000
+Violation: 145.000000
+Violation: 77.000000
+Violation: 214.000000
+Violation: 642.000000
+Violation: 192.000000
+Violation: 420.000000
+Violation: 680.000000
+Violation: 428.000000
+Violation: 324.000000
+Violation: 380.000000
+Violation: 346.000000
+Violation: 309.000000
+Violation: 919.000000
+Violation: 1190.000000
+Violation: 560.000000
+Violation: 110.000000
+Violation: 848.000000
+Violation: 149.000000
+Violation: 595.000000
+Violation: 679.000000
+Violation: 1355.000000
+Optimize a model with 1064 rows, 10797 columns and 132166 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 9e+01]
+  Objective range  [1e-05, 9e+01]
+  Bounds range     [1e+00, 2e+09]
+  RHS range        [1e+00, 6e+01]
+Warning: Model contains large bounds
+         Consider reformulating model or setting NumericFocus parameter
+         to avoid numerical issues.
+
+Concurrent LP optimizer: dual simplex and barrier
+Showing barrier log only...
+
+Presolve removed 153 rows and 420 columns
+Presolve time: 0.04s
+Presolved: 911 rows, 10377 columns, 127109 nonzeros
+
+Ordering time: 0.00s
+
+Barrier statistics:
+ AA' NZ     : 4.680e+04
+ Factor NZ  : 8.038e+04 (roughly 5 MBytes of memory)
+ Factor Ops : 8.547e+06 (less than 1 second per iteration)
+ Threads    : 3
+
+                  Objective                Residual
+Iter       Primal          Dual         Primal    Dual     Compl     Time
+   0   2.18164405e+09 -1.44266565e+09  7.04e+10 1.25e-01  8.42e+07     0s
+   1   8.04496503e+08 -6.44571751e+08  2.69e+10 2.10e-01  3.28e+07     0s
+   2   2.18951576e+08 -3.41333933e+07  7.38e+09 8.90e-06  9.03e+06     0s
+   3   6.73078138e+03 -3.68797960e+04  1.43e+04 3.55e-15  1.91e+01     0s
+   4   6.02656739e+03 -2.74012612e+03  8.98e+01 1.52e-06  2.37e-01     0s
+   5   5.91207392e+03 -2.14778845e+02  2.22e+01 1.66e-06  3.73e-02     0s
+   6   5.87940716e+03 -9.16404281e+01  8.35e+00 1.66e-06  1.43e-02     0s
+   7   5.86792027e+03 -5.35720924e+01  5.30e+00 1.66e-06  8.86e-03     0s
+   8   5.86145939e+03 -2.94418336e+01  3.96e+00 1.67e-06  6.21e-03     0s
+   9   5.85741124e+03 -1.70303842e+01  3.21e+00 1.67e-06  4.88e-03     0s
+  10   5.85512236e+03 -3.62542106e+00  2.82e+00 1.67e-06  4.18e-03     0s
+  11   2.18184332e+09 -2.14748409e+12  7.04e+10 2.52e-14  8.55e+10     0s
+  12   7.77393498e+08 -6.05407805e+11  2.79e+10 1.44e+02  3.44e+10     0s
+  13   2.70881957e+07 -2.09553450e+08  9.73e+08 4.27e-12  8.27e+08     0s
+  14   8.31302964e+03 -5.71062523e+05  8.63e+04 6.74e-12  7.33e+04     0s
+  15   3.50158015e+02 -2.20825679e+04  2.39e+02 1.53e-06  1.72e+01     0s
+  16   1.05314784e+02 -6.40844912e+03  7.61e+01 1.60e-06  3.39e+00     0s
+  17   1.59288481e+02 -1.77557356e+03  1.74e+01 1.64e-06  5.71e-01     0s
+  18   1.12327169e+02 -9.56917849e+02  6.33e+00 1.64e-06  1.86e-01     0s
+  19   9.95793345e+01 -3.05802587e+02  2.35e+00 1.63e-06  5.14e-02     0s
+  20   1.37826516e+02 -3.91523926e+01  7.88e-01 2.01e-14  1.45e-02     0s
+  21   9.51248855e+01 -1.25284154e+01  2.80e-01 2.02e-14  6.76e-03     0s
+  22   7.71051216e+01  7.07778324e-01  1.85e-01 8.04e-08  4.52e-03     0s
+  23   7.17272724e+01  1.70354826e+01  1.57e-01 4.99e-07  3.18e-03     0s
+  24   6.14933268e+01  2.43306218e+01  1.09e-01 7.09e-07  2.10e-03     0s
+  25   4.74624521e+01  3.07033990e+01  4.64e-02 7.84e-07  9.57e-04     0s
+  26   4.28269544e+01  3.44968827e+01  2.51e-02 3.16e-07  5.08e-04     0s
+  27   4.06423882e+01  3.58298223e+01  1.49e-02 1.75e-07  3.00e-04     0s
+  28   3.99457351e+01  3.65534248e+01  1.15e-02 1.01e-07  2.19e-04     0s
+  29   3.91409093e+01  3.68195917e+01  7.52e-03 7.60e-08  1.48e-04     0s
+  30   3.85931117e+01  3.71673721e+01  4.86e-03 4.20e-08  9.28e-05     0s
+  31   3.81745391e+01  3.74354754e+01  2.77e-03 1.67e-08  4.96e-05     0s
+  32   3.79327855e+01  3.75228930e+01  1.50e-03 9.79e-09  2.73e-05     0s
+  33   3.78266306e+01  3.75403461e+01  9.60e-04 8.40e-09  1.86e-05     0s
+  34   3.77247882e+01  3.75872369e+01  4.27e-04 4.55e-09  8.75e-06     0s
+  35   3.76719668e+01  3.76147915e+01  1.66e-04 2.06e-09  3.57e-06     0s
+  36   3.76470408e+01  3.76262672e+01  4.67e-05 1.01e-09  1.22e-06     0s
+  37   3.76433399e+01  3.76313843e+01  2.97e-05 5.19e-10  7.20e-07     0s
+  38   3.76421602e+01  3.76319534e+01  2.45e-05 4.62e-10  6.10e-07     0s
+  39   3.76399812e+01  3.76349583e+01  1.47e-05 1.71e-10  3.15e-07     0s
+  40   3.76370425e+01  3.76366875e+01  1.29e-06 4.61e-12  2.36e-08     0s
+  41   3.76368758e+01  3.76368510e+01  1.27e-07 6.51e-12  1.83e-09     0s
+  42   3.76368720e+01  3.76368564e+01  1.02e-07 4.34e-13  1.27e-09     0s
+  43   3.76368564e+01  3.76368564e+01  4.35e-12 3.43e-14  1.71e-14     0s
+
+Barrier solved model in 43 iterations and 0.23 seconds
+Optimal objective 3.76368564e+01
+
+Crossover log...
+
+       0 DPushes remaining with DInf 2.7583665e-13                 0s
+
+    1894 PPushes remaining with PInf 0.0000000e+00                 0s
+       0 PPushes remaining with PInf 0.0000000e+00                 0s
+
+  Push phase complete: Pinf 0.0000000e+00, Dinf 2.1148708e-13      0s
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+    2010    3.7636856e+01   0.000000e+00   0.000000e+00      0s
+    2010    3.7636856e+01   0.000000e+00   0.000000e+00      0s
+
+Solved with barrier
+Solved in 2010 iterations and 0.25 seconds
+Optimal objective  3.763685645e+01

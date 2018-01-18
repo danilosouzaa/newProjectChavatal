@@ -1,0 +1,144 @@
+Read LP format model from file lp/A-4.txt.lp
+Reading time = 0.06 seconds
+: 961 rows, 10797 columns, 131727 nonzeros
+OKGPU
+Number cuts generated in the phase 1: 320
+Number of repeat: 306 
+violation 221.000000
+violation 221.000000
+violation 220.000000
+violation 27.000000
+violation 67.000000
+violation 299.000000
+violation 299.000000
+violation 298.000000
+violation 91.000000
+violation 453.000000
+violation 189.000000
+violation 305.000000
+violation 574.000000
+violation 615.000000
+DEPOIS!Number of Cuts in the second phase:150
+Number of repeat: 123 
+Violation: 409.000000
+Violation: 410.000000
+Violation: 71.000000
+Violation: 654.000000
+Violation: 733.000000
+Violation: 297.000000
+Violation: 202.000000
+Violation: 254.000000
+Violation: 366.000000
+Violation: 324.000000
+Violation: 436.000000
+Violation: 393.000000
+Violation: 161.000000
+Violation: 244.000000
+Violation: 230.000000
+Violation: 274.000000
+Violation: 162.000000
+Violation: 330.000000
+Violation: 198.000000
+Violation: 83.000000
+Violation: 253.000000
+Violation: 44.000000
+Violation: 186.000000
+Violation: 324.000000
+Violation: 70.000000
+Violation: 184.000000
+Violation: 67.000000
+Optimize a model with 1086 rows, 10797 columns and 132264 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 9e+01]
+  Objective range  [1e-05, 9e+01]
+  Bounds range     [1e+00, 2e+09]
+  RHS range        [1e+00, 6e+01]
+Warning: Model contains large bounds
+         Consider reformulating model or setting NumericFocus parameter
+         to avoid numerical issues.
+
+Concurrent LP optimizer: dual simplex and barrier
+Showing barrier log only...
+
+Presolve removed 147 rows and 420 columns
+Presolve time: 0.04s
+Presolved: 939 rows, 10377 columns, 127238 nonzeros
+
+Ordering time: 0.00s
+
+Barrier statistics:
+ AA' NZ     : 4.810e+04
+ Factor NZ  : 8.282e+04 (roughly 5 MBytes of memory)
+ Factor Ops : 8.648e+06 (less than 1 second per iteration)
+ Threads    : 3
+
+                  Objective                Residual
+Iter       Primal          Dual         Primal    Dual     Compl     Time
+   0   2.18164208e+09 -1.44266577e+09  7.04e+10 1.25e-01  8.44e+07     0s
+   1   8.05541083e+08 -6.43958802e+08  2.69e+10 2.10e-01  3.29e+07     0s
+   2   2.73121049e+08 -3.52120664e+07  9.19e+09 6.42e-06  1.13e+07     0s
+   3   7.49701023e+03 -4.70407039e+04  3.30e+04 8.53e-14  4.27e+01     0s
+   4   6.12196412e+03 -4.61222174e+02  1.19e+02 1.61e-06  1.79e-01     0s
+   5   5.91634000e+03 -1.25863250e+02  2.52e+01 1.67e-06  3.79e-02     0s
+   6   5.86647955e+03 -5.11653338e+01  7.42e+00 1.67e-06  1.16e-02     0s
+   7   5.85410632e+03 -1.71879520e+01  4.78e+00 1.67e-06  6.75e-03     0s
+   8   5.84440276e+03 -3.81240942e+00  3.08e+00 1.67e-06  4.36e-03     0s
+   9   5.84133763e+03  4.77997470e+00  2.58e+00 1.67e-06  3.67e-03     0s
+  10   5.83732485e+03  9.88127831e+00  1.72e+00 1.67e-06  2.48e-03     0s
+  11   2.18184086e+09 -2.14748409e+12  7.04e+10 2.52e-14  8.57e+10     0s
+  12   7.78519715e+08 -9.36485480e+11  2.79e+10 2.27e+02  3.39e+10     0s
+  13   2.61428349e+08 -2.61778441e+09  9.40e+09 2.91e-12  6.20e+09     0s
+  14   2.04160609e+04 -3.41878674e+06  4.98e+05 4.00e-12  3.28e+05     0s
+  15   6.41794005e+03 -4.10353886e+05  4.55e+04 7.33e-06  2.37e+04     0s
+  16   4.85754202e+02 -1.97538941e+04  3.00e+02 1.48e-06  1.61e+01     0s
+  17   1.86408309e+02 -6.15039154e+03  1.66e+02 1.51e-06  4.64e+00     0s
+  18   8.70549626e+01 -8.58764212e+02  5.12e+01 1.58e-06  6.25e-01     0s
+  19   3.04860219e+01 -2.71544335e+02  1.07e+01 1.62e-06  8.55e-02     0s
+  20   2.12266392e+01 -1.20166095e+02  6.61e+00 1.62e-06  4.24e-02     0s
+  21   1.74418123e+01 -9.05586866e+01  4.15e+00 1.62e-06  2.76e-02     0s
+  22   1.73195281e+01 -8.74840420e+01  3.91e+00 1.62e-06  2.62e-02     0s
+  23   2.15243604e+01 -8.12110628e+01  2.38e+00 1.62e-06  1.78e-02     0s
+  24   2.78313126e+01 -4.14430113e+01  1.59e+00 1.60e-06  1.22e-02     0s
+  25   3.63778847e+01  7.42939342e+00  7.56e-01 9.72e-07  5.49e-03     0s
+  26   3.67683099e+01  1.86460134e+01  4.82e-01 6.09e-07  3.36e-03     0s
+  27   3.69409804e+01  2.71336942e+01  2.80e-01 3.34e-07  1.84e-03     0s
+  28   3.72075228e+01  3.32267485e+01  1.21e-01 1.41e-07  7.46e-04     0s
+  29   3.72718923e+01  3.47982032e+01  8.82e-02 8.64e-08  5.18e-04     0s
+  30   3.73236438e+01  3.55478585e+01  5.03e-02 6.14e-08  3.11e-04     0s
+  31   3.73562564e+01  3.57721082e+01  4.31e-02 5.39e-08  2.68e-04     0s
+  32   3.73648763e+01  3.65476882e+01  3.61e-02 2.61e-08  2.00e-04     0s
+  33   3.74342461e+01  3.67798206e+01  2.50e-02 2.02e-08  1.44e-04     0s
+  34   3.75004021e+01  3.69649338e+01  2.01e-02 1.57e-08  1.17e-04     0s
+  35   3.75431474e+01  3.71978594e+01  1.78e-02 1.17e-08  1.00e-04     0s
+  36   3.76088657e+01  3.73774950e+01  1.30e-02 8.45e-09  7.43e-05     0s
+  37   3.76860867e+01  3.74861924e+01  9.11e-03 6.60e-09  5.49e-05     0s
+  38   3.77302646e+01  3.75836942e+01  5.46e-03 4.53e-09  3.43e-05     0s
+  39   3.77503614e+01  3.76916209e+01  3.39e-03 2.10e-09  1.99e-05     0s
+  40   3.77523352e+01  3.76969343e+01  3.35e-03 1.98e-09  1.95e-05     0s
+  41   3.77596708e+01  3.77169959e+01  2.65e-03 1.55e-09  1.55e-05     0s
+  42   3.77724100e+01  3.77349325e+01  1.36e-03 1.14e-09  8.67e-06     0s
+  43   3.77779365e+01  3.77695641e+01  4.46e-04 2.56e-10  2.65e-06     0s
+  44   3.77799687e+01  3.77752140e+01  1.27e-04 1.28e-10  8.65e-07     0s
+  45   3.77803976e+01  3.77786928e+01  6.21e-05 4.81e-11  3.94e-07     0s
+  46   3.77806493e+01  3.77806271e+01  1.92e-05 2.24e-11  9.82e-08     0s
+  47   3.77807878e+01  3.77807870e+01  9.12e-09 4.05e-12  8.55e-11     0s
+
+Barrier solved model in 47 iterations and 0.24 seconds
+Optimal objective 3.77807878e+01
+
+Crossover log...
+
+       0 DPushes remaining with DInf 1.2304394e-13                 0s
+
+    1890 PPushes remaining with PInf 0.0000000e+00                 0s
+       0 PPushes remaining with PInf 0.0000000e+00                 0s
+
+  Push phase complete: Pinf 0.0000000e+00, Dinf 1.5405385e-13      0s
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+    2014    3.7780788e+01   0.000000e+00   0.000000e+00      0s
+    2014    3.7780788e+01   0.000000e+00   0.000000e+00      0s
+
+Solved with barrier
+Solved in 2014 iterations and 0.26 seconds
+Optimal objective  3.778078799e+01

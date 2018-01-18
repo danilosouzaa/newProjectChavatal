@@ -1,0 +1,90 @@
+Read LP format model from file lp/j9041_4.sm.lp
+Reading time = 0.08 seconds
+: 1264 rows, 7716 columns, 191335 nonzeros
+OKGPU
+Number cuts generated in the phase 1: 60
+Number of repeat: 57 
+violation 37.000000
+violation 320.000000
+violation 165.000000
+DEPOIS!Number of Cuts in the second phase:29
+Number of repeat: 23 
+Violation: 222.000000
+Violation: 198.000000
+Violation: 41.000000
+Violation: 237.000000
+Violation: 26.000000
+Violation: 43.000000
+Optimize a model with 1273 rows, 7716 columns and 191526 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 2e+02]
+  Objective range  [1e+00, 8e+01]
+  Bounds range     [1e+00, 2e+02]
+  RHS range        [1e+00, 2e+01]
+
+Concurrent LP optimizer: dual simplex and barrier
+Showing barrier log only...
+
+Presolve removed 284 rows and 259 columns
+Presolve time: 0.05s
+Presolved: 989 rows, 7457 columns, 176419 nonzeros
+
+Ordering time: 0.00s
+
+Barrier statistics:
+ AA' NZ     : 1.374e+05
+ Factor NZ  : 2.970e+05 (roughly 6 MBytes of memory)
+ Factor Ops : 1.210e+08 (less than 1 second per iteration)
+ Threads    : 3
+
+                  Objective                Residual
+Iter       Primal          Dual         Primal    Dual     Compl     Time
+   0   1.61677724e+02 -3.90003038e+03  6.15e+01 1.13e+01  1.14e+01     0s
+   1   7.69588342e+01 -7.13198874e+03  7.35e+00 7.00e+00  1.76e+00     0s
+   2   6.68037671e+01 -4.65164871e+03  8.90e-01 3.05e+00  4.69e-01     0s
+   3   5.40745245e+01 -1.45476128e+03  1.11e-02 4.10e-01  1.02e-01     0s
+   4   4.69594909e+01 -2.41998924e+02  1.84e-03 6.96e-02  1.93e-02     0s
+   5   3.99230160e+01 -6.63813116e+01  7.29e-04 2.16e-02  7.03e-03     0s
+   6   3.42766065e+01 -1.90113615e+01  3.69e-04 9.42e-03  3.51e-03     0s
+   7   3.06901612e+01 -3.05941843e+00  2.35e-04 5.76e-03  2.22e-03     0s
+   8   2.80896043e+01  6.95855893e+00  1.62e-04 3.33e-03  1.39e-03     0s
+   9   2.71285425e+01  8.86421938e+00  1.45e-04 2.78e-03  1.20e-03     0s
+  10   2.59781359e+01  1.16540764e+01  1.19e-04 2.08e-03  9.37e-04     0s
+  11   2.50354582e+01  1.39113795e+01  9.97e-05 1.47e-03  7.26e-04     0s
+  12   2.38787690e+01  1.53547283e+01  7.84e-05 1.05e-03  5.55e-04     0s
+  13   2.27611198e+01  1.63714624e+01  5.50e-05 8.10e-04  4.17e-04     0s
+  14   2.24308746e+01  1.74685854e+01  4.91e-05 4.79e-04  3.22e-04     0s
+  15   2.18059145e+01  1.83745408e+01  3.22e-05 3.39e-04  2.23e-04     0s
+  16   2.15293977e+01  1.88537764e+01  2.34e-05 2.70e-04  1.74e-04     0s
+  17   2.12194630e+01  1.94283750e+01  1.66e-05 1.84e-04  1.16e-04     0s
+  18   2.10261371e+01  2.01676153e+01  8.07e-06 8.17e-05  5.57e-05     0s
+  19   2.08854444e+01  2.05581730e+01  2.19e-06 3.08e-05  2.12e-05     0s
+  20   2.08493889e+01  2.07395119e+01  7.81e-07 8.96e-06  7.12e-06     0s
+  21   2.08435699e+01  2.07852660e+01  5.84e-07 4.15e-06  3.77e-06     0s
+  22   2.08261052e+01  2.08191535e+01  2.09e-12 3.07e-07  4.49e-07     0s
+  23   2.08255577e+01  2.08226949e+01  3.69e-11 9.66e-08  1.85e-07     0s
+  24   2.08253976e+01  2.08244004e+01  1.14e-11 4.83e-08  6.44e-08     0s
+  25   2.08253581e+01  2.08248786e+01  3.84e-10 2.85e-08  3.09e-08     0s
+  26   2.08253470e+01  2.08251905e+01  2.76e-10 3.03e-09  1.01e-08     0s
+  27   2.08253299e+01  2.08252687e+01  1.00e-10 8.99e-10  3.94e-09     0s
+  28   2.08253213e+01  2.08253212e+01  1.79e-12 2.18e-22  6.38e-12     0s
+
+Barrier solved model in 28 iterations and 0.34 seconds
+Optimal objective 2.08253213e+01
+
+Crossover log...
+
+       0 DPushes remaining with DInf 5.2555551e-13                 0s
+
+    6228 PPushes remaining with PInf 0.0000000e+00                 0s
+       0 PPushes remaining with PInf 0.0000000e+00                 1s
+
+  Push phase complete: Pinf 0.0000000e+00, Dinf 1.5547403e-11      1s
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+    6256    2.0825321e+01   0.000000e+00   0.000000e+00      1s
+    6256    2.0825321e+01   0.000000e+00   0.000000e+00      1s
+
+Solved with barrier
+Solved in 6256 iterations and 0.76 seconds
+Optimal objective  2.082532125e+01

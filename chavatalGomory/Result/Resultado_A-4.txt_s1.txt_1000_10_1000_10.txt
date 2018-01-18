@@ -1,0 +1,169 @@
+Read LP format model from file lp/A-4.txt.lp
+Reading time = 0.06 seconds
+: 961 rows, 10797 columns, 131727 nonzeros
+OKGPU
+Number cuts generated in the phase 1: 390
+Number of repeat: 372 
+violation 89.000000
+violation 26.000000
+violation 26.000000
+violation 24.000000
+violation 51.000000
+violation 291.000000
+violation 505.000000
+violation 167.000000
+violation 7.000000
+violation 474.000000
+violation 460.000000
+violation 460.000000
+violation 258.000000
+violation 331.000000
+violation 574.000000
+violation 501.000000
+violation 582.000000
+violation 582.000000
+DEPOIS!Number of Cuts in the second phase:233
+Number of repeat: 183 
+Violation: 482.000000
+Violation: 388.000000
+Violation: 388.000000
+Violation: 582.000000
+Violation: 270.000000
+Violation: 38.000000
+Violation: 25.000000
+Violation: 172.000000
+Violation: 172.000000
+Violation: 344.000000
+Violation: 172.000000
+Violation: 388.000000
+Violation: 104.000000
+Violation: 374.000000
+Violation: 678.000000
+Violation: 334.000000
+Violation: 86.000000
+Violation: 266.000000
+Violation: 194.000000
+Violation: 260.000000
+Violation: 156.000000
+Violation: 434.000000
+Violation: 326.000000
+Violation: 374.000000
+Violation: 1066.000000
+Violation: 894.000000
+Violation: 164.000000
+Violation: 722.000000
+Violation: 334.000000
+Violation: 1454.000000
+Violation: 180.000000
+Violation: 654.000000
+Violation: 453.000000
+Violation: 1282.000000
+Violation: 499.000000
+Violation: 240.000000
+Violation: 900.000000
+Violation: 374.000000
+Violation: 185.000000
+Violation: 288.000000
+Violation: 84.000000
+Violation: 340.000000
+Violation: 568.000000
+Violation: 1110.000000
+Violation: 776.000000
+Violation: 194.000000
+Violation: 498.000000
+Violation: 581.000000
+Violation: 94.000000
+Violation: 194.000000
+Optimize a model with 1072 rows, 10797 columns and 132378 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 9e+01]
+  Objective range  [1e-05, 9e+01]
+  Bounds range     [1e+00, 2e+09]
+  RHS range        [1e+00, 6e+01]
+Warning: Model contains large bounds
+         Consider reformulating model or setting NumericFocus parameter
+         to avoid numerical issues.
+
+Concurrent LP optimizer: dual simplex and barrier
+Showing barrier log only...
+
+Presolve removed 149 rows and 420 columns
+Presolve time: 0.04s
+Presolved: 923 rows, 10377 columns, 127325 nonzeros
+
+Ordering time: 0.00s
+
+Barrier statistics:
+ AA' NZ     : 4.854e+04
+ Factor NZ  : 7.950e+04 (roughly 5 MBytes of memory)
+ Factor Ops : 7.892e+06 (less than 1 second per iteration)
+ Threads    : 3
+
+                  Objective                Residual
+Iter       Primal          Dual         Primal    Dual     Compl     Time
+   0   2.18164321e+09 -1.44266571e+09  7.04e+10 1.25e-01  8.42e+07     0s
+   1   8.05774274e+08 -6.43919573e+08  2.70e+10 2.10e-01  3.29e+07     0s
+   2   2.52923388e+08 -3.43348764e+07  8.47e+09 2.66e-15  1.04e+07     0s
+   3   7.05133618e+03 -4.09137955e+04  2.20e+04 5.33e-15  2.87e+01     0s
+   4   6.10463160e+03 -1.75536035e+03  1.04e+02 1.57e-06  2.15e-01     0s
+   5   5.93254312e+03 -1.18722390e+02  2.60e+01 1.67e-06  3.85e-02     0s
+   6   5.89164595e+03 -4.50332396e+01  1.09e+01 1.67e-06  1.56e-02     0s
+   7   5.87170610e+03 -2.22934348e+01  5.51e+00 1.67e-06  7.76e-03     0s
+   8   5.86191169e+03 -9.58229903e+00  3.62e+00 1.67e-06  4.93e-03     0s
+   9   5.85959850e+03 -5.43295308e+00  3.27e+00 1.67e-06  4.39e-03     0s
+  10   5.85652786e+03 -1.28080592e+00  2.76e+00 1.67e-06  3.70e-03     0s
+  11   2.18184228e+09 -2.14748409e+12  7.04e+10 2.52e-14  8.56e+10     0s
+  12   7.78832788e+08 -6.06794169e+11  2.79e+10 1.45e+02  3.45e+10     0s
+  13   6.89545747e+07 -3.83473488e+08  2.47e+09 1.22e-10  2.11e+09     0s
+  14   8.42704902e+03 -5.73394391e+05  8.99e+04 4.81e-11  7.65e+04     0s
+  15   3.82663500e+02 -2.18510604e+04  2.33e+02 1.49e-06  1.66e+01     0s
+  16   1.15457174e+02 -6.56776574e+03  8.06e+01 1.59e-06  3.45e+00     0s
+  17   1.44128321e+02 -2.13298745e+03  3.04e+01 1.63e-06  9.37e-01     0s
+  18   9.43865712e+01 -7.68997456e+02  7.98e+00 1.65e-06  1.82e-01     0s
+  19   8.55402967e+01 -3.10644637e+02  2.64e+00 1.65e-06  5.17e-02     0s
+  20   8.26980064e+01 -1.12891469e+02  1.82e+00 1.58e-06  2.60e-02     0s
+  21   6.93091218e+01 -1.31849193e+01  6.52e-01 6.21e-07  8.30e-03     0s
+  22   5.27545328e+01  7.17386747e+00  1.82e-01 3.20e-07  3.31e-03     0s
+  23   4.84841630e+01  1.98221829e+01  1.21e-01 1.96e-07  2.07e-03     0s
+  24   4.39552421e+01  2.72975648e+01  6.67e-02 1.17e-07  1.16e-03     0s
+  25   4.15589271e+01  3.18847167e+01  4.03e-02 6.65e-08  6.78e-04     0s
+  26   3.99300726e+01  3.36723144e+01  2.26e-02 4.58e-08  4.18e-04     0s
+  27   3.89568375e+01  3.55986948e+01  1.29e-02 2.36e-08  2.27e-04     0s
+  28   3.85154423e+01  3.65855511e+01  8.01e-03 1.27e-08  1.35e-04     0s
+  29   3.83103121e+01  3.70274092e+01  5.99e-03 7.68e-09  9.42e-05     0s
+  30   3.81113229e+01  3.72336351e+01  3.92e-03 5.44e-09  6.34e-05     0s
+  31   3.79482990e+01  3.74377621e+01  2.30e-03 3.19e-09  3.71e-05     0s
+  32   3.78685452e+01  3.76116052e+01  1.50e-03 1.21e-09  2.06e-05     0s
+  33   3.78165179e+01  3.76336398e+01  1.03e-03 8.52e-10  1.44e-05     0s
+  34   3.77852828e+01  3.76498083e+01  7.30e-04 6.76e-10  1.05e-05     0s
+  35   3.77552448e+01  3.76722262e+01  4.44e-04 4.10e-10  6.42e-06     0s
+  36   3.77404724e+01  3.76844717e+01  3.09e-04 2.64e-10  4.38e-06     0s
+  37   3.77385074e+01  3.76887951e+01  2.90e-04 2.17e-10  3.98e-06     0s
+  38   3.77224328e+01  3.76958865e+01  1.38e-04 1.32e-10  2.03e-06     0s
+  39   3.77137462e+01  3.77014233e+01  5.35e-05 7.01e-11  8.81e-07     0s
+  40   3.77122490e+01  3.77020662e+01  4.08e-05 6.25e-11  7.09e-07     0s
+  41   3.77108958e+01  3.77057717e+01  2.87e-05 2.10e-11  4.03e-07     0s
+  42   3.77084535e+01  3.77066730e+01  6.37e-06 1.11e-11  1.19e-07     0s
+  43   3.77081516e+01  3.77074268e+01  3.67e-06 2.97e-12  5.47e-08     0s
+  44   3.77077759e+01  3.77076996e+01  3.41e-07 3.13e-12  5.47e-09     0s
+  45   3.77077351e+01  3.77077347e+01  2.78e-09 3.50e-13  3.51e-11     0s
+
+Barrier solved model in 45 iterations and 0.23 seconds
+Optimal objective 3.77077351e+01
+
+Crossover log...
+
+       0 DPushes remaining with DInf 2.0657955e-13                 0s
+
+    1692 PPushes remaining with PInf 0.0000000e+00                 0s
+       0 PPushes remaining with PInf 0.0000000e+00                 0s
+
+  Push phase complete: Pinf 0.0000000e+00, Dinf 1.3736278e-13      0s
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+    1821    3.7707735e+01   0.000000e+00   0.000000e+00      0s
+    1821    3.7707735e+01   0.000000e+00   0.000000e+00      0s
+
+Solved with barrier
+Solved in 1821 iterations and 0.25 seconds
+Optimal objective  3.770773476e+01

@@ -1,0 +1,106 @@
+Read LP format model from file lp/j1206_8.sm.lp
+Reading time = 0.07 seconds
+: 1375 rows, 10425 columns, 174128 nonzeros
+OKGPU
+Number cuts generated in the phase 1: 540
+Number of repeat: 517 
+violation 77.000000
+violation 17.000000
+violation 16.000000
+violation 272.000000
+violation 367.000000
+violation 344.000000
+violation 179.000000
+violation 50.000000
+violation 143.000000
+violation 7.000000
+violation 237.000000
+violation 202.000000
+violation 16.000000
+violation 282.000000
+violation 216.000000
+violation 333.000000
+violation 298.000000
+violation 289.000000
+violation 42.000000
+violation 124.000000
+violation 1.000000
+violation 192.000000
+violation 170.000000
+DEPOIS!Number of Cuts in the second phase:132
+Number of repeat: 123 
+Violation: 101.000000
+Violation: 100.000000
+Violation: 239.000000
+Violation: 86.000000
+Violation: 89.000000
+Violation: 4.000000
+Violation: 15.000000
+Violation: 35.000000
+Violation: 126.000000
+Optimize a model with 1451 rows, 10425 columns and 175044 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+02]
+  Objective range  [1e+00, 1e+02]
+  Bounds range     [1e+00, 1e+02]
+  RHS range        [1e+00, 2e+01]
+
+Concurrent LP optimizer: dual simplex and barrier
+Showing barrier log only...
+
+Presolve removed 381 rows and 294 columns
+Presolve time: 0.05s
+Presolved: 1070 rows, 10131 columns, 154565 nonzeros
+
+Ordering time: 0.00s
+
+Barrier statistics:
+ AA' NZ     : 1.209e+05
+ Factor NZ  : 3.300e+05 (roughly 7 MBytes of memory)
+ Factor Ops : 1.413e+08 (less than 1 second per iteration)
+ Threads    : 3
+
+                  Objective                Residual
+Iter       Primal          Dual         Primal    Dual     Compl     Time
+   0   1.84950958e+02 -2.78164009e+03  7.68e+01 1.42e+01  8.01e+00     0s
+   1   5.68800107e+01 -4.32907117e+03  9.12e+00 3.80e+00  1.15e+00     0s
+   2   4.05561442e+01 -2.94668729e+03  2.51e+00 2.02e+00  3.72e-01     0s
+   3   2.82370945e+01 -1.44104574e+03  6.67e-01 2.14e-01  1.05e-01     0s
+   4   2.36635559e+01 -3.30063839e+02  2.23e-01 2.11e-02  2.01e-02     0s
+   5   1.77843885e+01 -1.48081837e+02  9.96e-02 8.21e-03  8.66e-03     0s
+   6   1.17189677e+01 -7.92853554e+01  5.63e-02 4.82e-03  4.61e-03     0s
+   7   9.46893088e+00 -3.61916453e+01  4.13e-02 1.97e-03  2.29e-03     0s
+   8   6.50919425e+00 -2.13839156e+01  2.35e-02 1.22e-03  1.38e-03     0s
+   9   5.46228596e+00 -1.26156506e+01  1.93e-02 7.62e-04  8.92e-04     0s
+  10   4.60637655e+00 -9.34615892e+00  1.40e-02 5.86e-04  6.85e-04     0s
+  11   3.91917773e+00 -6.77872913e+00  9.65e-03 4.67e-04  5.23e-04     0s
+  12   3.57004119e+00 -4.23258204e+00  7.72e-03 3.26e-04  3.81e-04     0s
+  13   3.40487148e+00 -2.29405680e+00  6.32e-03 2.31e-04  2.78e-04     0s
+  14   2.96338856e+00 -4.23273054e-01  3.15e-03 1.37e-04  1.65e-04     0s
+  15   2.73908814e+00  1.34464270e+00  1.21e-03 5.07e-05  6.76e-05     0s
+  16   2.61105840e+00  2.25138084e+00  2.43e-04 9.66e-06  1.74e-05     0s
+  17   2.59869252e+00  2.38746593e+00  1.70e-04 5.27e-06  1.02e-05     0s
+  18   2.58728803e+00  2.49980369e+00  9.57e-05 2.17e-06  4.23e-06     0s
+  19   2.57709672e+00  2.55476826e+00  3.69e-05 3.72e-07  1.08e-06     0s
+  20   2.57092596e+00  2.57042700e+00  2.62e-07 8.30e-20  2.39e-08     0s
+  21   2.57085947e+00  2.57085892e+00  4.17e-12 3.75e-14  2.60e-11     0s
+
+Barrier solved model in 21 iterations and 0.30 seconds
+Optimal objective 2.57085947e+00
+
+Crossover log...
+
+       0 DPushes remaining with DInf 3.2554168e-13                 0s
+
+    8996 PPushes remaining with PInf 0.0000000e+00                 0s
+       0 PPushes remaining with PInf 0.0000000e+00                 1s
+
+  Push phase complete: Pinf 0.0000000e+00, Dinf 3.2359476e-11      1s
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+    9077    2.5708594e+00   0.000000e+00   0.000000e+00      1s
+    9077    2.5708594e+00   0.000000e+00   0.000000e+00      1s
+
+Solved with barrier
+Solved in 9077 iterations and 0.67 seconds
+Optimal objective  2.570859397e+00

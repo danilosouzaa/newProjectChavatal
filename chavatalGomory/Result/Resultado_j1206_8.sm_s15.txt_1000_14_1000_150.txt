@@ -1,0 +1,99 @@
+Read LP format model from file lp/j1206_8.sm.lp
+Reading time = 0.07 seconds
+: 1375 rows, 10425 columns, 174128 nonzeros
+OKGPU
+Number cuts generated in the phase 1: 220
+Number of repeat: 211 
+violation 34.000000
+violation 263.000000
+violation 244.000000
+violation 70.000000
+violation 120.000000
+violation 108.000000
+violation 42.000000
+violation 128.000000
+violation 79.000000
+DEPOIS!Number of Cuts in the second phase:72
+Number of repeat: 59 
+Violation: 22.000000
+Violation: 335.000000
+Violation: 59.000000
+Violation: 21.000000
+Violation: 419.000000
+Violation: 417.000000
+Violation: 88.000000
+Violation: 308.000000
+Violation: 350.000000
+Violation: 397.000000
+Violation: 116.000000
+Violation: 199.000000
+Violation: 198.000000
+Optimize a model with 1470 rows, 10425 columns and 175151 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+02]
+  Objective range  [1e+00, 1e+02]
+  Bounds range     [1e+00, 1e+02]
+  RHS range        [1e+00, 2e+01]
+
+Concurrent LP optimizer: dual simplex and barrier
+Showing barrier log only...
+
+Presolve removed 381 rows and 294 columns
+Presolve time: 0.05s
+Presolved: 1089 rows, 10131 columns, 154672 nonzeros
+
+Ordering time: 0.00s
+
+Barrier statistics:
+ AA' NZ     : 1.223e+05
+ Factor NZ  : 3.128e+05 (roughly 7 MBytes of memory)
+ Factor Ops : 1.244e+08 (less than 1 second per iteration)
+ Threads    : 3
+
+                  Objective                Residual
+Iter       Primal          Dual         Primal    Dual     Compl     Time
+   0   1.84717836e+02 -2.78174356e+03  7.66e+01 1.42e+01  8.00e+00     0s
+   1   5.66104425e+01 -4.35012570e+03  8.95e+00 3.81e+00  1.13e+00     0s
+   2   4.05285097e+01 -2.95905798e+03  2.48e+00 2.30e+00  3.70e-01     0s
+   3   2.82061244e+01 -1.42250439e+03  6.52e-01 2.27e-01  1.03e-01     0s
+   4   2.39434852e+01 -3.29416225e+02  2.20e-01 2.17e-02  2.00e-02     0s
+   5   1.79912934e+01 -1.43454030e+02  1.02e-01 8.37e-03  8.44e-03     0s
+   6   1.16568964e+01 -7.63872351e+01  5.03e-02 4.56e-03  4.44e-03     0s
+   7   9.42421392e+00 -3.73087439e+01  3.74e-02 2.14e-03  2.33e-03     0s
+   8   6.50578447e+00 -2.19469500e+01  2.05e-02 1.18e-03  1.40e-03     0s
+   9   5.09612171e+00 -1.32476718e+01  1.45e-02 7.64e-04  8.99e-04     0s
+  10   4.36938296e+00 -1.01364155e+01  1.05e-02 6.06e-04  7.08e-04     0s
+  11   4.03646777e+00 -9.55373575e+00  8.82e-03 5.76e-04  6.62e-04     0s
+  12   3.47743691e+00 -6.15079461e+00  5.62e-03 4.08e-04  4.68e-04     0s
+  13   3.05155944e+00 -2.27940921e+00  3.77e-03 2.10e-04  2.59e-04     0s
+  14   2.77667938e+00  8.81477526e-01  1.28e-03 7.14e-05  9.17e-05     0s
+  15   2.71883472e+00  1.67985118e+00  9.12e-04 3.35e-05  5.03e-05     0s
+  16   2.68334982e+00  2.05554595e+00  7.25e-04 2.58e-05  3.05e-05     0s
+  17   2.65707034e+00  2.22845918e+00  5.54e-04 1.83e-05  2.08e-05     0s
+  18   2.63550646e+00  2.37147529e+00  4.26e-04 6.59e-06  1.28e-05     0s
+  19   2.63077111e+00  2.39888217e+00  3.98e-04 5.67e-06  1.13e-05     0s
+  20   2.59125235e+00  2.49273854e+00  1.57e-04 2.27e-06  4.79e-06     0s
+  21   2.57785688e+00  2.54896461e+00  5.09e-05 3.72e-07  1.40e-06     0s
+  22   2.57218465e+00  2.56595541e+00  9.12e-06 8.06e-08  3.02e-07     0s
+  23   2.57086143e+00  2.57085101e+00  1.15e-11 1.25e-18  4.95e-10     0s
+  24   2.57085940e+00  2.57085938e+00  2.49e-11 3.78e-14  6.94e-13     0s
+
+Barrier solved model in 24 iterations and 0.31 seconds
+Optimal objective 2.57085940e+00
+
+Crossover log...
+
+       0 DPushes remaining with DInf 2.2696775e-13                 0s
+
+    8995 PPushes remaining with PInf 0.0000000e+00                 0s
+       0 PPushes remaining with PInf 0.0000000e+00                 1s
+
+  Push phase complete: Pinf 0.0000000e+00, Dinf 2.2032258e-11      1s
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+    9074    2.5708594e+00   0.000000e+00   0.000000e+00      1s
+    9074    2.5708594e+00   0.000000e+00   0.000000e+00      1s
+
+Solved with barrier
+Solved in 9074 iterations and 0.67 seconds
+Optimal objective  2.570859397e+00

@@ -1,0 +1,106 @@
+Read LP format model from file lp/j609_3.sm.lp
+Reading time = 0.03 seconds
+: 797 rows, 3410 columns, 67183 nonzeros
+OKGPU
+Number cuts generated in the phase 1: 230
+Number of repeat: 223 
+violation 709.000000
+violation 32.000000
+violation 59.000000
+violation 470.000000
+violation 190.000000
+violation 41.000000
+violation 158.000000
+DEPOIS!Number of Cuts in the second phase:107
+Number of repeat: 82 
+Violation: 487.000000
+Violation: 285.000000
+Violation: 21.000000
+Violation: 43.000000
+Violation: 772.000000
+Violation: 222.000000
+Violation: 550.000000
+Violation: 265.000000
+Violation: 62.000000
+Violation: 203.000000
+Violation: 539.000000
+Violation: 186.000000
+Violation: 141.000000
+Violation: 153.000000
+Violation: 235.000000
+Violation: 643.000000
+Violation: 87.000000
+Violation: 96.000000
+Violation: 301.000000
+Violation: 573.000000
+Violation: 556.000000
+Violation: 141.000000
+Violation: 198.000000
+Violation: 8.000000
+Violation: 78.000000
+Optimize a model with 847 rows, 3410 columns and 67463 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+02]
+  Objective range  [1e+00, 6e+01]
+  Bounds range     [1e+00, 1e+02]
+  RHS range        [1e+00, 5e+01]
+
+Concurrent LP optimizer: dual simplex and barrier
+Showing barrier log only...
+
+Presolve removed 191 rows and 165 columns
+Presolve time: 0.02s
+Presolved: 656 rows, 3245 columns, 60854 nonzeros
+
+Ordering time: 0.00s
+
+Barrier statistics:
+ AA' NZ     : 5.774e+04
+ Factor NZ  : 1.107e+05 (roughly 2 MBytes of memory)
+ Factor Ops : 2.422e+07 (less than 1 second per iteration)
+ Threads    : 3
+
+                  Objective                Residual
+Iter       Primal          Dual         Primal    Dual     Compl     Time
+   0   1.27412380e+02 -8.29666881e+02  7.83e+01 8.32e+00  9.22e+00     0s
+   1   3.14282862e+01 -2.04280344e+03  8.63e+00 4.65e+00  1.29e+00     0s
+   2   2.35689931e+01 -1.09083965e+03  1.83e+00 7.40e-01  3.20e-01     0s
+   3   2.43572384e+01 -4.63414395e+02  4.55e-15 2.54e-01  7.34e-02     0s
+   4   2.08792200e+01 -7.63587343e+01  2.66e-15 4.00e-02  1.45e-02     0s
+   5   1.70964855e+01 -2.52460617e+01  5.55e-15 1.32e-02  6.29e-03     0s
+   6   1.43368692e+01 -9.59995921e+00  1.59e-14 5.16e-03  3.54e-03     0s
+   7   1.13285378e+01 -2.68516512e+00  1.25e-14 2.57e-03  2.06e-03     0s
+   8   8.75651206e+00  1.03577146e+00  5.45e-14 1.10e-03  1.13e-03     0s
+   9   7.25697685e+00  2.56910577e+00  5.57e-14 6.95e-04  6.86e-04     0s
+  10   5.87949610e+00  4.00717735e+00  1.73e-13 1.67e-04  2.72e-04     0s
+  11   5.11854138e+00  4.43186602e+00  7.63e-14 4.29e-05  9.96e-05     0s
+  12   4.94883436e+00  4.58953672e+00  7.35e-14 1.66e-05  5.20e-05     0s
+  13   4.84782821e+00  4.65357113e+00  7.18e-14 1.16e-05  2.81e-05     0s
+  14   4.77876977e+00  4.68485582e+00  2.42e-13 3.31e-06  1.36e-05     0s
+  15   4.74443137e+00  4.69875474e+00  6.95e-14 1.39e-06  6.60e-06     0s
+  16   4.72451759e+00  4.70632009e+00  3.77e-13 3.97e-07  2.62e-06     0s
+  17   4.71273874e+00  4.70945032e+00  4.07e-13 5.86e-08  4.75e-07     0s
+  18   4.71098819e+00  4.71012399e+00  2.92e-12 9.11e-09  1.25e-07     0s
+  19   4.71052809e+00  4.71026970e+00  2.15e-12 2.80e-09  3.74e-08     0s
+  20   4.71036039e+00  4.71035359e+00  1.28e-11 6.22e-21  9.93e-10     0s
+  21   4.71035780e+00  4.71035772e+00  1.39e-11 5.75e-13  1.21e-11     0s
+
+Barrier solved model in 21 iterations and 0.09 seconds
+Optimal objective 4.71035780e+00
+
+Crossover log...
+
+       0 DPushes remaining with DInf 4.4951078e-13                 0s
+
+      54 PPushes remaining with PInf 0.0000000e+00                 0s
+       0 PPushes remaining with PInf 0.0000000e+00                 0s
+
+  Push phase complete: Pinf 0.0000000e+00, Dinf 6.2553516e-13      0s
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+      76    4.7103578e+00   0.000000e+00   0.000000e+00      0s
+      76    4.7103578e+00   0.000000e+00   0.000000e+00      0s
+
+Solved with barrier
+Solved in 76 iterations and 0.10 seconds
+Optimal objective  4.710357782e+00
