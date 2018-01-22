@@ -1,0 +1,88 @@
+Read LP format model from file lp/j609_1.sm.lp
+Reading time = 0.03 seconds
+: 745 rows, 2911 columns, 59217 nonzeros
+OKGPU
+Number cuts generated in the phase 1: 210
+Number of repeat: 207 
+violation 42.000000
+violation 41.000000
+violation 68.000000
+DEPOIS!Number of Cuts in the second phase:130
+Number of repeat: 127 
+Violation: 41.000000
+Violation: 97.000000
+Violation: 39.000000
+Optimize a model with 759 rows, 2911 columns and 59322 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 9e+01]
+  Objective range  [1e+00, 6e+01]
+  Bounds range     [1e+00, 9e+01]
+  RHS range        [1e+00, 2e+01]
+
+Concurrent LP optimizer: dual simplex and barrier
+Showing barrier log only...
+
+Presolve removed 199 rows and 158 columns
+Presolve time: 0.01s
+Presolved: 560 rows, 2753 columns, 53680 nonzeros
+
+Ordering time: 0.00s
+
+Barrier statistics:
+ AA' NZ     : 4.770e+04
+ Factor NZ  : 9.249e+04 (roughly 2 MBytes of memory)
+ Factor Ops : 1.951e+07 (less than 1 second per iteration)
+ Threads    : 3
+
+                  Objective                Residual
+Iter       Primal          Dual         Primal    Dual     Compl     Time
+   0   1.35209196e+02 -6.56870461e+02  7.24e+01 8.77e+00  6.84e+00     0s
+   1   3.71907121e+01 -1.34954274e+03  8.50e+00 1.61e+00  1.01e+00     0s
+   2   2.62783983e+01 -8.02401177e+02  2.54e+00 4.59e-01  3.28e-01     0s
+   3   2.18263010e+01 -2.93408470e+02  1.02e-01 4.45e-02  5.86e-02     0s
+   4   1.67210960e+01 -8.05326913e+01  1.39e-05 1.91e-02  1.68e-02     0s
+   5   1.33646619e+01 -2.66196307e+01  6.51e-06 2.02e-03  6.87e-03     0s
+   6   1.10679977e+01 -1.24868737e+01  4.04e-06 1.12e-03  4.04e-03     0s
+   7   1.03742452e+01 -8.35074756e+00  3.54e-06 8.36e-04  3.21e-03     0s
+   8   8.73978546e+00 -2.66463538e+00  1.94e-06 7.75e-04  1.96e-03     0s
+   9   7.26249603e+00  1.38842076e-01  1.11e-06 3.98e-04  1.22e-03     0s
+  10   6.72603217e+00  1.71653850e+00  8.19e-07 5.55e-04  8.59e-04     0s
+  11   6.29586190e+00  3.49999015e+00  4.99e-07 1.33e-04  4.79e-04     0s
+  12   6.25160623e+00  3.97450216e+00  4.71e-07 1.04e-04  3.90e-04     0s
+  13   5.86038602e+00  5.04376761e+00  1.93e-07 2.22e-05  1.39e-04     0s
+  14   5.72736082e+00  5.28244156e+00  1.13e-07 1.22e-05  7.57e-05     0s
+  15   5.63391597e+00  5.36639799e+00  5.96e-08 5.95e-06  4.56e-05     0s
+  16   5.58015101e+00  5.44951386e+00  2.95e-08 2.20e-06  2.22e-05     0s
+  17   5.54202254e+00  5.47516118e+00  1.02e-08 4.49e-06  1.14e-05     0s
+  18   5.52417172e+00  5.50805601e+00  1.56e-09 5.01e-08  2.75e-06     0s
+  19   5.52132552e+00  5.51453444e+00  5.83e-10 1.66e-08  1.16e-06     0s
+  20   5.51971854e+00  5.51792066e+00  8.75e-11 1.42e-14  3.06e-07     0s
+  21   5.51946467e+00  5.51870117e+00  2.98e-11 6.73e-09  1.30e-07     0s
+  22   5.51940844e+00  5.51917819e+00  1.82e-11 6.03e-09  3.90e-08     0s
+  23   5.51935747e+00  5.51926212e+00  8.00e-12 3.16e-21  1.62e-08     0s
+  24   5.51932957e+00  5.51928501e+00  2.46e-12 1.77e-17  7.56e-09     0s
+  25   5.51932931e+00  5.51928981e+00  3.15e-12 1.34e-10  6.70e-09     0s
+  26   5.51932116e+00  5.51930394e+00  2.64e-12 1.43e-17  2.92e-09     0s
+  27   5.51932137e+00  5.51930734e+00  1.70e-12 1.28e-17  2.38e-09     0s
+  28   5.51931858e+00  5.51931418e+00  5.77e-12 1.42e-14  7.45e-10     0s
+  29   5.51931696e+00  5.51931695e+00  9.38e-13 1.51e-14  7.96e-13     0s
+
+Barrier solved model in 29 iterations and 0.09 seconds
+Optimal objective 5.51931696e+00
+
+Crossover log...
+
+       0 DPushes remaining with DInf 1.1741563e-13                 0s
+
+    1505 PPushes remaining with PInf 2.4883243e-06                 0s
+       0 PPushes remaining with PInf 0.0000000e+00                 0s
+
+  Push phase complete: Pinf 0.0000000e+00, Dinf 7.5558422e-12      0s
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+    1538    5.5193170e+00   0.000000e+00   0.000000e+00      0s
+    1538    5.5193170e+00   0.000000e+00   0.000000e+00      0s
+
+Solved with barrier
+Solved in 1538 iterations and 0.12 seconds
+Optimal objective  5.519316954e+00

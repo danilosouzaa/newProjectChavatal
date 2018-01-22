@@ -1,0 +1,142 @@
+Read LP format model from file lp/A-4.txt.lp
+Reading time = 0.06 seconds
+: 961 rows, 10797 columns, 131727 nonzeros
+OKGPU
+Number cuts generated in the phase 1: 540
+Number of repeat: 532 
+violation 10.000000
+violation 49.000000
+violation 49.000000
+violation 151.000000
+violation 113.000000
+violation 35.000000
+violation 682.000000
+violation 795.000000
+DEPOIS!Number of Cuts in the second phase:176
+Number of repeat: 141 
+Violation: 21.000000
+Violation: 179.000000
+Violation: 410.000000
+Violation: 27.000000
+Violation: 1180.000000
+Violation: 389.000000
+Violation: 100.000000
+Violation: 272.000000
+Violation: 39.000000
+Violation: 385.000000
+Violation: 232.000000
+Violation: 590.000000
+Violation: 1590.000000
+Violation: 54.000000
+Violation: 99.000000
+Violation: 593.000000
+Violation: 311.000000
+Violation: 99.000000
+Violation: 643.000000
+Violation: 849.000000
+Violation: 617.000000
+Violation: 131.000000
+Violation: 1259.000000
+Violation: 11.000000
+Violation: 1412.000000
+Violation: 259.000000
+Violation: 412.000000
+Violation: 464.000000
+Violation: 78.000000
+Violation: 358.000000
+Violation: 183.000000
+Violation: 948.000000
+Violation: 312.000000
+Violation: 1027.000000
+Violation: 1358.000000
+Optimize a model with 1082 rows, 10797 columns and 132417 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 9e+01]
+  Objective range  [1e-05, 9e+01]
+  Bounds range     [1e+00, 2e+09]
+  RHS range        [1e+00, 6e+01]
+Warning: Model contains large bounds
+         Consider reformulating model or setting NumericFocus parameter
+         to avoid numerical issues.
+
+Concurrent LP optimizer: dual simplex and barrier
+Showing barrier log only...
+
+Presolve removed 159 rows and 420 columns
+Presolve time: 0.04s
+Presolved: 923 rows, 10377 columns, 127319 nonzeros
+
+Ordering time: 0.00s
+
+Barrier statistics:
+ AA' NZ     : 4.806e+04
+ Factor NZ  : 7.964e+04 (roughly 5 MBytes of memory)
+ Factor Ops : 7.945e+06 (less than 1 second per iteration)
+ Threads    : 3
+
+                  Objective                Residual
+Iter       Primal          Dual         Primal    Dual     Compl     Time
+   0   2.18164318e+09 -1.44266569e+09  7.04e+10 1.25e-01  8.42e+07     0s
+   1   8.05478248e+08 -6.43296652e+08  2.69e+10 2.10e-01  3.28e+07     0s
+   2   2.76893057e+08 -1.17671875e+07  9.36e+09 2.17e-13  1.17e+07     0s
+   3   1.56498758e+04 -1.08028874e+04  2.26e+05 1.95e-14  2.83e+02     0s
+   4   6.07309038e+03 -5.53954253e+02  1.41e+02 1.66e-06  2.17e-01     0s
+   5   5.89419565e+03 -1.44505716e+02  1.39e+01 1.67e-06  3.06e-02     0s
+   6   5.80231242e+03 -6.55802889e+01  6.08e+00 1.67e-06  1.35e-02     0s
+   7   5.75977604e+03 -2.08062626e+01  2.66e+00 1.67e-06  6.12e-03     0s
+   8   5.74359163e+03 -5.07667950e+00  1.74e+00 1.67e-06  4.02e-03     0s
+   9   5.73630664e+03  3.38079716e+00  1.31e+00 1.67e-06  3.03e-03     0s
+  10   5.72936780e+03  1.17530845e+01  9.25e-01 1.67e-06  2.13e-03     0s
+  11   2.18184225e+09 -2.14748409e+12  7.04e+10 2.52e-14  8.56e+10     0s
+  12   7.78343178e+08 -9.36294872e+11  2.79e+10 2.26e+02  3.39e+10     0s
+  13   3.19699074e+08 -8.26295409e+10  1.15e+10 1.90e+01  7.60e+09     0s
+  14   3.11091250e+06 -3.36610682e+08  1.14e+08 8.23e-12  7.35e+07     0s
+  15   7.47812993e+03 -5.17206184e+05  5.64e+04 2.07e-11  3.65e+04     0s
+  16   4.35271159e+02 -2.31933198e+04  2.25e+02 1.71e-06  1.40e+01     0s
+  17   1.41032602e+02 -7.54666680e+03  7.08e+01 1.65e-06  2.80e+00     0s
+  18   1.65863437e+02 -3.97025326e+03  1.58e+01 1.65e-06  6.35e-01     0s
+  19   1.43349785e+02 -9.47631864e+02  5.03e+00 1.66e-06  1.40e-01     0s
+  20   1.18308662e+02 -2.61667040e+02  1.11e+00 1.66e-06  2.96e-02     0s
+  21   9.77183069e+01 -7.64855522e+01  4.44e-01 1.66e-06  1.13e-02     0s
+  22   8.00135699e+01 -2.78029877e+01  3.14e-01 1.47e-06  7.15e-03     0s
+  23   5.79010026e+01  9.60612691e-01  1.26e-01 8.61e-07  3.37e-03     0s
+  24   4.81525537e+01  1.97165380e+01  5.99e-02 4.75e-07  1.66e-03     0s
+  25   4.39626391e+01  2.90122539e+01  3.45e-02 2.37e-07  8.91e-04     0s
+  26   4.09575949e+01  3.21863182e+01  1.80e-02 1.50e-07  5.10e-04     0s
+  27   4.00476990e+01  3.46196325e+01  1.32e-02 8.23e-08  3.26e-04     0s
+  28   3.94528878e+01  3.60693021e+01  9.63e-03 4.46e-08  2.11e-04     0s
+  29   3.86071985e+01  3.68756996e+01  4.55e-03 2.48e-08  1.07e-04     0s
+  30   3.81709175e+01  3.72036850e+01  2.03e-03 1.63e-08  5.68e-05     0s
+  31   3.79253134e+01  3.75101275e+01  7.58e-04 7.71e-09  2.38e-05     0s
+  32   3.78169957e+01  3.76526149e+01  2.75e-04 3.23e-09  9.27e-06     0s
+  33   3.77705506e+01  3.77085443e+01  7.88e-05 1.41e-09  3.35e-06     0s
+  34   3.77639525e+01  3.77425105e+01  5.09e-05 3.06e-10  1.30e-06     0s
+  35   3.77560666e+01  3.77505821e+01  1.78e-05 3.65e-11  3.60e-07     0s
+  36   3.77533627e+01  3.77515017e+01  4.11e-06 1.73e-11  1.11e-07     0s
+  37   3.77529576e+01  3.77519800e+01  2.78e-06 1.35e-12  6.19e-08     0s
+  38   3.77521701e+01  3.77520732e+01  5.71e-08 7.79e-14  4.86e-09     0s
+  39   3.77521698e+01  3.77520807e+01  5.67e-08 7.46e-13  4.49e-09     0s
+  40   3.77521697e+01  3.77520821e+01  5.66e-08 4.52e-13  4.42e-09     0s
+  41   3.77521694e+01  3.77520892e+01  5.62e-08 3.44e-13  4.07e-09     0s
+  42   3.77521062e+01  3.77521041e+01  1.77e-09 4.45e-13  1.10e-10     0s
+  43   3.77521041e+01  3.77521041e+01  1.54e-10 1.68e-13  7.60e-13     0s
+
+Barrier solved model in 43 iterations and 0.24 seconds
+Optimal objective 3.77521041e+01
+
+Crossover log...
+
+       0 DPushes remaining with DInf 2.4380845e-13                 0s
+
+    1878 PPushes remaining with PInf 0.0000000e+00                 0s
+       0 PPushes remaining with PInf 0.0000000e+00                 0s
+
+  Push phase complete: Pinf 0.0000000e+00, Dinf 1.1281254e-13      0s
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+    1989    3.7752104e+01   0.000000e+00   0.000000e+00      0s
+    1989    3.7752104e+01   0.000000e+00   0.000000e+00      0s
+
+Solved with barrier
+Solved in 1989 iterations and 0.26 seconds
+Optimal objective  3.775210413e+01
