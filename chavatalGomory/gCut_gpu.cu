@@ -43,3 +43,25 @@ Cut_gpu* createGPUcut(const Cut_gpu* h_cut, int nVariables, int nConstrains){
 
 }
 
+listNeigh *createGPUlist(const listNeigh* list_t){
+    size_t size_list = sizeof(listNeigh) +
+                        sizeof(TList)*(list_t->nList) +
+                        sizeof(TPosList)*(list_t->nPos) ;
+
+    listNeigh* h_list_gpu = (listNeigh*) malloc(size_list);
+	memcpy(h_list_gpu,list_t, size_list);
+	listNeigh* d_list;
+	gpuMalloc((void**)&d_list, size_list);
+	//printf("malloc ok\n");
+	//getchar();
+	gpuMemset(d_list,0,size_list);
+	//printf("menset ok\n");
+	//getchar();
+	h_list_gpu->list_n = (TList*)(d_list + 1);
+	h_list_gpu->pos = (TPosList*)(h_list_gpu->list_n + h_list_gpu->nList);
+
+	gpuMemcpy(d_list, h_list_gpu, size_list, cudaMemcpyHostToDevice);
+	free(h_list_gpu);
+	return d_list;
+}
+

@@ -5,8 +5,7 @@
 //#include "configGpu.h"
 #include "solutionGpu.h"
 #include "gpulib/types.h"
-
-
+#include <sys/time.h>
 
 
 //void createCuts(Cut_gpu *h_cut, solutionGpu *h_solution,CutCG *ccg, int cont);
@@ -18,5 +17,14 @@ Cut_gpu* initial_runGPU(Cut_gpu *h_cut,Cut_gpu_aux *cut_aux, int numberMaxConst,
 
 Cut_gpu* second_phase_runGPU(Cut_gpu *h_cut, Cut_gpu_aux *cut_aux, int numberMaxConst, int nRuns, int maxDenominator, int precision);
 
+Cut_gpu* phase_zeroHalf(Cut_gpu *h_cut, Cut_gpu_aux *cut_aux,int nConstraintsPerSet);
 
+listNeigh *returnMatrixNeighborhood (Cut_gpu *h_cut);
+
+int contPar(Cut_gpu* h_cut);
+
+void *shuffle_Set(int *vec, int nSetConstrains, int n);
+
+
+void fillParImpar(int *vPar,int *vImpar, Cut_gpu *h_cut);
 #endif

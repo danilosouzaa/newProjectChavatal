@@ -37,7 +37,7 @@ int main(int argc, char *argv[])
     char fileName[50]	= "situation/";
     char nameInstance[50];
     int n1,n2;
-
+    printf("%s\n",nome);
     sprintf(fileName,"%s%s",fileName,nome);
     int contr1 = 0,contr2 =0, n_cuts = 0 ;
     Instance* inst;
@@ -77,6 +77,7 @@ int main(int argc, char *argv[])
         //printf("depois fase 2: %d\n",ccg->numberConstrains);
         if(n_cuts!=ccg->numberConstrains)
             ccg_aux = reallocCutR2(ccg,ccg_aux,&contr2);
+        //ccg = phase_zeroHalf(ccg, ccg_aux,2);
 #else
         printf("CPU\n");
         printf("Number Contraints: %d\n",ccg->numberConstrains);

@@ -8,7 +8,9 @@
 #include "solutionGpu.h"
 
 
-
+    //TSMult *SMult;
+    //TSConst *SConst;
+    //TSPAux *SPAux;
 
 solutionGpu* allocationStructSolution2(Cut_gpu *c, int numberMaxConst, int nRuns)
 {

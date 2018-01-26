@@ -48,6 +48,20 @@ Cut_gpu_aux *AllocationStructCutAux(int nConstrains, int nVariables){
 
 }
 
+listNeigh *AllocationListNeigh(int nConstrains, int nList){
+    size_t size_list = sizeof(listNeigh) +
+                          sizeof(TList)*(nList)+
+                          sizeof(TPosList)*(nConstrains+1);
+    listNeigh *list_t = (listNeigh*)malloc(size_list);
+    assert(list_t!=NULL);
+    memset(list_t, 0 ,size_list);
+    list_t->list_n = (TList*)(list_t + 1);
+    list_t->pos = (TPosList*)(list_t->list_n + nList);
+    list_t->nList = nList;
+    list_t->nPos = nConstrains + 1;
+    return list_t;
+}
+
 int returnIndVector(TNames *v,char *nome, int sz){
     int i;
     for(i=0;i<sz;i++){

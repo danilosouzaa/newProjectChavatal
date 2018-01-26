@@ -26,6 +26,7 @@ typedef int TSMult;
 typedef int TSConst;
 typedef int TSPAux;
 
+
 typedef struct {
     TSMult *SMult;
     TSConst *SConst;
@@ -39,6 +40,8 @@ solutionGpu* allocationStructSolution1(Cut_gpu *c, int nRuns);
 solutionGpu* createGPUsolution2(solutionGpu* h_solution, Cut_gpu* h_cut,int numberMaxConst, int nRuns);
 
 solutionGpu* createGPUsolution1(solutionGpu* h_solution, Cut_gpu* h_cut, int nRuns);
+
+
 
 
 Cut_gpu* createCutsOfPhaseOne(Cut_gpu *h_cut, Cut_gpu_aux *cut_aux, solutionGpu *h_solution, int nCuts, int precision, int nRuns);
