@@ -42,24 +42,16 @@ int verifyGpu()
         //printf("GPU 0 initialized!\n");
         return deviceCount;
     }
-
 }
 
 void *shuffle_Set(int *vec, int nSetConstrains, int n){
     timeval time;
     gettimeofday(&time, NULL);
     srand((time.tv_sec * 1000) + (time.tv_usec / 1000));
-
     int i, j , aux ;
     int *num_temp = (int*)malloc(sizeof(int)*nSetConstrains);
     int *vec_aux = (int*)malloc(sizeof(int)*nSetConstrains);
     aux  =  n/nSetConstrains;
-//    for(i = 0; i< n;i++){
-//        printf(" %d \t",vec[i]);
-//    }
-//    printf("\n");
-
-
     for(i = 0; i < aux ; i++){
 
         for(j = 0 ;j<nSetConstrains;j++){
@@ -72,11 +64,6 @@ void *shuffle_Set(int *vec, int nSetConstrains, int n){
             vec[i*nSetConstrains + j] = vec_aux[j];
         }
     }
-
-//    for(i = 0; i< n;i++){
-//        printf(" %d \t",vec[i]);
-//    }
-//    printf("\n");    getchar();
 }
 
 
@@ -181,7 +168,21 @@ Cut_gpu* initial_runGPU(Cut_gpu *h_cut, Cut_gpu_aux *cut_aux, int numberMaxConst
 
 }
 
-Cut_gpu* second_phase_runGPU(Cut_gpu *h_cut, Cut_gpu_aux *cut_aux, int numberMaxConst, int nRuns, int maxDenominator, int precision)
+
+void returnDimension(int *nB, int *nT, int nRuns){
+
+        int blockSize;      // The launch configurator returned block size
+        int minGridSize;    // The minimum grid size needed to achieve the maximum occupancy for a full device launch
+        int gridSize;
+        int N = nRuns;
+
+        cudaOccupancyMaxPotentialBlockSize(&minGridSize, &blockSize,runGPUR2, 0, N);
+        *nB = minGridSize;
+        *nT = blockSize;
+}
+
+
+Cut_gpu* second_phase_runGPU(Cut_gpu *h_cut, Cut_gpu_aux *cut_aux, int numberMaxConst, int nRuns, int maxDenominator, int precision, int nB,int nT, int *pos_R1)
 {
     int deviceCuda;
     deviceCuda = verifyGpu();
@@ -220,8 +221,10 @@ Cut_gpu* second_phase_runGPU(Cut_gpu *h_cut, Cut_gpu_aux *cut_aux, int numberMax
         }
         else
         {
-            consNR1[n_nr]=i;
-            n_nr++;
+            if(h_cut->typeConstraints[i]!=LPC_CGGPUR2){
+                consNR1[n_nr]=i;
+                n_nr++;
+            }
         }
     }
     bubble_sort(nElemR1,consR1,n_r);
@@ -230,7 +233,7 @@ Cut_gpu* second_phase_runGPU(Cut_gpu *h_cut, Cut_gpu_aux *cut_aux, int numberMax
 
     solutionGpu *h_solution_r2 = allocationStructSolution2(h_cut,numberMaxConst,nRuns);
     int *setConstraint = (int*)malloc(sizeof(int)*numberMaxConst*nRuns);
-    calcSetConstraint(setConstraint, numberMaxConst, h_cut->numberConstrains, consR1, consNR1, n_r, n_nr, Similar, folga,  nRuns );
+    calcSetConstraint(setConstraint, pos_R1 ,numberMaxConst, h_cut->numberConstrains, consR1, consNR1, n_r, n_nr, Similar, folga,  nRuns);
 
 
 
@@ -242,9 +245,21 @@ Cut_gpu* second_phase_runGPU(Cut_gpu *h_cut, Cut_gpu_aux *cut_aux, int numberMax
         Cut_gpu *d_cut;
         int *d_setConstraint;
 
-        int i, j, nB,nT;
-        nB = 10;
-        nT = nRuns/nB;
+
+//        getchar();
+
+
+
+       int i, j;
+//        if(blockSize*minGridSize < nRuns){
+//            nRp = nRuns - blockSize*minGridSize;
+//        }
+
+        //nB = 10;
+        //nT = nRuns/nB;
+
+       // nB = minGridSize;
+       // nT = blockSize;
 
         size_t size_solution =  sizeof(solutionGpu) +
                                 sizeof(TSMult)*(nRuns*4) +

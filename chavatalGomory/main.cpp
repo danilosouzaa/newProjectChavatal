@@ -3,11 +3,12 @@ extern "C" {
 #include <stdlib.h>
 #include <assert.h>
 #include <string.h>
-
+#include <math.h>
 //#include "cut_gpu.h"
 #include "prepareGpu.h"
 #include "Instance.h"
 #include "lp.h"
+
 }
 
 
@@ -73,10 +74,34 @@ int main(int argc, char *argv[])
         if(n_cuts!=ccg->numberConstrains)
             ccg_aux = reallocCut(ccg,ccg_aux, &contr1);
         n_cuts = ccg->numberConstrains;
-        ccg = second_phase_runGPU(ccg, ccg_aux, maxContraints,nRuns,maxDenominator,p);
-        //printf("depois fase 2: %d\n",ccg->numberConstrains);
-        if(n_cuts!=ccg->numberConstrains)
-            ccg_aux = reallocCutR2(ccg,ccg_aux,&contr2);
+        int nBlocks;
+        int pos_R1 = 0;
+        int nThreads;
+        int nRepeat = 1;
+        int nRuns_temp,i;
+        float aux;
+        returnDimension(&nBlocks, &nThreads, nRuns);
+        if(nRuns < nBlocks*nThreads){
+            nThreads = (nRuns/nBlocks) ;
+        }else{
+            aux = (float)(nRuns - nThreads*nBlocks)/(float)(nThreads*nBlocks);
+            nRepeat += ceil(aux);
+            printf("%f %d\n", aux,nRepeat);
+        }
+
+        printf("%d %d\n",nBlocks, nThreads);
+
+        for(i = 1; i <= nRepeat;i++){
+            if((nRepeat>1)&&(i == nRepeat)){
+                nThreads = (nRuns - (nThreads*nBlocks)*(i-1))/nBlocks;
+            }
+            nRuns_temp = nThreads*nBlocks;
+            ccg = second_phase_runGPU(ccg, ccg_aux, maxContraints,nRuns_temp,maxDenominator,p, nBlocks, nThreads, &pos_R1);
+                //printf("depois fase 2: %d - %d\n",ccg->numberConstrains, pos_R1);
+            //if(n_cuts!=ccg->numberConstrains)
+            //    ccg_aux = reallocCutR2(ccg,ccg_aux,&contr2);
+        }
+        ccg_aux = reallocCutR2(ccg,ccg_aux,&contr2);
         //ccg = phase_zeroHalf(ccg, ccg_aux,2);
 #else
         printf("CPU\n");
