@@ -43,6 +43,9 @@ int main(int argc, char *argv[])
     int contr1 = 0,contr2 =0, n_cuts = 0 ;
     Instance* inst;
 
+    struct timeval stop, start;
+    gettimeofday(&start, NULL);
+//do stuff
 
 
     FILE *arq;
@@ -107,6 +110,11 @@ int main(int argc, char *argv[])
         printf("CPU\n");
         printf("Number Contraints: %d\n",ccg->numberConstrains);
 #endif // __NVCC__
+
+        gettimeofday(&stop, NULL);
+        double secs = (double)(stop.tv_usec - start.tv_usec) / 1000000 + (double)(stop.tv_sec - start.tv_sec);
+        printf("took %f\n", secs);
+
         lp = InsertCutsInLP(lp,ccg,ccg_aux,inst);
         lp_set_max_seconds(lp,10);
         int yy = lp_optimize_as_continuous(lp);

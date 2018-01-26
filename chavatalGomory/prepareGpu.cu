@@ -150,7 +150,6 @@ Cut_gpu* initial_runGPU(Cut_gpu *h_cut, Cut_gpu_aux *cut_aux, int numberMaxConst
         {
             printf("Number cuts generated in the phase 1: %d\n", cont);
             out_h_cut = createCutsOfPhaseOne(h_cut, cut_aux, h_solution_r1, cont,precision,nRuns);
-            printf("DEPOIS!");
         }
         else
         {
