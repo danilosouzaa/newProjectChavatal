@@ -67,9 +67,9 @@ __global__ void runGPUR1(Cut_gpu *d_cut, solutionGpu *d_solution, unsigned int *
             {
                 constraints[pos] = i;
                 pos++;
+
             }
         }
-
     }
     __syncthreads();
 

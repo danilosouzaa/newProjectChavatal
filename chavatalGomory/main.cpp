@@ -20,9 +20,10 @@ extern "C" {
 //Quarto Parametro: número de execuções a serem realizadas
 //Quinto Parametro: Número do maior denominador
 //sexto parametro: Tipo do rank 1, aleatório ou nao.
+//Setimo parametro: Size nr1
 int main(int argc, char *argv[])
 {
-    if(argc<7)
+    if(argc<8)
     {
         printf("Argumentos faltando\n");
         return 0;
@@ -35,6 +36,12 @@ int main(int argc, char *argv[])
     int nRuns = atoi(argv[4]);
     int maxDenominator = atoi(argv[5]);
     int type = atoi(argv[6]);
+    int szR = atoi(argv[7]);
+
+    if(szR>maxContraints){
+        printf("Param erro: size R \n");
+        return 0;
+    }
     char fileName[50]	= "situation/";
     char nameInstance[50];
     int n1,n2;
@@ -66,17 +73,8 @@ int main(int argc, char *argv[])
     contr1 = 0;
     int x=0;
 
-        //printf("%s\n", ccg_aux->nameConstraints[1].name);
-        //solutionGpu *sol = allocationStructSolution(ccg, maxContraints,nRuns);
 #ifdef __NVCC__
         printf("GPU\n");
-        n_cuts= ccg->numberConstrains;
-        //printf("antes: %d\n",ccg->numberConstrains);
-        ccg = initial_runGPU(ccg, ccg_aux, maxContraints,nRuns,maxDenominator,p,type);
-        //printf("depois fase 1: %d\n",ccg->numberConstrains);
-        if(n_cuts!=ccg->numberConstrains)
-            ccg_aux = reallocCut(ccg,ccg_aux, &contr1);
-        n_cuts = ccg->numberConstrains;
         int nBlocks;
         int pos_R1 = 0;
         int nThreads;
@@ -84,22 +82,27 @@ int main(int argc, char *argv[])
         int nRuns_temp,i;
         float aux;
         returnDimension(&nBlocks, &nThreads, nRuns);
+
+        n_cuts= ccg->numberConstrains;
+        //printf("antes: %d\n",ccg->numberConstrains);
+        ccg = initial_runGPU(ccg, ccg_aux, maxContraints,maxDenominator,p,type,nThreads,nBlocks);
+        //printf("depois fase 1: %d\n",ccg->numberConstrains);
+        if(n_cuts!=ccg->numberConstrains)
+            ccg_aux = reallocCut(ccg,ccg_aux, &contr1);
+        n_cuts = ccg->numberConstrains;
+
         if(nRuns < nBlocks*nThreads){
             nThreads = (nRuns/nBlocks) ;
         }else{
             aux = (float)(nRuns - nThreads*nBlocks)/(float)(nThreads*nBlocks);
             nRepeat += ceil(aux);
-            printf("%f %d\n", aux,nRepeat);
         }
-
-        printf("%d %d\n",nBlocks, nThreads);
-
         for(i = 1; i <= nRepeat;i++){
             if((nRepeat>1)&&(i == nRepeat)){
                 nThreads = (nRuns - (nThreads*nBlocks)*(i-1))/nBlocks;
             }
             nRuns_temp = nThreads*nBlocks;
-            ccg = second_phase_runGPU(ccg, ccg_aux, maxContraints,nRuns_temp,maxDenominator,p, nBlocks, nThreads, &pos_R1);
+            ccg = second_phase_runGPU(ccg, ccg_aux, maxContraints,nRuns_temp,maxDenominator,p, nBlocks, nThreads, &pos_R1, szR);
                 //printf("depois fase 2: %d - %d\n",ccg->numberConstrains, pos_R1);
             //if(n_cuts!=ccg->numberConstrains)
             //    ccg_aux = reallocCutR2(ccg,ccg_aux,&contr2);

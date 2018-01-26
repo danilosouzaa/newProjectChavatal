@@ -605,16 +605,17 @@ float* returnFolga(Cut_gpu *cut)
     return folga;
 }
 
-void calcSetConstraint (int *setConstraint, int *pos_R1, int numberMaxConst,int numberConstrains, int *resR1, int *resNR1, int sizeR1, int sizeNR1, int *Similar, float *Folga, int nRuns )
+void calcSetConstraint (int *setConstraint, int *pos_R1, int numberMaxConst,int numberConstrains, int *resR1, int *resNR1, int sizeR1, int sizeNR1, int *Similar, float *Folga, int nRuns, int szR )
 {
     int i,j,k,aux,el;
     int pos_R1_aux = *pos_R1;
+    int szNR = numberMaxConst - szR;
     int *p = (int*)malloc(sizeof(int)*sizeNR1);
     for(i = 0; i < nRuns; i++)
     {
         *pos_R1 = (pos_R1_aux + i)%sizeR1;
         memset(p,0,sizeof(int)*sizeNR1);
-        for(j = 0; j<numberMaxConst/2; j++)
+        for(j = 0; j<szR; j++)
         {
             setConstraint[i*numberMaxConst + j] = resR1[ (*pos_R1 + j)%sizeR1 ];
             for(k= 0; k<sizeNR1; k++)
@@ -639,8 +640,8 @@ void calcSetConstraint (int *setConstraint, int *pos_R1, int numberMaxConst,int 
                 }
             }
         }
-        el = numberMaxConst/2;
-        for(j = 0; j<numberMaxConst/2; j++)
+        el = szR;
+        for(j = 0; j<szNR; j++)
         {
             setConstraint[i*numberMaxConst + j + el] = resNR1[ j % sizeNR1];
         }

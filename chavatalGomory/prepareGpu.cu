@@ -44,38 +44,58 @@ int verifyGpu()
     }
 }
 
-void *shuffle_Set(int *vec, int nSetConstrains, int n){
+void *shuffle_Set(int *vec, int nSetConstrains, int n)
+{
     timeval time;
     gettimeofday(&time, NULL);
     srand((time.tv_sec * 1000) + (time.tv_usec / 1000));
-    int i, j , aux ;
+    int i, j, aux ;
     int *num_temp = (int*)malloc(sizeof(int)*nSetConstrains);
     int *vec_aux = (int*)malloc(sizeof(int)*nSetConstrains);
     aux  =  n/nSetConstrains;
-    for(i = 0; i < aux ; i++){
+    for(i = 0; i < aux ; i++)
+    {
 
-        for(j = 0 ;j<nSetConstrains;j++){
+        for(j = 0 ; j<nSetConstrains; j++)
+        {
 
             num_temp[j] = rand()%RAND_MAX;
             vec_aux[j] = vec[i*nSetConstrains + j];
         }
         bubble_sort(num_temp,vec_aux,nSetConstrains);
-        for(j = 0 ;j<nSetConstrains;j++){
+        for(j = 0 ; j<nSetConstrains; j++)
+        {
             vec[i*nSetConstrains + j] = vec_aux[j];
         }
     }
 }
 
-
-
-Cut_gpu* initial_runGPU(Cut_gpu *h_cut, Cut_gpu_aux *cut_aux, int numberMaxConst, int nRuns, int maxDenominator, int precision, int type)
+Cut_gpu* initial_runGPU(Cut_gpu *h_cut, Cut_gpu_aux *cut_aux, int numberMaxConst, int maxDenominator, int precision, int type, int nThreads, int nBlocks)
 {
     int deviceCuda;
     deviceCuda = verifyGpu();
     Cut_gpu* out_h_cut;
+    int nRuns;
     if(deviceCuda > 0)
     {
-        int i;//,j, nCons = h_cut->numberConstrains;
+        int i, numberC = 0 ;//,j, nCons = h_cut->numberConstrains;
+
+        for(i = 0; i<h_cut->numberConstrains; i++)
+        {
+            if(h_cut->typeConstraints[i] == RES_RR)
+            {
+                numberC++;
+            }
+        }
+        //float auxD = ((float)numberC)/((float)nBlocks);
+        int nT = numberC;//nCons/10;
+        //int nT = ceil(auxD);//nCons/10;
+        int nB = 1;
+        //int nB = nBlocks;
+        nRuns = nT*nB;
+//        nRuns = 1000;
+//        nB = 10;
+//        nT = 100;
         size_t size_solution_r1 =  sizeof(solutionGpu) +
                                    sizeof(TSMult)*(nRuns) +
                                    sizeof(TSConst)*(nRuns) +
@@ -104,13 +124,13 @@ Cut_gpu* initial_runGPU(Cut_gpu *h_cut, Cut_gpu_aux *cut_aux, int numberMaxConst
         gpuMalloc((void*)&d_seed, sizeof(unsigned int)*(nRuns));
         gpuMemcpy(d_seed, h_seed, sizeof(unsigned int)*(nRuns), cudaMemcpyHostToDevice);
 
-        int nT = nRuns/10;//nCons/10;
-        int nB = 10;
         if(type==1)
+        {
             runGPUR1<<<nB,nT>>>(d_cut, d_solution_r1, d_seed, states, nT, precision);
-        else
+        }else
+        {
             runGPUR1_aleatory<<<nB,nT>>>(d_cut, d_solution_r1, d_seed, states, nT, precision, maxDenominator);
-
+        }
         gpuDeviceSynchronize();
 
         gpuMemcpy(h_solution_r1, d_solution_r1, size_solution_r1, cudaMemcpyDeviceToHost);
@@ -168,20 +188,21 @@ Cut_gpu* initial_runGPU(Cut_gpu *h_cut, Cut_gpu_aux *cut_aux, int numberMaxConst
 }
 
 
-void returnDimension(int *nB, int *nT, int nRuns){
+void returnDimension(int *nB, int *nT, int nRuns)
+{
 
-        int blockSize;      // The launch configurator returned block size
-        int minGridSize;    // The minimum grid size needed to achieve the maximum occupancy for a full device launch
-        int gridSize;
-        int N = nRuns;
+    int blockSize;      // The launch configurator returned block size
+    int minGridSize;    // The minimum grid size needed to achieve the maximum occupancy for a full device launch
+    int gridSize;
+    int N = nRuns;
 
-        cudaOccupancyMaxPotentialBlockSize(&minGridSize, &blockSize,runGPUR2, 0, N);
-        *nB = minGridSize;
-        *nT = blockSize;
+    cudaOccupancyMaxPotentialBlockSize(&minGridSize, &blockSize,runGPUR2, 0, N);
+    *nB = minGridSize;
+    *nT = blockSize;
 }
 
 
-Cut_gpu* second_phase_runGPU(Cut_gpu *h_cut, Cut_gpu_aux *cut_aux, int numberMaxConst, int nRuns, int maxDenominator, int precision, int nB,int nT, int *pos_R1)
+Cut_gpu* second_phase_runGPU(Cut_gpu *h_cut, Cut_gpu_aux *cut_aux, int numberMaxConst, int nRuns, int maxDenominator, int precision, int nB,int nT, int *pos_R1, int szR)
 {
     int deviceCuda;
     deviceCuda = verifyGpu();
@@ -220,7 +241,8 @@ Cut_gpu* second_phase_runGPU(Cut_gpu *h_cut, Cut_gpu_aux *cut_aux, int numberMax
         }
         else
         {
-            if(h_cut->typeConstraints[i]!=LPC_CGGPUR2){
+            if(h_cut->typeConstraints[i]!=LPC_CGGPUR2)
+            {
                 consNR1[n_nr]=i;
                 n_nr++;
             }
@@ -232,7 +254,7 @@ Cut_gpu* second_phase_runGPU(Cut_gpu *h_cut, Cut_gpu_aux *cut_aux, int numberMax
 
     solutionGpu *h_solution_r2 = allocationStructSolution2(h_cut,numberMaxConst,nRuns);
     int *setConstraint = (int*)malloc(sizeof(int)*numberMaxConst*nRuns);
-    calcSetConstraint(setConstraint, pos_R1 ,numberMaxConst, h_cut->numberConstrains, consR1, consNR1, n_r, n_nr, Similar, folga,  nRuns);
+    calcSetConstraint(setConstraint, pos_R1,numberMaxConst, h_cut->numberConstrains, consR1, consNR1, n_r, n_nr, Similar, folga,  nRuns, szR);
 
 
 
@@ -249,7 +271,7 @@ Cut_gpu* second_phase_runGPU(Cut_gpu *h_cut, Cut_gpu_aux *cut_aux, int numberMax
 
 
 
-       int i, j;
+        int i, j;
 //        if(blockSize*minGridSize < nRuns){
 //            nRp = nRuns - blockSize*minGridSize;
 //        }
@@ -257,8 +279,8 @@ Cut_gpu* second_phase_runGPU(Cut_gpu *h_cut, Cut_gpu_aux *cut_aux, int numberMax
         //nB = 10;
         //nT = nRuns/nB;
 
-       // nB = minGridSize;
-       // nT = blockSize;
+        // nB = minGridSize;
+        // nT = blockSize;
 
         size_t size_solution =  sizeof(solutionGpu) +
                                 sizeof(TSMult)*(nRuns*4) +
@@ -390,7 +412,8 @@ Cut_gpu* phase_zeroHalf(Cut_gpu *h_cut, Cut_gpu_aux *cut_aux,int nConstraintsPer
     nThreads =  szPar/nBlocks;
     int deviceCuda;
     deviceCuda = verifyGpu();
-    if(deviceCuda>0){
+    if(deviceCuda>0)
+    {
         int *h_solution_r2 = (int*)malloc(sizeof(int)*nConstraintsPerSet*nBlocks*nThreads);
 
         free(h_solution_r2);
@@ -403,13 +426,18 @@ Cut_gpu* phase_zeroHalf(Cut_gpu *h_cut, Cut_gpu_aux *cut_aux,int nConstraintsPer
 
 }
 
-void fillParImpar(int *vPar,int *vImpar, Cut_gpu *h_cut){
+void fillParImpar(int *vPar,int *vImpar, Cut_gpu *h_cut)
+{
     int i, cP=0, cI = 0;
-    for(i=0;i<h_cut->numberConstrains;i++){
-        if(h_cut->rightSide[i]%2==0){
+    for(i=0; i<h_cut->numberConstrains; i++)
+    {
+        if(h_cut->rightSide[i]%2==0)
+        {
             vPar[cP] = i;
             cP++;
-        }else{
+        }
+        else
+        {
             vImpar[cI] = i;
             cI++;
         }
@@ -456,7 +484,8 @@ listNeigh *returnMatrixNeighborhood (Cut_gpu *h_cut)
     {
         for(j=0; j<h_cut->numberConstrains; j++)
         {
-            if(matrixNeighborhood[i+j*h_cut->numberConstrains] == 1){
+            if(matrixNeighborhood[i+j*h_cut->numberConstrains] == 1)
+            {
                 list_t->list_n[cont_temp] = j;
                 cont_temp++;
             }

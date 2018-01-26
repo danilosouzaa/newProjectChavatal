@@ -63,7 +63,7 @@ int* returnOrdConstrainsNR(Cut_gpu *cut);
 float* returnFolga(Cut_gpu *cut);
 
 //void calcSetConstraint (int *setConstraint, int numberMaxConst,int numberConstrains, int *resR1, int *resNR1, int sizeR1, int sizeNR1, int *Similar, float *Folga, int nRuns);
-void calcSetConstraint (int *setConstraint, int *pos_R1, int numberMaxConst,int numberConstrains, int *resR1, int *resNR1, int sizeR1, int sizeNR1, int *Similar, float *Folga, int nRuns );
+void calcSetConstraint (int *setConstraint, int *pos_R1, int numberMaxConst,int numberConstrains, int *resR1, int *resNR1, int sizeR1, int sizeNR1, int *Similar, float *Folga, int nRuns, int szR );
 
 
 EXTERN_C_END
