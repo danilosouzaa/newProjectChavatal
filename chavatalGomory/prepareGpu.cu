@@ -68,6 +68,8 @@ void *shuffle_Set(int *vec, int nSetConstrains, int n)
             vec[i*nSetConstrains + j] = vec_aux[j];
         }
     }
+    free(num_temp);
+    free(vec_aux);
 }
 
 Cut_gpu* initial_runGPU(Cut_gpu *h_cut, Cut_gpu_aux *cut_aux, int numberMaxConst, int maxDenominator, int precision, int type, int nThreads, int nBlocks)
