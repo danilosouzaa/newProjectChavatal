@@ -142,7 +142,7 @@ Instance *readLP(char *fileName)
         strcpy(inst->name_constraints[i].name, n_tes);
 
     }
-
+    printf("%d %d\n",inst->number_variables, inst->number_constraints);
     lp_free(&lp);
     int aux;
     arq = fopen(fileName,"r");
@@ -303,7 +303,6 @@ Instance *readLP(char *fileName)
         }
 //        printf("%s", inst->name_variables[0].name);
     }
-
 
     fclose(arq);
     return inst;
