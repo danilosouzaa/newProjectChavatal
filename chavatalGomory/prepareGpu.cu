@@ -44,7 +44,7 @@ int verifyGpu()
     }
 }
 
-void *shuffle_Set(int *vec, int nSetConstrains, int n)
+void shuffle_Set(int *vec, int nSetConstrains, int n)
 {
     timeval time;
     gettimeofday(&time, NULL);

@@ -30,7 +30,7 @@ listNeigh *returnMatrixNeighborhood (Cut_gpu *h_cut);
 
 int contPar(Cut_gpu* h_cut);
 
-void *shuffle_Set(int *vec, int nSetConstrains, int n);
+void shuffle_Set(int *vec, int nSetConstrains, int n);
 
 
 void returnDimension(int *nB, int *nT, int nRuns);
