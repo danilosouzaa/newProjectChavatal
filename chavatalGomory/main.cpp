@@ -128,7 +128,7 @@ int main(int argc, char *argv[])
 
     lp_free(&lp);
 
-    //free(ccg_aux);
+    free(ccg_aux);
     free(ccg);
 
     //free(col);

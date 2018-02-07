@@ -112,11 +112,10 @@ Instance *readLP(char *fileName)
     lp = lp_create();
     lp_read(lp,fileName);
 
-
     cont = lp_cols(lp);
     cont2 = lp_rows(lp);
     Instance *inst = allocationStructInstance(cont,cont2);
-//    printf("%d %d\n",inst->number_variables, inst->number_constraints);
+    printf("%d %d\n",inst->number_variables, inst->number_constraints);
 //    getchar();
     int i;
     char* n_tes;

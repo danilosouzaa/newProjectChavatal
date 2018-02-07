@@ -243,6 +243,8 @@ Cut_gpu* createCutsOfPhaseOne(Cut_gpu *h_cut, Cut_gpu_aux *cut_aux, solutionGpu 
         new_h_cut->xAsterisc[i] = cuts_generated->xAsterisc[i];
     }
 
+    free(violation);
+
     free(validated);
     free(cuts_generated);
     free(Coefs_temp);
@@ -446,7 +448,7 @@ Cut_gpu* createCutsOfPhaseTwo(Cut_gpu *h_cut, Cut_gpu_aux *cut_aux, solutionGpu 
     {
         new_h_cut->xAsterisc[i] = cuts_generated->xAsterisc[i];
     }
-
+    free(value_violation);
     free(validated);
     free(cuts_generated);
     free(Coefs_temp);
