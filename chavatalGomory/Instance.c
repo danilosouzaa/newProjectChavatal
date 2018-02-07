@@ -115,8 +115,6 @@ Instance *readLP(char *fileName)
     cont = lp_cols(lp);
     cont2 = lp_rows(lp);
     Instance *inst = allocationStructInstance(cont,cont2);
-    printf("%d %d\n",inst->number_variables, inst->number_constraints);
-    fflush(stdin);
 //    getchar();
     int i;
     char* n_tes;
@@ -137,7 +135,7 @@ Instance *readLP(char *fileName)
         }
        // printf("%s %f %f %d\n", inst->name_variables[i].name, inst->lb_variables[i],inst->ub_variables[i],inst->type_variables[i] );
     }
-    printf("%d %d\n",inst->number_variables, inst->number_constraints);
+
     for(i=0;i<cont2;i++){
         n_tes = lp_row_name(lp,i,n_tes);
         strcpy(inst->name_constraints[i].name, n_tes);
