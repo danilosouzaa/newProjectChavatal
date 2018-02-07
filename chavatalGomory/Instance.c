@@ -116,6 +116,7 @@ Instance *readLP(char *fileName)
     cont2 = lp_rows(lp);
     Instance *inst = allocationStructInstance(cont,cont2);
     printf("%d %d\n",inst->number_variables, inst->number_constraints);
+    fflush(stdin);
 //    getchar();
     int i;
     char* n_tes;
