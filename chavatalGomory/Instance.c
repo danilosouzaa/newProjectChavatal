@@ -62,7 +62,7 @@ Instance *readLP(char *fileName)
 
     double Coef,rhs, s=1;
     char *var;
-    char signal[2];
+    char signal[255];
     int nRes = 0, nCoef = 0;
 
     char *p,*p2;
@@ -117,10 +117,10 @@ Instance *readLP(char *fileName)
     Instance *inst = allocationStructInstance(cont,cont2);
 //    getchar();
     int i;
-    char* n_tes;
+    char n_tes[255];
     for(i=0;i<cont;i++){
 
-        n_tes = lp_col_name(lp,i,n_tes);
+        lp_col_name(lp,i,n_tes);
         strcpy(inst->name_variables[i].name, n_tes);
         nRes = lp_col_lb(lp,i);
         inst->lb_variables[i] = nRes;
@@ -137,7 +137,7 @@ Instance *readLP(char *fileName)
     }
 
     for(i=0;i<cont2;i++){
-        n_tes = lp_row_name(lp,i,n_tes);
+        lp_row_name(lp,i,n_tes);
         strcpy(inst->name_constraints[i].name, n_tes);
 
     }
