@@ -67,9 +67,7 @@ int main(int argc, char *argv[])
 
     fflush(stdin);
     inst = readLP(nameLP);
-    printf("O Mae O!\n");
     LinearProgramPtr lp = geraLP("Danilo_teste2.lp", inst);
-    printf("O PAI O!\n");
 
     contr1 = 0;
     int x=0;
