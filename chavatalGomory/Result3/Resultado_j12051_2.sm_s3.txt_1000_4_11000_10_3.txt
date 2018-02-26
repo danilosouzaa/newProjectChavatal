@@ -1,0 +1,132 @@
+j12051_2.sm_s3.txt
+Academic license - for non-commercial use only
+Read LP format model from file lp/j12051_2.sm.lp
+Reading time = 0.14 seconds
+: 1745 rows, 18283 columns, 412118 nonzeros
+OKGPU
+nThreads: 640 , nBlocks: 12 
+Number cuts generated in the phase 1: 16
+Number of repeat: 0 
+violation 286.000000
+violation 78.000000
+violation 170.000000
+violation 51.000000
+violation 25.000000
+violation 141.000000
+violation 148.000000
+violation 161.000000
+violation 50.000000
+violation 222.000000
+violation 241.000000
+violation 264.000000
+violation 172.000000
+violation 69.000000
+violation 53.000000
+violation 29.000000
+Number of Cuts in the second phase:1702
+Number of repeat: 1664 
+Violation: 94.000000
+Violation: 214.000000
+Violation: 242.000000
+Violation: 255.000000
+Violation: 114.000000
+Violation: 233.000000
+Violation: 24.000000
+Violation: 33.000000
+Violation: 122.000000
+Violation: 316.000000
+Violation: 168.000000
+Violation: 355.000000
+Violation: 138.000000
+Violation: 109.000000
+Violation: 342.000000
+Violation: 134.000000
+Violation: 217.000000
+Violation: 336.000000
+Violation: 179.000000
+Violation: 275.000000
+Violation: 293.000000
+Violation: 248.000000
+Violation: 383.000000
+Violation: 144.000000
+Violation: 14.000000
+Violation: 239.000000
+Violation: 241.000000
+Violation: 229.000000
+Violation: 199.000000
+Violation: 145.000000
+Violation: 194.000000
+Violation: 208.000000
+Violation: 31.000000
+Violation: 238.000000
+Violation: 54.000000
+Violation: 102.000000
+Violation: 315.000000
+Violation: 242.000000
+Number of Cuts in the second phase:964
+Number of repeat: 958 
+Violation: 288.000000
+Violation: 246.000000
+Violation: 247.000000
+Violation: 463.000000
+Violation: 120.000000
+Violation: 79.000000
+took 31.789636
+
+Warning: excessive time spent in model updates.
+Consider calling update less frequently.
+
+Optimize a model with 1872 rows, 18283 columns and 413222 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 2e+02]
+  Objective range  [0e+00, 0e+00]
+  Bounds range     [1e+00, 2e+02]
+  RHS range        [1e+00, 2e+01]
+
+Concurrent LP optimizer: dual simplex and barrier
+Showing barrier log only...
+
+Presolve removed 372 rows and 379 columns
+Presolve time: 0.13s
+Presolved: 1500 rows, 17904 columns, 377129 nonzeros
+
+Ordering time: 0.00s
+
+Barrier statistics:
+ AA' NZ     : 3.112e+05
+ Factor NZ  : 7.747e+05 (roughly 14 MBytes of memory)
+ Factor Ops : 5.582e+08 (less than 1 second per iteration)
+ Threads    : 3
+
+                  Objective                Residual
+Iter       Primal          Dual         Primal    Dual     Compl     Time
+   0   0.00000000e+00 -1.07743750e+02  3.94e+03 0.00e+00  4.75e-01     0s
+   1   0.00000000e+00 -1.85525166e+02  1.30e+03 1.35e-02  1.59e-01     0s
+   2   0.00000000e+00 -1.42661676e+02  1.05e+02 1.26e-03  1.60e-02     0s
+   3   0.00000000e+00 -9.72262586e+01  2.38e+01 4.94e-04  5.26e-03     0s
+   4   0.00000000e+00 -7.88849631e+01  1.22e+01 3.50e-04  3.39e-03     0s
+   5   0.00000000e+00 -5.52772934e+01  2.21e+00 2.08e-04  1.74e-03     0s
+   6   0.00000000e+00 -5.07360581e+00  2.49e-14 1.17e-05  1.39e-04     0s
+   7   0.00000000e+00 -5.14988986e-03  3.20e-14 1.69e-17  1.39e-07     0s
+   8   0.00000000e+00 -5.14988986e-06  3.64e-14 1.16e-20  1.39e-10     0s
+   9   0.00000000e+00 -5.14988986e-09  3.38e-14 7.47e-24  1.39e-13     1s
+
+Barrier solved model in 9 iterations and 0.50 seconds
+Optimal objective 0.00000000e+00
+
+Crossover log...
+
+       0 DPushes remaining with DInf 0.0000000e+00                 1s
+
+   17668 PPushes remaining with PInf 0.0000000e+00                 1s
+       0 PPushes remaining with PInf 0.0000000e+00                 1s
+
+  Push phase complete: Pinf 0.0000000e+00, Dinf 0.0000000e+00      1s
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+   17741    0.0000000e+00   0.000000e+00   0.000000e+00      1s
+   17741    0.0000000e+00   0.000000e+00   0.000000e+00      1s
+
+Solved with barrier
+Solved in 17741 iterations and 1.14 seconds
+Optimal objective  0.000000000e+00

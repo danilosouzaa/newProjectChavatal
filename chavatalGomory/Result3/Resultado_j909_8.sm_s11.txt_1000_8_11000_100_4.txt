@@ -1,0 +1,130 @@
+j909_8.sm_s11.txt
+Academic license - for non-commercial use only
+Read LP format model from file lp/j909_8.sm.lp
+Reading time = 0.04 seconds
+: 1056 rows, 5829 columns, 127189 nonzeros
+OKGPU
+nThreads: 640 , nBlocks: 12 
+Number cuts generated in the phase 1: 9
+Number of repeat: 0 
+violation 314.000000
+violation 302.000000
+violation 344.000000
+violation 227.000000
+violation 282.000000
+violation 267.000000
+violation 90.000000
+violation 131.000000
+violation 54.000000
+Number of Cuts in the second phase:680
+Number of repeat: 640 
+Violation: 628.000000
+Violation: 604.000000
+Violation: 570.000000
+Violation: 180.000000
+Violation: 190.000000
+Violation: 276.000000
+Violation: 270.000000
+Violation: 216.000000
+Violation: 472.000000
+Violation: 170.000000
+Violation: 456.000000
+Violation: 688.000000
+Violation: 50.000000
+Violation: 289.000000
+Violation: 32.000000
+Violation: 199.000000
+Violation: 426.000000
+Violation: 146.000000
+Violation: 118.000000
+Violation: 454.000000
+Violation: 428.000000
+Violation: 116.000000
+Violation: 710.000000
+Violation: 94.000000
+Violation: 35.000000
+Violation: 317.000000
+Violation: 564.000000
+Violation: 398.000000
+Violation: 67.000000
+Violation: 534.000000
+Violation: 101.000000
+Violation: 180.000000
+Violation: 262.000000
+Violation: 268.000000
+Violation: 942.000000
+Violation: 302.000000
+Violation: 255.000000
+Violation: 560.000000
+Violation: 646.000000
+Violation: 620.000000
+Number of Cuts in the second phase:392
+Number of repeat: 378 
+Violation: 285.000000
+Violation: 181.000000
+Violation: 524.000000
+Violation: 124.000000
+Violation: 46.000000
+Violation: 373.000000
+Violation: 710.000000
+Violation: 281.000000
+Violation: 481.000000
+Violation: 82.000000
+Violation: 414.000000
+Violation: 509.000000
+Violation: 599.000000
+Violation: 790.000000
+took 9.579982
+Optimize a model with 1186 rows, 5829 columns and 129681 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+02]
+  Objective range  [0e+00, 0e+00]
+  Bounds range     [1e+00, 1e+02]
+  RHS range        [1e+00, 6e+01]
+
+Concurrent LP optimizer: dual simplex and barrier
+Showing barrier log only...
+
+Presolve removed 297 rows and 231 columns
+Presolve time: 0.03s
+Presolved: 889 rows, 5598 columns, 117991 nonzeros
+
+Ordering time: 0.00s
+
+Barrier statistics:
+ AA' NZ     : 1.037e+05
+ Factor NZ  : 2.186e+05 (roughly 4 MBytes of memory)
+ Factor Ops : 6.885e+07 (less than 1 second per iteration)
+ Threads    : 3
+
+                  Objective                Residual
+Iter       Primal          Dual         Primal    Dual     Compl     Time
+   0   0.00000000e+00 -6.47062500e+01  3.48e+03 0.00e+00  6.00e-01     0s
+   1   0.00000000e+00 -1.10836154e+02  9.04e+02 1.23e-02  1.61e-01     0s
+   2   0.00000000e+00 -8.57161747e+01  2.45e+02 1.08e-03  4.47e-02     0s
+   3   0.00000000e+00 -5.93058699e+01  6.86e+01 2.44e-04  1.43e-02     0s
+   4   0.00000000e+00 -2.88353977e+01  8.04e+00 1.15e-05  3.23e-03     0s
+   5   0.00000000e+00 -3.24097207e+00  2.72e-02 1.73e-18  2.73e-04     0s
+   6   0.00000000e+00 -4.01581840e-03  1.42e-12 1.08e-19  3.37e-07     0s
+   7   0.00000000e+00 -4.01594575e-06  5.26e-13 2.65e-20  3.37e-10     0s
+   8   0.00000000e+00 -4.01594575e-09  6.15e-13 1.52e-23  3.37e-13     0s
+
+Barrier solved model in 8 iterations and 0.11 seconds
+Optimal objective 0.00000000e+00
+
+Crossover log...
+
+       0 DPushes remaining with DInf 0.0000000e+00                 0s
+
+    5419 PPushes remaining with PInf 0.0000000e+00                 0s
+       0 PPushes remaining with PInf 0.0000000e+00                 0s
+
+  Push phase complete: Pinf 0.0000000e+00, Dinf 0.0000000e+00      0s
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+    5458    0.0000000e+00   0.000000e+00   0.000000e+00      0s
+    5458    0.0000000e+00   0.000000e+00   0.000000e+00      0s
+
+Solved with barrier
+Solved in 5458 iterations and 0.26 seconds
+Optimal objective  0.000000000e+00

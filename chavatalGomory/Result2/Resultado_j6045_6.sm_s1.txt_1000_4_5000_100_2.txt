@@ -1,0 +1,62 @@
+j6045_6.sm_s1.txt
+Academic license - for non-commercial use only
+Read LP format model from file lp/j6045_6.sm.lp
+Reading time = 0.05 seconds
+: 1011 rows, 4924 columns, 155521 nonzeros
+OKGPU
+Number cuts generated in the phase 1: 3
+Number of repeat: 0 
+violation 48.000000
+violation 31.000000
+violation 4.000000
+Number of Cuts in the second phase:165
+Number of repeat: 157 
+Violation: 148.000000
+Violation: 303.000000
+Violation: 155.000000
+Violation: 33.000000
+Violation: 135.000000
+Violation: 216.000000
+Violation: 334.000000
+Violation: 79.000000
+took 6.562723
+Optimize a model with 1320 rows, 4924 columns and 159278 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+02]
+  Objective range  [0e+00, 0e+00]
+  Bounds range     [1e+00, 1e+02]
+  RHS range        [1e+00, 2e+01]
+
+Concurrent LP optimizer: dual simplex and barrier
+Showing barrier log only...
+
+Presolve removed 191 rows and 194 columns
+Presolve time: 0.05s
+Presolved: 1129 rows, 4730 columns, 149650 nonzeros
+
+Ordering time: 0.00s
+
+Barrier statistics:
+ AA' NZ     : 1.728e+05
+ Factor NZ  : 2.875e+05 (roughly 5 MBytes of memory)
+ Factor Ops : 9.390e+07 (less than 1 second per iteration)
+ Threads    : 3
+
+                  Objective                Residual
+Iter       Primal          Dual         Primal    Dual     Compl     Time
+   0   0.00000000e+00 -5.01625000e+01  1.53e+04 0.00e+00  3.28e+00     0s
+   1   0.00000000e+00 -9.97587947e+01  4.60e+03 2.30e-02  1.02e+00     0s
+   2   0.00000000e+00 -1.46709170e+02  2.00e+03 2.11e-03  4.35e-01     0s
+   3   0.00000000e+00 -1.18469078e+02  9.70e+01 2.03e-15  3.14e-02     0s
+   4   0.00000000e+00 -5.70234019e+01  1.55e+01 6.87e-16  8.22e-03     0s
+   5   0.00000000e+00 -2.54739083e+01  4.11e+00 2.15e-16  2.94e-03     0s
+   6   0.00000000e+00 -3.15709707e+00  2.40e-14 9.19e-17  3.02e-04     0s
+   7   0.00000000e+00 -3.15709707e-03  3.02e-14 1.63e-17  3.02e-07     0s
+
+Barrier performed 7 iterations in 0.18 seconds
+Barrier solve interrupted - model solved by another algorithm
+
+
+Solved with dual simplex
+Solved in 996 iterations and 0.18 seconds
+Optimal objective  0.000000000e+00
