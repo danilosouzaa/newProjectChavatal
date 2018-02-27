@@ -79,13 +79,14 @@ int main(int argc, char *argv[])
         int nThreads;
         int nRepeat = 1;
         int nRuns_temp,i;
+        //int cont_run = 0;
         float aux;
         if(nRuns<5000){
 		returnDimension(&nBlocks, &nThreads, nRuns);
 	}else{
 		returnDimension(&nBlocks, &nThreads, 5000);
 	}
-	printf("nThreads: %d , nBlocks: %d \n", nThreads, nBlocks);
+        printf("nThreads: %d , nBlocks: %d \n", nThreads, nBlocks);
         n_cuts= ccg->numberConstrains;
         //printf("antes: %d\n",ccg->numberConstrains);
         ccg = initial_runGPU(ccg, ccg_aux, maxContraints,maxDenominator,p,type,nThreads,nBlocks);
@@ -94,22 +95,23 @@ int main(int argc, char *argv[])
             ccg_aux = reallocCut(ccg,ccg_aux, &contr1);
         n_cuts = ccg->numberConstrains;
 
-        if(nRuns < 7000/* nBlocks*nThreads*/){
+        if(nRuns < 0.7*(nBlocks*nThreads)){
             nThreads = (nRuns/nBlocks) ;
         }else{
-            aux = (float)(nRuns - 7000 /*nThreads*nBlocks*/)/(float)(7000/*nThreads*nBlocks*/);
+            aux = (float)(nRuns - 0.7*(nThreads*nBlocks))/(float)(0.7*(nThreads*nBlocks));
             nRepeat += ceil(aux);
-	    nThreads = 7000/nBlocks;
+            nThreads = (0.7*(nThreads*nBlocks))/nBlocks;
         }
         for(i = 1; i <= nRepeat;i++){
             if((nRepeat>1)&&(i == nRepeat)){
-                nThreads = (nRuns - (7000)*(i-1))/nBlocks;
+                nThreads = (nRuns - (nThreads*nBlocks)*(i-1))/nBlocks;
             }
             nRuns_temp =  nThreads*nBlocks;
             ccg = second_phase_runGPU(ccg, ccg_aux, maxContraints,nRuns_temp,maxDenominator,p, nBlocks, nThreads, &pos_R1, szR);
                 //printf("depois fase 2: %d - %d\n",ccg->numberConstrains, pos_R1);
             //if(n_cuts!=ccg->numberConstrains)
             //    ccg_aux = reallocCutR2(ccg,ccg_aux,&contr2);
+            //cont_run+= nRuns_temp;
         }
         ccg_aux = reallocCutR2(ccg,ccg_aux,&contr2);
         //ccg = phase_zeroHalf(ccg, ccg_aux,2);

@@ -129,7 +129,8 @@ Cut_gpu* initial_runGPU(Cut_gpu *h_cut, Cut_gpu_aux *cut_aux, int numberMaxConst
         if(type==1)
         {
             runGPUR1<<<nB,nT>>>(d_cut, d_solution_r1, d_seed, states, nT, precision);
-        }else
+        }
+        else
         {
             runGPUR1_aleatory<<<nB,nT>>>(d_cut, d_solution_r1, d_seed, states, nT, precision, maxDenominator);
         }
@@ -253,25 +254,41 @@ Cut_gpu* second_phase_runGPU(Cut_gpu *h_cut, Cut_gpu_aux *cut_aux, int numberMax
     bubble_sort(nElemR1,consR1,n_r);
     int *Similar = returnOrdConstrainsNR(h_cut);
     float *folga = returnFolga(h_cut);
-
+//    printf("%d %d %d\n",nRuns, nT, nB);
+//
+//    getchar();
     solutionGpu *h_solution_r2 = allocationStructSolution2(h_cut,numberMaxConst,nRuns);
     int *setConstraint = (int*)malloc(sizeof(int)*numberMaxConst*nRuns);
     calcSetConstraint(setConstraint, pos_R1,numberMaxConst, h_cut->numberConstrains, consR1, consNR1, n_r, n_nr, Similar, folga,  nRuns, szR);
+    /*int j;
+     for(i=0;i<nRuns;i++){
+         for(j=0;j<numberMaxConst;j++){
+             printf("%d \t", setConstraint[i*numberMaxConst + j]);
 
+         }
+         printf("\n");
 
+     }
+    */
 
     shuffle_Set(setConstraint, numberMaxConst, numberMaxConst*nRuns);
+
+    /*  printf("Depois do Shuffle\n");
+       for(i=0;i<nRuns;i++){
+          printf("%d:", i);
+          for(j=0;j<numberMaxConst;j++){
+              printf("%d \t", setConstraint[i*numberMaxConst + j]);
+
+          }
+          printf("\n");
+      }
+    */
 
     if(deviceCuda>0)
     {
         solutionGpu *d_solution;
         Cut_gpu *d_cut;
         int *d_setConstraint;
-
-
-//        getchar();
-
-
 
         int i, j;
 //        if(blockSize*minGridSize < nRuns){
@@ -311,12 +328,14 @@ Cut_gpu* second_phase_runGPU(Cut_gpu *h_cut, Cut_gpu_aux *cut_aux, int numberMax
         {
             h_seed[i] = rand()%100000;
         }
-        gpuMalloc((void*)&d_seed, sizeof(unsigned int)*(nT*nB));
+        gpuMalloc((void**)&d_seed, sizeof(unsigned int)*(nT*nB));
         gpuMemcpy(d_seed, h_seed, sizeof(unsigned int)*(nT*nB), cudaMemcpyHostToDevice);
 
-        gpuMalloc((void*)&d_setConstraint, sizeof(int)*numberMaxConst*nRuns);
-        gpuMemcpy(d_setConstraint, setConstraint, sizeof(int)*numberMaxConst*nRuns, cudaMemcpyHostToDevice);
-        runGPUR2<<<nB,nT>>>(d_cut, d_solution, d_seed, states, numberMaxConst,d_setConstraint,nT,precision,maxDenominator);
+        gpuMalloc((void*)&d_setConstraint, sizeof(int)*(numberMaxConst*nRuns));
+        gpuMemcpy(d_setConstraint, setConstraint, sizeof(int)*(numberMaxConst*nRuns), cudaMemcpyHostToDevice);
+
+        runGPUR2<<<nB,nT>>>(d_cut, d_solution, d_seed, states, numberMaxConst, d_setConstraint, nT,precision,maxDenominator,nRuns);
+
         gpuDeviceSynchronize();
         gpuMemcpy(h_solution_r2, d_solution, size_solution, cudaMemcpyDeviceToHost);
 
@@ -356,6 +375,19 @@ Cut_gpu* second_phase_runGPU(Cut_gpu *h_cut, Cut_gpu_aux *cut_aux, int numberMax
         {
             printf("Number of Cuts in the second phase:%d\n",cont);
             out_cut_gpu = createCutsOfPhaseTwo(h_cut,cut_aux,h_solution_r2,numberMaxConst,cont,precision,nRuns,nT,nB);
+            if(out_cut_gpu==NULL)
+            {
+                free(consR1);
+                free(consNR1);
+                free(Similar);
+                free(folga);
+                free(nElemR1);
+                free(setConstraint);
+                free(h_solution_r2);
+
+                return h_cut;
+
+            }
         }
         else
         {

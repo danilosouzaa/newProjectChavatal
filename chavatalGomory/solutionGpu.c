@@ -8,12 +8,13 @@
 #include "solutionGpu.h"
 
 
-    //TSMult *SMult;
-    //TSConst *SConst;
-    //TSPAux *SPAux;
+//TSMult *SMult;
+//TSConst *SConst;
+//TSPAux *SPAux;
 
 solutionGpu* allocationStructSolution2(Cut_gpu *c, int numberMaxConst, int nRuns)
 {
+    printf("%d %d\n",nRuns,numberMaxConst);
     size_t size_solution =  sizeof(solutionGpu) +
                             sizeof(TSMult)*(nRuns*4) +
                             sizeof(TSConst)*(numberMaxConst*nRuns) +
@@ -338,6 +339,15 @@ Cut_gpu* createCutsOfPhaseTwo(Cut_gpu *h_cut, Cut_gpu_aux *cut_aux, solutionGpu 
                 Pos_el_temp[cont_aux + 1] = aux;
                 rhs_temp[cont_aux] = rhs1 + rhs2;
                 value_violation[cont_aux] -= (rhs1+rhs2)*precision;
+//                if(value_violation[cont_aux]>=precision){
+//                    printf("Value violation: %f %d\n", value_violation[cont_aux],precision);
+//                    for(rest_a = 0; rest_a< numberMaxConst; rest_a++){
+//                        int testando = h_solution->SConst[rest_a+ i*numberMaxConst + k*numberMaxConst*nThreads];
+//                        printf("%d \t", testando);
+//                        printf("Tipo: %d \n",h_cut->typeConstraints[testando]);
+//                    }
+//                    printf("\n");
+//                }
                 cont_aux++;
             }
         }
@@ -416,37 +426,41 @@ Cut_gpu* createCutsOfPhaseTwo(Cut_gpu *h_cut, Cut_gpu_aux *cut_aux, solutionGpu 
         }
     }
     printf("Number of repeat: %d \n", cont_aux);
-    Cut_gpu* new_h_cut;
-    new_h_cut = AllocationStructCut(cuts_generated->cont - minus_elements,cuts_generated->numberConstrains-cont_aux,cuts_generated->numberVariables);
-    aux = 0;
-    cont_aux = 0;
-    new_h_cut->ElementsConstraints[0] = 0;
-    for(i=0; i<cuts_generated->numberConstrains; i++)
+    if(cont_aux<nCuts)
     {
-        if(validated[i]==0)
+        Cut_gpu* new_h_cut;
+        new_h_cut = AllocationStructCut(cuts_generated->cont - minus_elements,cuts_generated->numberConstrains-cont_aux,cuts_generated->numberVariables);
+        aux = 0;
+        cont_aux = 0;
+        new_h_cut->ElementsConstraints[0] = 0;
+        for(i=0; i<cuts_generated->numberConstrains; i++)
         {
-            new_h_cut->rightSide[aux] = cuts_generated->rightSide[i];
-            new_h_cut->typeConstraints[aux] = cuts_generated->typeConstraints[i];
-            if(i>=h_cut->numberConstrains)
+            if(validated[i]==0)
             {
-                printf("Violation: %f\n", value_violation[i-h_cut->numberConstrains]);
-            }
-            for(j = cuts_generated->ElementsConstraints[i]; j < cuts_generated->ElementsConstraints[i+1]; j++)
-            {
-                new_h_cut->Coefficients[cont_aux] = cuts_generated->Coefficients[j];
-                new_h_cut->Elements[cont_aux] = cuts_generated->Elements[j];
-                cont_aux++;
+                new_h_cut->rightSide[aux] = cuts_generated->rightSide[i];
+                new_h_cut->typeConstraints[aux] = cuts_generated->typeConstraints[i];
+                if(i>=h_cut->numberConstrains)
+                {
+                    printf("Violation: %f\n", value_violation[i-h_cut->numberConstrains]);
+                }
+                for(j = cuts_generated->ElementsConstraints[i]; j < cuts_generated->ElementsConstraints[i+1]; j++)
+                {
+                    new_h_cut->Coefficients[cont_aux] = cuts_generated->Coefficients[j];
+                    new_h_cut->Elements[cont_aux] = cuts_generated->Elements[j];
+                    cont_aux++;
+                }
+
+                new_h_cut->ElementsConstraints[aux + 1] = cont_aux;
+                aux++;
             }
 
-            new_h_cut->ElementsConstraints[aux + 1] = cont_aux;
-            aux++;
         }
 
-    }
-
-    for(i=0; i<new_h_cut->numberVariables; i++)
-    {
-        new_h_cut->xAsterisc[i] = cuts_generated->xAsterisc[i];
+        for(i=0; i<new_h_cut->numberVariables; i++)
+        {
+            new_h_cut->xAsterisc[i] = cuts_generated->xAsterisc[i];
+        }
+        return new_h_cut;
     }
     free(value_violation);
     free(validated);
@@ -457,7 +471,8 @@ Cut_gpu* createCutsOfPhaseTwo(Cut_gpu *h_cut, Cut_gpu_aux *cut_aux, solutionGpu 
     free(rhs_temp);
     free(Coef1);
     free(Coef2);
-    return new_h_cut;
+    return NULL;
+
 }
 
 
