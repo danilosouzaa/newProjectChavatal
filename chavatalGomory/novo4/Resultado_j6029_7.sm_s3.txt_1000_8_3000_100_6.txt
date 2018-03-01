@@ -1,0 +1,60 @@
+j6029_7.sm_s3.txt
+Academic license - for non-commercial use only
+Read LP format model from file lp/j6029_7.sm.lp
+Reading time = 0.08 seconds
+: 908 rows, 4192 columns, 108912 nonzeros
+OKGPU
+nThreads: 1024 , nBlocks: 12 
+No cuts generate
+3000 8
+Number of Cuts in the second phase:2
+Number of repeat: 0 
+Violation: 40.000000
+Violation: 25.000000
+took 4.682202
+Optimize a model with 1011 rows, 4192 columns and 109827 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+02]
+  Objective range  [0e+00, 0e+00]
+  Bounds range     [1e+00, 1e+02]
+  RHS range        [1e+00, 2e+01]
+
+Concurrent LP optimizer: dual simplex and barrier
+Showing barrier log only...
+
+Presolve removed 189 rows and 180 columns
+Presolve time: 0.04s
+Presolved: 822 rows, 4012 columns, 101664 nonzeros
+
+Ordering time: 0.00s
+
+Barrier statistics:
+ AA' NZ     : 9.935e+04
+ Factor NZ  : 1.657e+05 (roughly 3 MBytes of memory)
+ Factor Ops : 4.345e+07 (less than 1 second per iteration)
+ Threads    : 3
+
+                  Objective                Residual
+Iter       Primal          Dual         Primal    Dual     Compl     Time
+   0   0.00000000e+00 -4.59062500e+01  2.31e+03 0.00e+00  5.42e-01     0s
+   1   0.00000000e+00 -9.88087929e+01  3.94e+02 6.46e-03  9.94e-02     0s
+   2   0.00000000e+00 -6.50120055e+01  6.18e+01 6.20e-04  1.98e-02     0s
+   3   0.00000000e+00 -3.64030665e+01  7.14e+00 2.09e-04  5.44e-03     0s
+   4   0.00000000e+00 -1.10481365e+01  1.36e-01 3.47e-05  1.31e-03     0s
+   5   0.00000000e+00 -1.73383483e-02  5.68e-14 8.67e-19  1.99e-06     0s
+   6   0.00000000e+00 -1.73792610e-05  6.75e-14 5.17e-19  1.99e-09     0s
+   7   0.00000000e+00 -1.73792610e-08  6.57e-14 5.20e-22  1.99e-12     0s
+   8   0.00000000e+00 -1.73792610e-11  2.84e-14 2.17e-25  1.99e-15     0s
+
+Barrier solved model in 8 iterations and 0.11 seconds
+Optimal objective 0.00000000e+00
+
+Crossover log...
+
+       0 DPushes remaining with DInf 0.0000000e+00                 0s
+
+    3919 PPushes remaining with PInf 0.0000000e+00                 0s
+
+Solved with dual simplex
+Solved in 994 iterations and 0.15 seconds
+Optimal objective  0.000000000e+00

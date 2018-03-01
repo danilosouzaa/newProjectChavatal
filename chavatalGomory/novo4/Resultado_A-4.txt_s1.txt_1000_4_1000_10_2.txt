@@ -1,0 +1,123 @@
+A-4.txt_s1.txt
+Academic license - for non-commercial use only
+Read LP format model from file lp/A-4.txt.lp
+Reading time = 0.05 seconds
+: 961 rows, 10797 columns, 131727 nonzeros
+OKGPU
+nThreads: 512 , nBlocks: 24 
+Number cuts generated in the phase 1: 18
+Number of repeat: 0 
+violation 89.000000
+violation 26.000000
+violation 26.000000
+violation 24.000000
+violation 51.000000
+violation 291.000000
+violation 505.000000
+violation 167.000000
+violation 7.000000
+violation 474.000000
+violation 460.000000
+violation 460.000000
+violation 258.000000
+violation 331.000000
+violation 574.000000
+violation 501.000000
+violation 582.000000
+violation 582.000000
+984 4
+Number of Cuts in the second phase:294
+Number of repeat: 254 
+Violation: 130.000000
+Violation: 506.000000
+Violation: 388.000000
+Violation: 194.000000
+Violation: 334.000000
+Violation: 86.000000
+Violation: 374.000000
+Violation: 25.000000
+Violation: 722.000000
+Violation: 344.000000
+Violation: 334.000000
+Violation: 270.000000
+Violation: 582.000000
+Violation: 374.000000
+Violation: 480.000000
+Violation: 288.000000
+Violation: 260.000000
+Violation: 388.000000
+Violation: 38.000000
+Violation: 130.000000
+Violation: 172.000000
+Violation: 240.000000
+Violation: 172.000000
+Violation: 388.000000
+Violation: 482.000000
+Violation: 156.000000
+Violation: 94.000000
+Violation: 776.000000
+Violation: 86.000000
+Violation: 172.000000
+Violation: 180.000000
+Violation: 157.000000
+Violation: 242.000000
+Violation: 417.000000
+Violation: 560.000000
+Violation: 434.000000
+Violation: 104.000000
+Violation: 498.000000
+Violation: 194.000000
+Violation: 172.000000
+took 6.768789
+Optimize a model with 1062 rows, 10797 columns and 132209 nonzeros
+Coefficient statistics:
+  Matrix range     [1e-05, 9e+01]
+  Objective range  [0e+00, 0e+00]
+  Bounds range     [1e+00, 2e+09]
+  RHS range        [1e+00, 6e+01]
+Warning: Model contains large bounds
+         Consider reformulating model or setting NumericFocus parameter
+         to avoid numerical issues.
+
+Concurrent LP optimizer: dual simplex and barrier
+Showing barrier log only...
+
+Presolve removed 150 rows and 420 columns
+Presolve time: 0.05s
+Presolved: 912 rows, 10377 columns, 124742 nonzeros
+
+Ordering time: 0.00s
+
+Barrier statistics:
+ AA' NZ     : 4.593e+04
+ Factor NZ  : 7.728e+04 (roughly 5 MBytes of memory)
+ Factor Ops : 7.668e+06 (less than 1 second per iteration)
+ Threads    : 3
+
+                  Objective                Residual
+Iter       Primal          Dual         Primal    Dual     Compl     Time
+   0   0.00000000e+00 -2.68716627e+07  7.48e+09 0.00e+00  1.28e+06     0s
+   1   0.00000000e+00 -4.90407350e+06  3.27e+09 5.90e-03  5.52e+05     0s
+   2   0.00000000e+00 -1.12156975e+05  1.03e+08 1.39e-16  1.74e+04     0s
+   3   0.00000000e+00 -1.33041676e+03  2.92e+04 1.67e-16  5.01e+00     0s
+   4   0.00000000e+00 -1.09707815e+03  2.40e+04 3.13e-06  3.93e+00     0s
+   5   0.00000000e+00 -1.34679781e+03  1.22e+04 8.20e-05  2.67e+00     0s
+   6   0.00000000e+00 -8.94377164e+02  7.61e+03 2.12e-05  1.42e+00     0s
+   7   0.00000000e+00 -6.98446098e+02  1.65e+03 3.88e-10  3.36e-01     0s
+   8   0.00000000e+00 -4.98009085e+02  9.46e+02 1.53e-10  1.90e-01     0s
+   9   0.00000000e+00 -4.13684892e+02  5.77e+02 1.08e-10  1.19e-01     0s
+  10   0.00000000e+00 -3.66689742e+02  3.02e+02 8.85e-11  6.87e-02     0s
+  11   0.00000000e+00 -2.01735066e+02  2.02e+02 3.08e-11  4.17e-02     0s
+  12   0.00000000e+00 -7.79861112e+01  3.65e+01 6.71e-12  9.14e-03     0s
+  13   0.00000000e+00 -3.31239263e+01  1.03e+01 2.22e-12  2.98e-03     0s
+  14   0.00000000e+00 -2.69192222e+01  4.38e+00 1.73e-12  1.84e-03     0s
+  15   0.00000000e+00 -1.96604536e+01  2.44e+00 1.23e-12  1.22e-03     0s
+  16   0.00000000e+00 -1.61605852e+01  1.38e+00 9.93e-13  9.20e-04     0s
+
+Barrier performed 16 iterations in 0.14 seconds
+Barrier solve interrupted - model solved by another algorithm
+
+
+Solved with dual simplex
+Solved in 658 iterations and 0.15 seconds
+Optimal objective  0.000000000e+00

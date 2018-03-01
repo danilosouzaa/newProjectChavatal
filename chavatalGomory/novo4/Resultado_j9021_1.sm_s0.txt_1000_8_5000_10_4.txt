@@ -1,0 +1,140 @@
+j9021_1.sm_s0.txt
+Academic license - for non-commercial use only
+Read LP format model from file lp/j9021_1.sm.lp
+Reading time = 0.03 seconds
+: 1060 rows, 4806 columns, 80529 nonzeros
+OKGPU
+nThreads: 1024 , nBlocks: 12 
+Number cuts generated in the phase 1: 13
+Number of repeat: 0 
+violation 641.000000
+violation 432.000000
+violation 251.000000
+violation 137.000000
+violation 489.000000
+violation 478.000000
+violation 466.000000
+violation 283.000000
+violation 15.000000
+violation 249.000000
+violation 8.000000
+violation 9.000000
+violation 340.000000
+4992 8
+Number of Cuts in the second phase:1798
+Number of repeat: 1735 
+Violation: 67.000000
+Violation: 353.000000
+Violation: 290.000000
+Violation: 111.000000
+Violation: 288.000000
+Violation: 234.000000
+Violation: 243.000000
+Violation: 778.000000
+Violation: 125.000000
+Violation: 17.000000
+Violation: 145.000000
+Violation: 178.000000
+Violation: 144.000000
+Violation: 542.000000
+Violation: 307.000000
+Violation: 112.000000
+Violation: 134.000000
+Violation: 296.000000
+Violation: 215.000000
+Violation: 41.000000
+Violation: 299.000000
+Violation: 250.000000
+Violation: 181.000000
+Violation: 166.000000
+Violation: 169.000000
+Violation: 259.000000
+Violation: 181.000000
+Violation: 362.000000
+Violation: 451.000000
+Violation: 145.000000
+Violation: 216.000000
+Violation: 354.000000
+Violation: 41.000000
+Violation: 327.000000
+Violation: 349.000000
+Violation: 212.000000
+Violation: 831.000000
+Violation: 162.000000
+Violation: 106.000000
+Violation: 210.000000
+Violation: 458.000000
+Violation: 228.000000
+Violation: 681.000000
+Violation: 284.000000
+Violation: 193.000000
+Violation: 85.000000
+Violation: 17.000000
+Violation: 398.000000
+Violation: 264.000000
+Violation: 381.000000
+Violation: 284.000000
+Violation: 4.000000
+Violation: 2.000000
+Violation: 178.000000
+Violation: 275.000000
+Violation: 680.000000
+Violation: 31.000000
+Violation: 105.000000
+Violation: 358.000000
+Violation: 762.000000
+Violation: 394.000000
+Violation: 355.000000
+Violation: 120.000000
+took 4.080469
+Optimize a model with 1149 rows, 4806 columns and 81217 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+02]
+  Objective range  [0e+00, 0e+00]
+  Bounds range     [1e+00, 1e+02]
+  RHS range        [1e+00, 2e+01]
+
+Concurrent LP optimizer: dual simplex and barrier
+Showing barrier log only...
+
+Presolve removed 293 rows and 224 columns
+Presolve time: 0.03s
+Presolved: 856 rows, 4582 columns, 71849 nonzeros
+
+Ordering time: 0.03s
+
+Barrier statistics:
+ AA' NZ     : 6.978e+04
+ Factor NZ  : 1.719e+05 (roughly 4 MBytes of memory)
+ Factor Ops : 4.445e+07 (less than 1 second per iteration)
+ Threads    : 3
+
+                  Objective                Residual
+Iter       Primal          Dual         Primal    Dual     Compl     Time
+   0   0.00000000e+00 -5.27875000e+01  4.33e+03 0.00e+00  1.35e+00     0s
+   1   0.00000000e+00 -1.09837729e+02  1.50e+03 1.81e-02  4.77e-01     0s
+   2   0.00000000e+00 -1.22196454e+02  2.70e+02 1.25e-16  9.34e-02     0s
+   3   0.00000000e+00 -7.14035514e+01  3.97e+01 1.46e-16  1.78e-02     0s
+   4   0.00000000e+00 -4.01130522e+01  7.50e+00 1.67e-16  5.67e-03     0s
+   5   0.00000000e+00 -1.59061739e+01  1.50e+00 4.68e-17  1.81e-03     0s
+   6   0.00000000e+00 -3.04917139e+00  3.85e-04 4.16e-17  3.10e-04     0s
+   7   0.00000000e+00 -3.60123258e-06  9.59e-14 1.61e-17  3.66e-10     0s
+   8   0.00000000e+00 -3.60123294e-12  8.17e-14 1.53e-23  3.66e-16     0s
+
+Barrier solved model in 8 iterations and 0.12 seconds
+Optimal objective 0.00000000e+00
+
+Crossover log...
+
+    4449 PPushes remaining with PInf 0.0000000e+00                 0s
+       0 PPushes remaining with PInf 0.0000000e+00                 0s
+
+  Push phase complete: Pinf 0.0000000e+00, Dinf 0.0000000e+00      0s
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+    4452    0.0000000e+00   0.000000e+00   0.000000e+00      0s
+    4452    0.0000000e+00   0.000000e+00   0.000000e+00      0s
+
+Solved with barrier
+Solved in 4452 iterations and 0.21 seconds
+Optimal objective  0.000000000e+00

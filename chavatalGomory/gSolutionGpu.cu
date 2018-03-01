@@ -305,15 +305,15 @@ __global__ void runGPUR2(Cut_gpu *d_cut, solutionGpu *d_solution, unsigned int *
                     if((value_tes>aux*precision)&&(value_tes-(aux*precision)>violation))
                     {
                         violation = value_tes-(aux*precision);
-                        if(violation>precision)
-                        {
-                            printf("AQUIIII!!");
-                            for(i=0; i<numberMaxConst; i++)
-                            {
-                                printf("%d ",setConstraint[term*numberMaxConst + i]);//CPU ja vai ter
-                            }
-                            printf("\n");
-                        }
+//                        if(violation>precision)
+//                        {
+//                            printf("AQUIIII!!");
+//                            for(i=0; i<numberMaxConst; i++)
+//                            {
+//                                printf("%d ",setConstraint[term*numberMaxConst + i]);//CPU ja vai ter
+//                            }
+//                            printf("\n");
+//                        }
                         n1_best = Numerator[mult_1];
                         d1_best = Denominator[mult_1];
                         n2_best = Numerator[mult_2];

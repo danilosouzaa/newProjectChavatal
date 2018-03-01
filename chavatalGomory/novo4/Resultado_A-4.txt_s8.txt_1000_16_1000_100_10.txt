@@ -1,0 +1,92 @@
+A-4.txt_s8.txt
+Academic license - for non-commercial use only
+Read LP format model from file lp/A-4.txt.lp
+Reading time = 0.08 seconds
+: 961 rows, 10797 columns, 131727 nonzeros
+OKGPU
+nThreads: 512 , nBlocks: 24 
+Number cuts generated in the phase 1: 10
+Number of repeat: 0 
+violation 4.000000
+violation 5.000000
+violation 2.000000
+violation 92.000000
+violation 31.000000
+violation 45.000000
+violation 112.000000
+violation 32.000000
+violation 726.000000
+violation 677.000000
+984 16
+AQUIIII!!159 31 69 64 37 14 78 75 29 30 16 15 65 45 155 68 
+AQUIIII!!31 160 159 156 5 69 75 13 65 79 155 68 15 16 81 45 
+Number of Cuts in the second phase:156
+Number of repeat: 136 
+Violation: 340.000000
+Violation: 45.000000
+Violation: 680.000000
+Violation: 484.000000
+Violation: 242.000000
+Violation: 386.000000
+Violation: 383.000000
+Violation: 686.000000
+Violation: 224.000000
+Violation: 13.000000
+Violation: 477.000000
+Violation: 686.000000
+Violation: 106.000000
+Violation: 350.000000
+Violation: 110.000000
+Violation: 1022.000000
+Violation: 337.000000
+Violation: 1017.000000
+Violation: 968.000000
+Violation: 821.000000
+took 8.812675
+Optimize a model with 1056 rows, 10797 columns and 132197 nonzeros
+Coefficient statistics:
+  Matrix range     [1e-05, 9e+01]
+  Objective range  [0e+00, 0e+00]
+  Bounds range     [1e+00, 2e+09]
+  RHS range        [1e+00, 6e+01]
+Warning: Model contains large bounds
+         Consider reformulating model or setting NumericFocus parameter
+         to avoid numerical issues.
+
+Concurrent LP optimizer: dual simplex and barrier
+Showing barrier log only...
+
+Presolve removed 151 rows and 420 columns
+Presolve time: 0.05s
+Presolved: 905 rows, 10377 columns, 124732 nonzeros
+
+Ordering time: 0.00s
+
+Barrier statistics:
+ AA' NZ     : 4.559e+04
+ Factor NZ  : 7.890e+04 (roughly 5 MBytes of memory)
+ Factor Ops : 8.185e+06 (less than 1 second per iteration)
+ Threads    : 3
+
+                  Objective                Residual
+Iter       Primal          Dual         Primal    Dual     Compl     Time
+   0   0.00000000e+00 -2.68716621e+07  9.31e+09 0.00e+00  1.59e+06     0s
+   1   0.00000000e+00 -6.06433804e+06  3.58e+09 7.42e-03  6.07e+05     0s
+   2   0.00000000e+00 -1.84738357e+05  1.34e+08 1.11e-16  2.30e+04     0s
+   3   0.00000000e+00 -1.39851130e+03  3.51e+04 1.39e-16  6.06e+00     0s
+   4   0.00000000e+00 -1.17740759e+03  2.55e+04 2.14e-06  4.35e+00     0s
+   5   0.00000000e+00 -1.19018742e+03  6.90e+03 2.07e-05  1.32e+00     0s
+   6   0.00000000e+00 -7.98691514e+02  4.21e+03 8.51e-06  7.62e-01     0s
+   7   0.00000000e+00 -5.96422337e+02  2.01e+03 6.40e-09  3.61e-01     0s
+   8   0.00000000e+00 -2.93368715e+02  4.62e+02 2.50e-10  8.64e-02     0s
+   9   0.00000000e+00 -1.49507366e+02  1.25e+02 6.99e-11  2.58e-02     0s
+  10   0.00000000e+00 -8.22147344e+01  5.68e+01 3.11e-11  1.20e-02     0s
+  11   0.00000000e+00 -6.96654955e+01  3.21e+01 2.56e-11  7.83e-03     0s
+
+Barrier performed 11 iterations in 0.11 seconds
+Barrier solve interrupted - model solved by another algorithm
+
+
+Solved with dual simplex
+Solved in 586 iterations and 0.11 seconds
+Optimal objective  0.000000000e+00

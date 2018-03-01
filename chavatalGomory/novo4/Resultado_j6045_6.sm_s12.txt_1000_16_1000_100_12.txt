@@ -1,0 +1,55 @@
+j6045_6.sm_s12.txt
+Academic license - for non-commercial use only
+Read LP format model from file lp/j6045_6.sm.lp
+Reading time = 0.05 seconds
+: 1011 rows, 4924 columns, 155521 nonzeros
+OKGPU
+nThreads: 512 , nBlocks: 24 
+No cuts generate
+984 16
+took 14.383151
+Optimize a model with 1052 rows, 4924 columns and 156576 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+02]
+  Objective range  [0e+00, 0e+00]
+  Bounds range     [1e+00, 1e+02]
+  RHS range        [1e+00, 2e+01]
+
+Concurrent LP optimizer: dual simplex and barrier
+Showing barrier log only...
+
+Presolve removed 191 rows and 194 columns
+Presolve time: 0.05s
+Presolved: 861 rows, 4730 columns, 146948 nonzeros
+
+Ordering time: 0.00s
+
+Barrier statistics:
+ AA' NZ     : 1.159e+05
+ Factor NZ  : 2.477e+05 (roughly 4 MBytes of memory)
+ Factor Ops : 9.744e+07 (less than 1 second per iteration)
+ Threads    : 3
+
+                  Objective                Residual
+Iter       Primal          Dual         Primal    Dual     Compl     Time
+   0   0.00000000e+00 -5.01625000e+01  1.53e+04 0.00e+00  3.15e+00     0s
+   1   0.00000000e+00 -9.77904886e+01  4.61e+03 2.23e-02  9.68e-01     0s
+   2   0.00000000e+00 -1.43188646e+02  1.09e+03 6.73e-16  2.43e-01     0s
+   3   0.00000000e+00 -9.04844893e+01  9.59e+01 1.38e-15  2.75e-02     0s
+   4   0.00000000e+00 -5.19357281e+01  1.67e+01 5.41e-16  8.05e-03     0s
+   5   0.00000000e+00 -2.04758191e+01  1.36e+00 3.19e-16  2.20e-03     0s
+   6   0.00000000e+00 -7.31525193e-01  2.31e-14 1.57e-16  7.17e-05     0s
+   7   0.00000000e+00 -7.31525193e-04  1.10e-13 4.17e-18  7.17e-08     0s
+   8   0.00000000e+00 -7.31525193e-07  6.75e-14 7.08e-21  7.17e-11     0s
+   9   0.00000000e+00 -7.33498299e-13  7.82e-14 3.53e-24  7.19e-17     0s
+
+Barrier solved model in 9 iterations and 0.18 seconds
+Optimal objective 0.00000000e+00
+
+Crossover log...
+
+    4632 PPushes remaining with PInf 0.0000000e+00                 0s
+
+Solved with dual simplex
+Solved in 1102 iterations and 0.22 seconds
+Optimal objective  0.000000000e+00
