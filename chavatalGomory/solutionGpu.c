@@ -339,15 +339,15 @@ Cut_gpu* createCutsOfPhaseTwo(Cut_gpu *h_cut, Cut_gpu_aux *cut_aux, solutionGpu 
                 Pos_el_temp[cont_aux + 1] = aux;
                 rhs_temp[cont_aux] = rhs1 + rhs2;
                 value_violation[cont_aux] -= (rhs1+rhs2)*precision;
-                if(value_violation[cont_aux]>=precision){
-                    printf("Value violation: %f %d\n", value_violation[cont_aux],precision);
-                    for(rest_a = 0; rest_a< numberMaxConst; rest_a++){
-                        int testando = h_solution->SConst[rest_a+ i*numberMaxConst + k*numberMaxConst*nThreads];
-                        printf("%d \t", testando);
-                        printf("Tipo: %d \n",h_cut->typeConstraints[testando]);
-                    }
-                    printf("\n");
-                }
+                //if(value_violation[cont_aux]>=precision){
+                //    printf("Value violation: %f %d\n", value_violation[cont_aux],precision);
+                //    for(rest_a = 0; rest_a< numberMaxConst; rest_a++){
+                //        int testando = h_solution->SConst[rest_a+ i*numberMaxConst + k*numberMaxConst*nThreads];
+                //        printf("%d \t", testando);
+                //        printf("Tipo: %d \n",h_cut->typeConstraints[testando]);
+                //    }
+                //    printf("\n");
+                //:}
                 cont_aux++;
             }
         }

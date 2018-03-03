@@ -75,6 +75,7 @@ void shuffle_Set(int *vec, int nSetConstrains, int n)
 Cut_gpu* initial_runGPU(Cut_gpu *h_cut, Cut_gpu_aux *cut_aux, int numberMaxConst, int maxDenominator, int precision, int type, int nThreads, int nBlocks)
 {
     int deviceCuda;
+    cudaSetDevice(0);
     deviceCuda = verifyGpu();
     Cut_gpu* out_h_cut;
     int nRuns;
@@ -212,7 +213,7 @@ Cut_gpu* second_phase_runGPU(Cut_gpu *h_cut, Cut_gpu_aux *cut_aux, int numberMax
     int *consR1;
     int *consNR1;
     int *nElemR1;
-
+    cudaSetDevice(0);
     Cut_gpu* out_cut_gpu;
 
     int n_r = 0, n_nr = 0, i;
@@ -335,7 +336,7 @@ Cut_gpu* second_phase_runGPU(Cut_gpu *h_cut, Cut_gpu_aux *cut_aux, int numberMax
         gpuMemcpy(d_setConstraint, setConstraint, sizeof(int)*(numberMaxConst*nRuns), cudaMemcpyHostToDevice);
 
         runGPUR2<<<nB,nT>>>(d_cut, d_solution, d_seed, states, numberMaxConst, d_setConstraint, nT,precision,maxDenominator,nRuns);
-
+	//cudaSetDevice(0);
         gpuDeviceSynchronize();
         gpuMemcpy(h_solution_r2, d_solution, size_solution, cudaMemcpyDeviceToHost);
 

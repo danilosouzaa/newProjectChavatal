@@ -23,6 +23,7 @@ extern "C" {
 //Setimo parametro: Size nr1
 int main(int argc, char *argv[])
 {
+//    cudaSetDevice(0);
     if(argc<8)
     {
         printf("Argumentos faltando\n");
