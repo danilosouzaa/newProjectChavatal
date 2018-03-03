@@ -47,6 +47,7 @@ solutionGpu* allocationStructSolution1(Cut_gpu *c, int nRuns)  //for phase 1
 
 Cut_gpu* createCutsOfPhaseOne(Cut_gpu *h_cut, Cut_gpu_aux *cut_aux, solutionGpu *h_solution, int nCuts, int precision, int nRuns)
 {
+    //REVER ALOCAÇÃO
     int i,j,el,aux,constraint, rhs, mdc, tam = 0,lhs = 0, n1,d1 ;
     int *Coef1 = (int*)malloc(sizeof(int)*(h_cut->numberVariables));
     int *v_aux = (int*)malloc(sizeof(int)*(h_cut->numberVariables + 1));
@@ -58,9 +59,9 @@ Cut_gpu* createCutsOfPhaseOne(Cut_gpu *h_cut, Cut_gpu_aux *cut_aux, solutionGpu 
     int *rhs_temp = (int*)malloc(sizeof(int)*(nCuts));
     int cont_aux = 0, c_aux = 0;
     memset(v_aux,0,sizeof(int)*(h_cut->numberVariables+1));
-    double violation_media = 0;
-    double violation_max = 0;
-    double violation_min = 100000;
+//    double violation_media = 0;
+//    double violation_max = 0;
+//    double violation_min = 100000;
     double *violation = (double*)malloc(sizeof(double)*nCuts);
 
 
@@ -150,6 +151,7 @@ Cut_gpu* createCutsOfPhaseOne(Cut_gpu *h_cut, Cut_gpu_aux *cut_aux, solutionGpu 
         cuts_generated->ElementsConstraints[i+1] = h_cut->ElementsConstraints[i+1];
     }
     aux = 1;
+
     for(i = h_cut->numberConstrains; i<cuts_generated->numberConstrains; i++)
     {
 
@@ -169,6 +171,9 @@ Cut_gpu* createCutsOfPhaseOne(Cut_gpu *h_cut, Cut_gpu_aux *cut_aux, solutionGpu 
         cuts_generated->Elements[i] = Elements_temp[i - h_cut->cont];
     }
 
+    //DESALOCAR OS TEMP AQUI
+
+
     int *validated = (int*)malloc(sizeof(int)*cuts_generated->numberConstrains);
     memset(validated,0,sizeof(int)*cuts_generated->numberConstrains);
     aux = 1;
@@ -176,7 +181,6 @@ Cut_gpu* createCutsOfPhaseOne(Cut_gpu *h_cut, Cut_gpu_aux *cut_aux, solutionGpu 
     int k,p1,p2, minus_elements = 0;
     for(i=0; i<cuts_generated->numberConstrains - 1; i++)
     {
-
         for(j=i+1; j<cuts_generated->numberConstrains; j++)
         {
             if(validated[j]==0)
@@ -213,6 +217,7 @@ Cut_gpu* createCutsOfPhaseOne(Cut_gpu *h_cut, Cut_gpu_aux *cut_aux, solutionGpu 
 
     printf("Number of repeat: %d \n", cont_aux);
     Cut_gpu* new_h_cut;
+
     new_h_cut = AllocationStructCut(cuts_generated->cont - minus_elements,cuts_generated->numberConstrains-cont_aux,cuts_generated->numberVariables);
     aux = 0;
     cont_aux = 0;
@@ -245,7 +250,6 @@ Cut_gpu* createCutsOfPhaseOne(Cut_gpu *h_cut, Cut_gpu_aux *cut_aux, solutionGpu 
     }
 
     free(violation);
-
     free(validated);
     free(cuts_generated);
     free(Coefs_temp);

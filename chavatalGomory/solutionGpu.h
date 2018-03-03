@@ -23,8 +23,8 @@ EXTERN_C_BEGIN
 //typedef int TSRightSide;
 //typedef int TSViolation;
 typedef int TSMult;
-typedef int TSConst;
-typedef int TSPAux;
+typedef short TSConst;
+typedef short TSPAux;
 
 
 typedef struct {

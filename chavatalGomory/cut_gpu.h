@@ -14,9 +14,11 @@ typedef int TCoefficients;
 typedef int TElements;
 typedef int TElementsConstraints;
 typedef int TRightSide;
-typedef int TXAsterisc;
+typedef int TXAsterisc; //1000
 typedef char TTypeConstraints;
 typedef short TInterval;
+
+
 
 typedef int TList;
 typedef int TPosList;
@@ -36,7 +38,6 @@ typedef struct {
     TRightSide *rightSide;
     TXAsterisc *xAsterisc;
     TTypeConstraints *typeConstraints;
-
 }Cut_gpu;
 
 

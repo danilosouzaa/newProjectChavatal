@@ -112,11 +112,13 @@ Cut_gpu* initial_runGPU(Cut_gpu *h_cut, Cut_gpu_aux *cut_aux, int numberMaxConst
                           sizeof(TXAsterisc)*(h_cut->numberVariables) +
                           sizeof(TTypeConstraints)*(h_cut->numberConstrains);
 
-        solutionGpu *h_solution_r1 = allocationStructSolution1(h_cut,nRuns);
-        solutionGpu *d_solution_r1 = createGPUsolution1(h_solution_r1, h_cut,nRuns);
+        solutionGpu *h_solution_r1 = allocationStructSolution1(h_cut,nRuns); //cpu
+        solutionGpu *d_solution_r1 = createGPUsolution1(h_solution_r1, h_cut,nRuns);//gpu
         Cut_gpu *d_cut = createGPUcut(h_cut, h_cut->numberVariables, h_cut->numberConstrains);
+        //FASE 1 PODE TIRAR
         curandState_t *states;
         cudaMalloc((void**)&states, (nRuns)*sizeof(curandState_t));
+        //FASE 1 PODE TIRA
         unsigned int *h_seed = (unsigned int*)malloc(sizeof(unsigned int)*(nRuns));
         unsigned int *d_seed;
         srand(time(NULL));
@@ -126,7 +128,7 @@ Cut_gpu* initial_runGPU(Cut_gpu *h_cut, Cut_gpu_aux *cut_aux, int numberMaxConst
         }
         gpuMalloc((void*)&d_seed, sizeof(unsigned int)*(nRuns));
         gpuMemcpy(d_seed, h_seed, sizeof(unsigned int)*(nRuns), cudaMemcpyHostToDevice);
-
+        //---------------------------------------------------------------//
         if(type==1)
         {
             runGPUR1<<<nB,nT>>>(d_cut, d_solution_r1, d_seed, states, nT, precision);
@@ -174,6 +176,9 @@ Cut_gpu* initial_runGPU(Cut_gpu *h_cut, Cut_gpu_aux *cut_aux, int numberMaxConst
         {
             printf("Number cuts generated in the phase 1: %d\n", cont);
             out_h_cut = createCutsOfPhaseOne(h_cut, cut_aux, h_solution_r1, cont,precision,nRuns);
+            free(h_solution_r1);
+            free(h_cut);
+
         }
         else
         {
@@ -183,8 +188,6 @@ Cut_gpu* initial_runGPU(Cut_gpu *h_cut, Cut_gpu_aux *cut_aux, int numberMaxConst
             return h_cut;
         }
 
-        free(h_solution_r1);
-        free(h_cut);
     }
 
     return out_h_cut;
