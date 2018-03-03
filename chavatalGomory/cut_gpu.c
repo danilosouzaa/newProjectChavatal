@@ -158,6 +158,7 @@ Cut_gpu* readFile(char *fileName, int precision,Cut_gpu_aux *cut_aux)
             fscanf(arq,"\n %s = %f \n",linha, &coef);
             strcpy(cut_aux->nameElements[i].name,linha);
             ccg->xAsterisc[i] = precision*coef;
+            //printf("%d %f\n",ccg->xAsterisc[i],coef);
         }
         for(i=0; i<n1; i++)
         {

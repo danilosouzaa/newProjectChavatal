@@ -15,8 +15,8 @@ typedef int TElements;
 typedef int TElementsConstraints;
 typedef int TRightSide;
 typedef int TXAsterisc;
-typedef int TTypeConstraints;
-typedef int TInterval;
+typedef char TTypeConstraints;
+typedef short TInterval;
 
 typedef int TList;
 typedef int TPosList;
