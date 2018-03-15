@@ -12,7 +12,7 @@ my $n_5 = 0;
 my $conc = "";
 my $cont=0;
 foreach my $n (@names){
-       for($n_3 = 1000;$n_3<=11000;$n_3+=2000){
+       for($n_3 = 50000;$n_3<=250000;$n_3+=50000){
 	for($cont = 0; $cont<=15 ;$cont++){
 	  for($n_2 = 4; $n_2<=16; $n_2*=2){
 	    for($n_4 = 10 ; $n_4 <= 100; $n_4 += 90){	
@@ -21,22 +21,22 @@ foreach my $n (@names){
 		$conc .=".txt";
 		if($n_2 == 4){
 		   $n_5 = 3;
-		   system("./m4 $conc $n_1 $n_2 $n_3 $n_4 1 $n_5 >>novo4/Resultado_$conc"."_$n_1"."_$n_2"."_$n_3"."_$n_4"."_$n_5.txt");	
+		   system("./m4 $conc $n_1 $n_2 $n_3 $n_4 1 $n_5 >>novox/Resultado_$conc"."_$n_1"."_$n_2"."_$n_3"."_$n_4"."_$n_5.txt");	
 		   $n_5 = 2;
-		   system("./m4 $conc $n_1 $n_2 $n_3 $n_4 1 $n_5 >>novo4/Resultado_$conc"."_$n_1"."_$n_2"."_$n_3"."_$n_4"."_$n_5.txt");	
+		   system("./m4 $conc $n_1 $n_2 $n_3 $n_4 1 $n_5 >>novox/Resultado_$conc"."_$n_1"."_$n_2"."_$n_3"."_$n_4"."_$n_5.txt");	
 		} 
 		if($n_2 == 8){
 		   $n_5 = 4;
-		   system("./m4 $conc $n_1 $n_2 $n_3 $n_4 1 $n_5 >>novo4/Resultado_$conc"."_$n_1"."_$n_2"."_$n_3"."_$n_4"."_$n_5.txt");		
+		   system("./m4 $conc $n_1 $n_2 $n_3 $n_4 1 $n_5 >>novox/Resultado_$conc"."_$n_1"."_$n_2"."_$n_3"."_$n_4"."_$n_5.txt");		
 		   $n_5 = 6;
-		   system("./m4 $conc $n_1 $n_2 $n_3 $n_4 1 $n_5 >>novo4/Resultado_$conc"."_$n_1"."_$n_2"."_$n_3"."_$n_4"."_$n_5.txt");	
+		   system("./m4 $conc $n_1 $n_2 $n_3 $n_4 1 $n_5 >>novox/Resultado_$conc"."_$n_1"."_$n_2"."_$n_3"."_$n_4"."_$n_5.txt");	
 		}
 		 
 		if($n_2 == 16){
 		   $n_5 = 10;
-		   system("./m4 $conc $n_1 $n_2 $n_3 $n_4 1 $n_5 >>novo4/Resultado_$conc"."_$n_1"."_$n_2"."_$n_3"."_$n_4"."_$n_5.txt");		
+		   system("./m4 $conc $n_1 $n_2 $n_3 $n_4 1 $n_5 >>novox/Resultado_$conc"."_$n_1"."_$n_2"."_$n_3"."_$n_4"."_$n_5.txt");		
 		   $n_5 = 12;
-		   system("./m4 $conc $n_1 $n_2 $n_3 $n_4 1 $n_5 >>novo4/Resultado_$conc"."_$n_1"."_$n_2"."_$n_3"."_$n_4"."_$n_5.txt");	
+		   system("./m4 $conc $n_1 $n_2 $n_3 $n_4 1 $n_5 >>novox/Resultado_$conc"."_$n_1"."_$n_2"."_$n_3"."_$n_4"."_$n_5.txt");	
 		}
 	    }
 	  }

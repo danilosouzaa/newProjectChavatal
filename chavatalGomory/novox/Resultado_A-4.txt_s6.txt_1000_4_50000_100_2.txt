@@ -1,0 +1,125 @@
+A-4.txt_s6.txt
+Academic license - for non-commercial use only
+Read LP format model from file lp/A-4.txt.lp
+Reading time = 0.09 seconds
+: 961 rows, 10797 columns, 131727 nonzeros
+OKGPU
+nThreads: 640 , nBlocks: 12 
+Number cuts generated in the phase 1: 6
+Number of repeat: 0 
+violation 7.000000
+violation 142.000000
+violation 148.000000
+violation 186.000000
+violation 73.000000
+violation 477.000000
+5376 4
+Number of Cuts in the second phase:702
+Number of repeat: 680 
+Violation: 141.000000
+Violation: 69.000000
+Violation: 318.000000
+Violation: 159.000000
+Violation: 954.000000
+Violation: 636.000000
+Violation: 68.000000
+Violation: 136.000000
+Violation: 34.000000
+Violation: 296.000000
+Violation: 142.000000
+Violation: 138.000000
+Violation: 795.000000
+Violation: 140.000000
+Violation: 613.000000
+Violation: 301.000000
+Violation: 71.000000
+Violation: 35.000000
+Violation: 295.000000
+Violation: 30.000000
+Violation: 316.000000
+Violation: 454.000000
+5376 4
+Number of Cuts in the second phase:667
+Number of repeat: 664 
+Violation: 274.000000
+Violation: 289.000000
+Violation: 115.000000
+5376 4
+Number of Cuts in the second phase:698
+Number of repeat: 698 
+5376 4
+Number of Cuts in the second phase:700
+Number of repeat: 700 
+5376 4
+Number of Cuts in the second phase:701
+Number of repeat: 700 
+Violation: 104.000000
+5376 4
+Number of Cuts in the second phase:726
+Number of repeat: 726 
+5376 4
+Number of Cuts in the second phase:711
+Number of repeat: 711 
+5376 4
+Number of Cuts in the second phase:682
+Number of repeat: 682 
+5376 4
+Number of Cuts in the second phase:673
+Number of repeat: 673 
+1608 4
+Number of Cuts in the second phase:192
+Number of repeat: 192 
+took 13.892951
+Optimize a model with 1070 rows, 10797 columns and 132291 nonzeros
+Coefficient statistics:
+  Matrix range     [1e-05, 9e+01]
+  Objective range  [0e+00, 0e+00]
+  Bounds range     [1e+00, 2e+09]
+  RHS range        [1e+00, 6e+01]
+Warning: Model contains large bounds
+         Consider reformulating model or setting NumericFocus parameter
+         to avoid numerical issues.
+
+Concurrent LP optimizer: dual simplex and barrier
+Showing barrier log only...
+
+Presolve removed 154 rows and 420 columns
+Presolve time: 0.04s
+Presolved: 916 rows, 10377 columns, 124795 nonzeros
+
+Ordering time: 0.00s
+
+Barrier statistics:
+ AA' NZ     : 4.614e+04
+ Factor NZ  : 7.863e+04 (roughly 5 MBytes of memory)
+ Factor Ops : 7.761e+06 (less than 1 second per iteration)
+ Threads    : 3
+
+                  Objective                Residual
+Iter       Primal          Dual         Primal    Dual     Compl     Time
+   0   0.00000000e+00 -2.68716623e+07  9.37e+09 0.00e+00  1.61e+06     0s
+   1   0.00000000e+00 -5.93884375e+06  3.45e+09 6.59e-03  5.82e+05     0s
+   2   0.00000000e+00 -1.48844855e+05  3.06e+08 1.53e-16  5.19e+04     0s
+   3   0.00000000e+00 -1.36596016e+03  3.50e+04 1.53e-16  6.01e+00     0s
+   4   0.00000000e+00 -1.16151833e+03  2.56e+04 2.08e-06  4.29e+00     0s
+   5   0.00000000e+00 -1.38752504e+03  1.35e+04 7.84e-05  3.10e+00     0s
+   6   0.00000000e+00 -1.03348605e+03  9.05e+03 8.65e-06  1.80e+00     0s
+   7   0.00000000e+00 -7.97538602e+02  2.10e+03 2.59e-08  4.29e-01     0s
+   8   0.00000000e+00 -6.77057194e+02  9.89e+02 1.42e-08  2.11e-01     0s
+   9   0.00000000e+00 -4.72520101e+02  5.36e+02 5.30e-09  1.13e-01     0s
+  10   0.00000000e+00 -2.52894619e+02  1.85e+02 1.20e-09  4.04e-02     0s
+  11   0.00000000e+00 -1.34219557e+02  5.25e+01 4.76e-10  1.37e-02     0s
+  12   0.00000000e+00 -4.72052099e+01  1.66e+01 1.23e-10  4.30e-03     0s
+  13   0.00000000e+00 -1.91673314e+01  4.84e+00 3.86e-11  1.45e-03     0s
+  14   0.00000000e+00 -1.14496071e+01  2.47e+00 2.16e-11  7.95e-04     0s
+  15   0.00000000e+00 -9.87414774e+00  1.70e+00 1.83e-11  6.33e-04     0s
+  16   0.00000000e+00 -7.80026877e+00  9.38e-01 1.39e-11  4.51e-04     0s
+  17   0.00000000e+00 -4.62731728e+00  4.39e-01 7.54e-12  2.48e-04     0s
+
+Barrier performed 17 iterations in 0.13 seconds
+Barrier solve interrupted - model solved by another algorithm
+
+
+Solved with dual simplex
+Solved in 722 iterations and 0.13 seconds
+Optimal objective  0.000000000e+00
