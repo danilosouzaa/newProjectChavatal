@@ -1,0 +1,173 @@
+j6013_3.sm_s7.txt
+Academic license - for non-commercial use only
+Read LP format model from file lp/j6013_3.sm.lp
+Reading time = 0.03 seconds
+: 749 rows, 3170 columns, 84249 nonzeros
+OKGPU
+nThreads: 640 , nBlocks: 12 
+Number cuts generated in the phase 1: 6
+Number of repeat: 0 
+violation 90.000000
+violation 153.000000
+violation 104.000000
+violation 26.000000
+violation 70.000000
+violation 70.000000
+5376 8
+Number of Cuts in the second phase:441
+Number of repeat: 430 
+Violation: 90.000000
+Violation: 135.000000
+Violation: 44.000000
+Violation: 131.000000
+Violation: 322.000000
+Violation: 48.000000
+Violation: 207.000000
+Violation: 446.000000
+Violation: 299.000000
+Violation: 160.000000
+Violation: 172.000000
+5376 8
+Number of Cuts in the second phase:423
+Number of repeat: 418 
+Violation: 20.000000
+Violation: 50.000000
+Violation: 89.000000
+Violation: 90.000000
+Violation: 36.000000
+5376 8
+Number of Cuts in the second phase:429
+Number of repeat: 427 
+Violation: 19.000000
+Violation: 93.000000
+5376 8
+Number of Cuts in the second phase:421
+Number of repeat: 420 
+Violation: 43.000000
+5376 8
+Number of Cuts in the second phase:457
+Number of repeat: 457 
+5376 8
+Number of Cuts in the second phase:459
+Number of repeat: 459 
+5376 8
+Number of Cuts in the second phase:404
+Number of repeat: 404 
+5376 8
+Number of Cuts in the second phase:440
+Number of repeat: 440 
+5376 8
+Number of Cuts in the second phase:423
+Number of repeat: 423 
+5376 8
+Number of Cuts in the second phase:491
+Number of repeat: 491 
+5376 8
+Number of Cuts in the second phase:451
+Number of repeat: 451 
+5376 8
+Number of Cuts in the second phase:455
+Number of repeat: 455 
+5376 8
+Number of Cuts in the second phase:424
+Number of repeat: 424 
+5376 8
+Number of Cuts in the second phase:460
+Number of repeat: 460 
+5376 8
+Number of Cuts in the second phase:430
+Number of repeat: 429 
+Violation: 22.000000
+5376 8
+Number of Cuts in the second phase:406
+Number of repeat: 406 
+5376 8
+Number of Cuts in the second phase:421
+Number of repeat: 421 
+5376 8
+Number of Cuts in the second phase:435
+Number of repeat: 435 
+5376 8
+Number of Cuts in the second phase:442
+Number of repeat: 442 
+5376 8
+Number of Cuts in the second phase:412
+Number of repeat: 412 
+5376 8
+Number of Cuts in the second phase:430
+Number of repeat: 430 
+5376 8
+Number of Cuts in the second phase:476
+Number of repeat: 476 
+5376 8
+Number of Cuts in the second phase:444
+Number of repeat: 444 
+5376 8
+Number of Cuts in the second phase:438
+Number of repeat: 438 
+5376 8
+Number of Cuts in the second phase:437
+Number of repeat: 437 
+5376 8
+Number of Cuts in the second phase:447
+Number of repeat: 447 
+5376 8
+Number of Cuts in the second phase:439
+Number of repeat: 439 
+4848 8
+Number of Cuts in the second phase:372
+Number of repeat: 372 
+took 47.905039
+Optimize a model with 781 rows, 3170 columns and 84572 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 9e+01]
+  Objective range  [0e+00, 0e+00]
+  Bounds range     [1e+00, 9e+01]
+  RHS range        [1e+00, 4e+01]
+
+Concurrent LP optimizer: dual simplex and barrier
+Showing barrier log only...
+
+Presolve removed 195 rows and 161 columns
+Presolve time: 0.02s
+Presolved: 586 rows, 3009 columns, 78416 nonzeros
+
+Ordering time: 0.00s
+
+Barrier statistics:
+ AA' NZ     : 6.287e+04
+ Factor NZ  : 1.224e+05 (roughly 2 MBytes of memory)
+ Factor Ops : 3.222e+07 (less than 1 second per iteration)
+ Threads    : 3
+
+                  Objective                Residual
+Iter       Primal          Dual         Primal    Dual     Compl     Time
+   0   0.00000000e+00 -3.38500000e+01  2.86e+03 0.00e+00  6.09e-01     0s
+   1   0.00000000e+00 -7.63356547e+01  8.98e+02 3.83e-03  1.90e-01     0s
+   2   0.00000000e+00 -5.32083902e+01  1.07e+02 1.00e-04  2.76e-02     0s
+   3   0.00000000e+00 -3.55559428e+01  1.37e+01 3.14e-05  7.77e-03     0s
+   4   0.00000000e+00 -1.31807823e+01  7.56e-02 2.15e-07  2.05e-03     0s
+   5   0.00000000e+00 -5.77439264e-02  4.44e-14 3.90e-18  8.91e-06     0s
+   6   0.00000000e+00 -5.77942384e-05  2.49e-14 2.98e-19  8.91e-09     0s
+   7   0.00000000e+00 -5.77942384e-08  2.84e-14 2.08e-22  8.91e-12     0s
+   8   0.00000000e+00 -5.77942384e-11  4.09e-14 2.80e-25  8.91e-15     0s
+
+Barrier solved model in 8 iterations and 0.06 seconds
+Optimal objective 0.00000000e+00
+
+Crossover log...
+
+       0 DPushes remaining with DInf 0.0000000e+00                 0s
+
+    2897 PPushes remaining with PInf 0.0000000e+00                 0s
+       0 PPushes remaining with PInf 0.0000000e+00                 0s
+
+  Push phase complete: Pinf 0.0000000e+00, Dinf 0.0000000e+00      0s
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+    2909    0.0000000e+00   0.000000e+00   0.000000e+00      0s
+    2909    0.0000000e+00   0.000000e+00   0.000000e+00      0s
+
+Solved with barrier
+Solved in 2909 iterations and 0.12 seconds
+Optimal objective  0.000000000e+00
