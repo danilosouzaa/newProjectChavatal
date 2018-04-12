@@ -1,0 +1,109 @@
+j9041_4.sm_s3.txt
+Academic license - for non-commercial use only
+Read LP format model from file lp/j9041_4.sm.lp
+Reading time = 0.07 seconds
+: 1264 rows, 7716 columns, 191335 nonzeros
+OKGPU
+nThreads: 640 , nBlocks: 12 
+Number cuts generated in the phase 1: 1
+Number of repeat: 0 
+violation 311.000000
+5376 8
+Number of Cuts in the second phase:127
+Number of repeat: 117 
+Violation: 217.000000
+Violation: 146.000000
+Violation: 573.000000
+Violation: 22.000000
+Violation: 168.000000
+Violation: 151.000000
+Violation: 55.000000
+Violation: 166.000000
+Violation: 5.000000
+Violation: 220.000000
+5376 8
+Number of Cuts in the second phase:107
+Number of repeat: 105 
+Violation: 102.000000
+Violation: 51.000000
+5376 8
+Number of Cuts in the second phase:99
+Number of repeat: 97 
+Violation: 10.000000
+Violation: 193.000000
+5376 8
+Number of Cuts in the second phase:108
+Number of repeat: 108 
+5376 8
+Number of Cuts in the second phase:135
+Number of repeat: 134 
+Violation: 143.000000
+5376 8
+Number of Cuts in the second phase:112
+Number of repeat: 112 
+5376 8
+Number of Cuts in the second phase:102
+Number of repeat: 102 
+5376 8
+Number of Cuts in the second phase:121
+Number of repeat: 121 
+5376 8
+Number of Cuts in the second phase:123
+Number of repeat: 123 
+1608 8
+Number of Cuts in the second phase:31
+Number of repeat: 31 
+took 17.499286
+Optimize a model with 1281 rows, 7716 columns and 191453 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 2e+02]
+  Objective range  [0e+00, 0e+00]
+  Bounds range     [1e+00, 2e+02]
+  RHS range        [1e+00, 4e+01]
+
+Concurrent LP optimizer: dual simplex and barrier
+Showing barrier log only...
+
+Presolve removed 286 rows and 259 columns
+Presolve time: 0.06s
+Presolved: 995 rows, 7457 columns, 176326 nonzeros
+
+Ordering time: 0.00s
+
+Barrier statistics:
+ AA' NZ     : 1.376e+05
+ Factor NZ  : 2.982e+05 (roughly 6 MBytes of memory)
+ Factor Ops : 1.230e+08 (less than 1 second per iteration)
+ Threads    : 3
+
+                  Objective                Residual
+Iter       Primal          Dual         Primal    Dual     Compl     Time
+   0   0.00000000e+00 -7.64687500e+01  3.65e+03 0.00e+00  5.62e-01     0s
+   1   0.00000000e+00 -1.44446169e+02  1.27e+03 7.00e-03  1.95e-01     0s
+   2   0.00000000e+00 -9.92209178e+01  1.66e+02 4.16e-17  2.88e-02     0s
+   3   0.00000000e+00 -6.55752929e+01  2.52e+01 2.60e-17  7.23e-03     0s
+   4   0.00000000e+00 -2.79297378e+01  5.11e+00 1.73e-17  2.15e-03     0s
+   5   0.00000000e+00 -2.43665249e+00  9.59e-14 1.73e-18  1.55e-04     0s
+   6   0.00000000e+00 -2.43673599e-03  9.33e-14 7.44e-18  1.55e-07     0s
+   7   0.00000000e+00 -2.43673599e-06  7.11e-14 7.09e-21  1.55e-10     0s
+   8   0.00000000e+00 -2.43673599e-09  2.34e-13 7.99e-24  1.55e-13     0s
+
+Barrier solved model in 8 iterations and 0.20 seconds
+Optimal objective 0.00000000e+00
+
+Crossover log...
+
+       0 DPushes remaining with DInf 0.0000000e+00                 0s
+
+    7280 PPushes remaining with PInf 0.0000000e+00                 0s
+       0 PPushes remaining with PInf 0.0000000e+00                 0s
+
+  Push phase complete: Pinf 0.0000000e+00, Dinf 0.0000000e+00      0s
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+    7331    0.0000000e+00   0.000000e+00   0.000000e+00      0s
+    7331    0.0000000e+00   0.000000e+00   0.000000e+00      0s
+
+Solved with barrier
+Solved in 7331 iterations and 0.40 seconds
+Optimal objective  0.000000000e+00
