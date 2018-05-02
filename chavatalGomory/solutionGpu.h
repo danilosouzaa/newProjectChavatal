@@ -42,7 +42,9 @@ solutionGpu* createGPUsolution2(solutionGpu* h_solution, Cut_gpu* h_cut,int numb
 solutionGpu* createGPUsolution1(solutionGpu* h_solution, Cut_gpu* h_cut, int nRuns);
 
 
+Cut_gpu* createCutsStrongPhaseOne(Cut_gpu *h_cut, solutionGpu *h_solution, int nCuts, int precision, int nRuns);
 
+Cut_gpu* createCutsStrongPhaseTwo(Cut_gpu *h_cut, solutionGpu *h_solution, int numberMaxConst, int nCuts, int precision, int nRuns, int nThreads,int nBlocks);
 
 Cut_gpu* createCutsOfPhaseOne(Cut_gpu *h_cut, Cut_gpu_aux *cut_aux, solutionGpu *h_solution, int nCuts, int precision, int nRuns);
 
@@ -62,9 +64,16 @@ int* returnOrdConstrainsNR(Cut_gpu *cut);
 
 float* returnFolga(Cut_gpu *cut);
 
+int verifyFrac(long double n);
+
+int mult(long double *v, int sz, int mult);
+
+int returnK(long double fa_zero);
+
 //void calcSetConstraint (int *setConstraint, int numberMaxConst,int numberConstrains, int *resR1, int *resNR1, int sizeR1, int sizeNR1, int *Similar, float *Folga, int nRuns);
 void calcSetConstraint (int *setConstraint, int *pos_R1, int numberMaxConst,int numberConstrains, int *resR1, int *resNR1, int sizeR1, int sizeNR1, int *Similar, float *Folga, int nRuns, int szR );
 
+int verifyDominanceCG(int *v1, int rhs1, int *v2, int rhs2, int sz);
 
 EXTERN_C_END
 

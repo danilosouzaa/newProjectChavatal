@@ -69,7 +69,9 @@ int main(int argc, char *argv[])
     fflush(stdin);
     inst = readLP(nameLP);
     LinearProgramPtr lp = geraLP("Danilo_teste2.lp", inst);
-
+    for(int i=0;i<ccg_aux->numberVariables;i++){
+        printf("v_%d - %s\n",i, ccg_aux->nameElements[i].name);
+    }
     contr1 = 0;
     int x=0;
 

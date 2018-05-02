@@ -21,19 +21,10 @@ Cut_gpu* initial_runGPU(Cut_gpu *h_cut, Cut_gpu_aux *cut_aux, int numberMaxConst
 
 Cut_gpu* second_phase_runGPU(Cut_gpu *h_cut, Cut_gpu_aux *cut_aux, int numberMaxConst, int nRuns, int maxDenominator, int precision, int nB,int nT, int *pos_R1, int szR);
 
-
-
-
 Cut_gpu* phase_zeroHalf(Cut_gpu *h_cut, Cut_gpu_aux *cut_aux,int nConstraintsPerSet);
-
-listNeigh *returnMatrixNeighborhood (Cut_gpu *h_cut);
-
-int contPar(Cut_gpu* h_cut);
 
 void shuffle_Set(int *vec, int nSetConstrains, int n);
 
-
 void returnDimension(int *nB, int *nT, int nRuns);
 
-void fillParImpar(int *vPar,int *vImpar, Cut_gpu *h_cut);
 #endif

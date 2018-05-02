@@ -252,7 +252,7 @@ __global__ void runGPUR2(Cut_gpu *d_cut, solutionGpu *d_solution, unsigned int *
     int term = threadIdx.x + blockIdx.x*nThreads;
     if(term<nRuns)
     {
-       // printf("%d: %d %d %d %d\n",term, setConstraint[term*numberMaxConst + 0],setConstraint[term*numberMaxConst + 1],setConstraint[term*numberMaxConst + 2],setConstraint[term*numberMaxConst + 3]);
+        // printf("%d: %d %d %d %d\n",term, setConstraint[term*numberMaxConst + 0],setConstraint[term*numberMaxConst + 1],setConstraint[term*numberMaxConst + 2],setConstraint[term*numberMaxConst + 3]);
         int mult_1, mult_2, rest_a,rest_b, i, j, el, rhs1, rhs2, value_tes, violation = 0, aux, n1_best = -1, n2_best = -1, d1_best = -1, qnt_1, d2_best=-1;//, cont=0;
         curand_init(seed[term],term,0,&states[term]);
         int Numerator[20];
@@ -293,14 +293,26 @@ __global__ void runGPUR2(Cut_gpu *d_cut, solutionGpu *d_solution, unsigned int *
                     }
                     for(j=0; j<d_cut->numberVariables; j++)
                     {
-                        aux = Coef[j]<0 ? Coef[j]/Denominator[mult_1] - 1 : Coef[j]/Denominator[mult_1];
-                        value_tes += aux*d_cut->xAsterisc[j];
-                        aux = Coef2[j]<0 ? Coef2[j]/Denominator[mult_2] - 1 : Coef2[j]/Denominator[mult_2];
-                        value_tes += aux*d_cut->xAsterisc[j];
-                    }
-                    aux = rhs1<0 ? rhs1/Denominator[mult_1]-1 : rhs1/Denominator[mult_1];
-                    aux +=  rhs2<0 ? rhs2/Denominator[mult_2]-1 : rhs2/Denominator[mult_2];
+                        if((Coef[j]*Denominator[mult_2] + Coef2[j]*Denominator[mult_1])/(Denominator[mult_1]*Denominator[mult_2]) < 0 )
+                        {
+                            aux = (Coef[j]*Denominator[mult_2] + Coef2[j]*Denominator[mult_1])/(Denominator[mult_1]*Denominator[mult_2]) - 1;
 
+                        }
+                        else
+                        {
+                            aux = (Coef[j]*Denominator[mult_2] + Coef2[j]*Denominator[mult_1])/(Denominator[mult_1]*Denominator[mult_2]);
+                        }
+                        value_tes += aux*d_cut->xAsterisc[j];
+//                        aux = Coef[j]<0 ? Coef[j]/Denominator[mult_1] - 1 : Coef[j]/Denominator[mult_1];
+//                        value_tes += aux*d_cut->xAsterisc[j];
+//                        aux = Coef2[j]<0 ? Coef2[j]/Denominator[mult_2] - 1 : Coef2[j]/Denominator[mult_2];
+//                        value_tes += aux*d_cut->xAsterisc[j];
+                    }
+                    if( (rhs1*Denominator[mult_2] + rhs2*Denominator[mult_1])/(Denominator[mult_1]*Denominator[mult_2]) < 0){
+                        aux = (rhs1*Denominator[mult_2] + rhs2*Denominator[mult_1])/(Denominator[mult_1]*Denominator[mult_2]) - 1;
+                    }else{
+                        aux = (rhs1*Denominator[mult_2] + rhs2*Denominator[mult_1])/(Denominator[mult_1]*Denominator[mult_2]);
+                    }
 
                     if((value_tes>aux*precision)&&(value_tes-(aux*precision)>violation))
                     {
@@ -320,8 +332,6 @@ __global__ void runGPUR2(Cut_gpu *d_cut, solutionGpu *d_solution, unsigned int *
                         d2_best = Denominator[mult_2];
                         qnt_1 = rest_a;
                     }
-
-
                 }
             }
 
