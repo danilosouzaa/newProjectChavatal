@@ -1,0 +1,138 @@
+j1206_8.sm_s12.txt
+Academic license - for non-commercial use only
+Read LP format model from file lp/j1206_8.sm.lp
+Reading time = 0.08 seconds
+: 1375 rows, 10425 columns, 174128 nonzeros
+OKGPU
+nThreads: 640 , nBlocks: 12 
+Number cuts generated in the phase 1: 19
+Number of repeat: 0 
+violation 158.000000
+violation 160.000000
+violation 88.000000
+violation 185.000000
+violation 141.000000
+violation 7.000000
+violation 130.000000
+violation 77.000000
+violation 164.000000
+violation 151.000000
+violation 51.000000
+violation 106.000000
+violation 185.000000
+violation 80.000000
+violation 42.000000
+violation 25.000000
+violation 6.000000
+violation 57.000000
+violation 6.000000
+5376 16
+Number of Cuts in the second phase:865
+Number of repeat: 821 
+Violation: 383.000000
+Violation: 8.000000
+Violation: 99.000000
+Violation: 296.000000
+Violation: 136.000000
+Violation: 28.000000
+Violation: 18.000000
+Violation: 153.000000
+Violation: 73.000000
+Violation: 37.000000
+Violation: 20.000000
+Violation: 30.000000
+Violation: 148.000000
+Violation: 28.000000
+Violation: 90.000000
+Violation: 284.000000
+Violation: 40.000000
+Violation: 457.000000
+Violation: 420.000000
+Violation: 1.000000
+Violation: 136.000000
+Violation: 172.000000
+Violation: 4.000000
+Violation: 223.000000
+Violation: 98.000000
+Violation: 13.000000
+Violation: 256.000000
+Violation: 189.000000
+Violation: 361.000000
+Violation: 16.000000
+Violation: 403.000000
+Violation: 288.000000
+Violation: 23.000000
+Violation: 631.000000
+Violation: 304.000000
+Violation: 495.000000
+Violation: 80.000000
+Violation: 20.000000
+Violation: 225.000000
+Violation: 487.000000
+Violation: 324.000000
+Violation: 200.000000
+Violation: 74.000000
+Violation: 58.000000
+1620 16
+Number of Cuts in the second phase:227
+Number of repeat: 224 
+Violation: 179.000000
+Violation: 144.000000
+Violation: 4.000000
+took 24.949623
+
+Warning: excessive time spent in model updates.
+Consider calling update less frequently.
+
+Optimize a model with 1453 rows, 10425 columns and 176175 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+02]
+  Objective range  [0e+00, 0e+00]
+  Bounds range     [1e+00, 1e+02]
+  RHS range        [1e+00, 2e+01]
+
+Concurrent LP optimizer: dual simplex and barrier
+Showing barrier log only...
+
+Presolve removed 381 rows and 294 columns
+Presolve time: 0.05s
+Presolved: 1072 rows, 10131 columns, 155691 nonzeros
+
+Ordering time: 0.00s
+
+Barrier statistics:
+ AA' NZ     : 1.246e+05
+ Factor NZ  : 3.442e+05 (roughly 7 MBytes of memory)
+ Factor Ops : 1.534e+08 (less than 1 second per iteration)
+ Threads    : 3
+
+                  Objective                Residual
+Iter       Primal          Dual         Primal    Dual     Compl     Time
+   0   0.00000000e+00 -1.02081250e+02  2.89e+03 0.00e+00  5.61e-01     0s
+   1   0.00000000e+00 -1.65915511e+02  9.12e+02 1.35e-02  1.80e-01     0s
+   2   0.00000000e+00 -1.20135983e+02  1.14e+02 2.01e-16  2.58e-02     0s
+   3   0.00000000e+00 -7.17530249e+01  1.96e+01 1.87e-16  6.50e-03     0s
+   4   0.00000000e+00 -3.03758652e+01  2.63e+00 7.63e-17  1.68e-03     0s
+   5   0.00000000e+00 -2.30435488e+00  4.65e-13 9.45e-17  1.09e-04     0s
+   6   0.00000000e+00 -2.30435488e-03  1.71e-13 8.66e-18  1.09e-07     0s
+   7   0.00000000e+00 -2.31571056e-09  1.82e-13 6.29e-21  1.10e-13     0s
+
+Barrier solved model in 7 iterations and 0.20 seconds
+Optimal objective 0.00000000e+00
+
+Crossover log...
+
+       0 DPushes remaining with DInf 0.0000000e+00                 0s
+
+    9893 PPushes remaining with PInf 0.0000000e+00                 0s
+       0 PPushes remaining with PInf 0.0000000e+00                 0s
+
+  Push phase complete: Pinf 0.0000000e+00, Dinf 0.0000000e+00      0s
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+    9954    0.0000000e+00   0.000000e+00   0.000000e+00      0s
+    9954    0.0000000e+00   0.000000e+00   0.000000e+00      0s
+
+Solved with barrier
+Solved in 9954 iterations and 0.44 seconds
+Optimal objective  0.000000000e+00

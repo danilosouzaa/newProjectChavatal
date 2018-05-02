@@ -1,0 +1,57 @@
+j9030_9.sm_s13.txt
+Academic license - for non-commercial use only
+Read LP format model from file lp/j9030_9.sm.lp
+Reading time = 0.03 seconds
+: 996 rows, 2610 columns, 71109 nonzeros
+OKGPU
+nThreads: 640 , nBlocks: 12 
+No cuts generate
+5376 16
+5376 16
+3240 16
+took 35.812060
+Optimize a model with 1131 rows, 2610 columns and 72145 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 9e+01]
+  Objective range  [0e+00, 0e+00]
+  Bounds range     [1e+00, 9e+01]
+  RHS range        [1e+00, 4e+01]
+
+Concurrent LP optimizer: dual simplex and barrier
+Showing barrier log only...
+
+Presolve removed 291 rows and 202 columns
+Presolve time: 0.02s
+Presolved: 840 rows, 2408 columns, 67138 nonzeros
+
+Ordering time: 0.01s
+
+Barrier statistics:
+ AA' NZ     : 7.619e+04
+ Factor NZ  : 1.336e+05 (roughly 2 MBytes of memory)
+ Factor Ops : 2.495e+07 (less than 1 second per iteration)
+ Threads    : 3
+
+                  Objective                Residual
+Iter       Primal          Dual         Primal    Dual     Compl     Time
+   0   0.00000000e+00 -2.65750000e+01  5.15e+03 0.00e+00  1.35e+00     0s
+   1   0.00000000e+00 -7.80143079e+01  2.05e+03 2.40e-02  5.50e-01     0s
+   2   0.00000000e+00 -1.07970201e+02  5.73e+02 4.16e-16  1.58e-01     0s
+   3   0.00000000e+00 -6.94646929e+01  7.35e+01 3.33e-16  2.79e-02     0s
+   4   0.00000000e+00 -2.23383395e+01  1.53e+01 2.43e-16  5.98e-03     0s
+   5   0.00000000e+00 -8.25089901e+00  2.76e+00 1.11e-16  1.71e-03     0s
+   6   0.00000000e+00 -7.04957833e-01  3.84e-13 8.67e-17  1.29e-04     0s
+   7   0.00000000e+00 -7.04957833e-04  2.10e-12 2.67e-17  1.29e-07     0s
+   8   0.00000000e+00 -7.04957833e-07  1.37e-12 1.02e-20  1.29e-10     0s
+   9   0.00000000e+00 -7.09798871e-13  1.98e-12 1.11e-23  1.30e-16     0s
+
+Barrier solved model in 9 iterations and 0.07 seconds
+Optimal objective 0.00000000e+00
+
+Crossover log...
+
+    2271 PPushes remaining with PInf 0.0000000e+00                 0s
+
+Solved with dual simplex
+Solved in 1028 iterations and 0.11 seconds
+Optimal objective  0.000000000e+00

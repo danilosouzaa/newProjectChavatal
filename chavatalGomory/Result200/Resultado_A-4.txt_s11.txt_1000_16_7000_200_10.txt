@@ -1,0 +1,144 @@
+A-4.txt_s11.txt
+Academic license - for non-commercial use only
+Read LP format model from file lp/A-4.txt.lp
+Reading time = 0.04 seconds
+: 961 rows, 10797 columns, 131727 nonzeros
+OKGPU
+nThreads: 640 , nBlocks: 12 
+Number cuts generated in the phase 1: 10
+Number of repeat: 0 
+violation 128.000000
+violation 78.000000
+violation 78.000000
+violation 135.000000
+violation 31.000000
+violation 40.000000
+violation 6.000000
+violation 286.000000
+violation 590.000000
+violation 762.000000
+5376 16
+Number of Cuts in the second phase:587
+Number of repeat: 525 
+Violation: 314.000000
+Violation: 662.000000
+Violation: 242.000000
+Violation: 518.000000
+Violation: 736.000000
+Violation: 457.000000
+Violation: 201.000000
+Violation: 945.000000
+Violation: 552.000000
+Violation: 141.000000
+Violation: 411.000000
+Violation: 215.000000
+Violation: 524.000000
+Violation: 318.000000
+Violation: 351.000000
+Violation: 348.000000
+Violation: 24.000000
+Violation: 270.000000
+Violation: 53.000000
+Violation: 377.000000
+Violation: 16.000000
+Violation: 7.000000
+Violation: 272.000000
+Violation: 33.000000
+Violation: 72.000000
+Violation: 209.000000
+Violation: 574.000000
+Violation: 56.000000
+Violation: 526.000000
+Violation: 311.000000
+Violation: 182.000000
+Violation: 788.000000
+Violation: 175.000000
+Violation: 44.000000
+Violation: 572.000000
+Violation: 1142.000000
+Violation: 12.000000
+Violation: 47.000000
+Violation: 98.000000
+Violation: 786.000000
+Violation: 133.000000
+Violation: 963.000000
+Violation: 333.000000
+Violation: 832.000000
+Violation: 1180.000000
+Violation: 393.000000
+Violation: 626.000000
+Violation: 1113.000000
+Violation: 300.000000
+Violation: 892.000000
+Violation: 584.000000
+Violation: 820.000000
+Violation: 725.000000
+Violation: 128.000000
+Violation: 51.000000
+Violation: 904.000000
+Violation: 18.000000
+Violation: 110.000000
+Violation: 1173.000000
+Violation: 263.000000
+Violation: 620.000000
+Violation: 188.000000
+1620 16
+Number of Cuts in the second phase:177
+Number of repeat: 169 
+Violation: 110.000000
+Violation: 797.000000
+Violation: 938.000000
+Violation: 99.000000
+Violation: 26.000000
+Violation: 775.000000
+Violation: 846.000000
+Violation: 647.000000
+took 12.935594
+Optimize a model with 1127 rows, 10797 columns and 133016 nonzeros
+Coefficient statistics:
+  Matrix range     [1e-05, 9e+01]
+  Objective range  [0e+00, 0e+00]
+  Bounds range     [1e+00, 2e+09]
+  RHS range        [1e+00, 6e+01]
+Warning: Model contains large bounds
+         Consider reformulating model or setting NumericFocus parameter
+         to avoid numerical issues.
+
+Concurrent LP optimizer: dual simplex and barrier
+Showing barrier log only...
+
+Presolve removed 150 rows and 420 columns
+Presolve time: 0.05s
+Presolved: 977 rows, 10377 columns, 125540 nonzeros
+
+Ordering time: 0.00s
+
+Barrier statistics:
+ AA' NZ     : 5.244e+04
+ Factor NZ  : 8.628e+04 (roughly 5 MBytes of memory)
+ Factor Ops : 8.803e+06 (less than 1 second per iteration)
+ Threads    : 3
+
+                  Objective                Residual
+Iter       Primal          Dual         Primal    Dual     Compl     Time
+   0   0.00000000e+00 -2.68714571e+07  8.21e+09 0.00e+00  1.70e+06     0s
+   1   0.00000000e+00 -7.50146529e+06  3.27e+09 8.60e-03  6.64e+05     0s
+   2   0.00000000e+00 -1.56269983e+05  4.90e+08 9.71e-17  1.01e+05     0s
+   3   0.00000000e+00 -1.20116649e+03  2.85e+04 1.15e-08  5.92e+00     0s
+   4   0.00000000e+00 -8.86598873e+02  2.49e+04 3.41e-06  4.74e+00     0s
+   5   0.00000000e+00 -1.31833629e+03  1.44e+04 1.17e-04  3.26e+00     0s
+   6   0.00000000e+00 -8.65076761e+02  3.74e+03 4.12e-05  8.38e-01     0s
+   7   0.00000000e+00 -4.50260722e+02  1.51e+03 9.65e-06  3.13e-01     0s
+   8   0.00000000e+00 -2.88760607e+02  1.29e+03 4.93e-08  2.52e-01     0s
+   9   0.00000000e+00 -1.70281925e+02  4.52e+02 3.35e-09  8.92e-02     0s
+  10   0.00000000e+00 -8.93912878e+01  1.17e+02 3.19e-10  2.45e-02     0s
+  11   0.00000000e+00 -4.38399439e+01  3.28e+01 7.10e-11  7.49e-03     0s
+  12   0.00000000e+00 -3.58969221e+01  1.32e+01 5.41e-11  3.84e-03     0s
+
+Barrier performed 12 iterations in 0.12 seconds
+Barrier solve interrupted - model solved by another algorithm
+
+
+Solved with dual simplex
+Solved in 585 iterations and 0.12 seconds
+Optimal objective  0.000000000e+00

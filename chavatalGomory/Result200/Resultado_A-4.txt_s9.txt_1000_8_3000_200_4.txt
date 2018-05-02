@@ -1,0 +1,128 @@
+A-4.txt_s9.txt
+Academic license - for non-commercial use only
+Read LP format model from file lp/A-4.txt.lp
+Reading time = 0.09 seconds
+: 961 rows, 10797 columns, 131727 nonzeros
+OKGPU
+nThreads: 640 , nBlocks: 12 
+Number cuts generated in the phase 1: 8
+Number of repeat: 0 
+violation 100.000000
+violation 42.000000
+violation 119.000000
+violation 123.000000
+violation 114.000000
+violation 624.000000
+violation 783.000000
+violation 255.000000
+3000 8
+Number of Cuts in the second phase:458
+Number of repeat: 401 
+Violation: 58.000000
+Violation: 416.000000
+Violation: 460.000000
+Violation: 368.000000
+Violation: 6.000000
+Violation: 208.000000
+Violation: 1218.000000
+Violation: 506.000000
+Violation: 71.000000
+Violation: 118.000000
+Violation: 174.000000
+Violation: 112.000000
+Violation: 609.000000
+Violation: 435.000000
+Violation: 87.000000
+Violation: 439.000000
+Violation: 288.000000
+Violation: 45.000000
+Violation: 261.000000
+Violation: 348.000000
+Violation: 184.000000
+Violation: 696.000000
+Violation: 148.000000
+Violation: 490.000000
+Violation: 870.000000
+Violation: 80.000000
+Violation: 246.000000
+Violation: 206.000000
+Violation: 332.000000
+Violation: 696.000000
+Violation: 496.000000
+Violation: 692.000000
+Violation: 1131.000000
+Violation: 414.000000
+Violation: 54.000000
+Violation: 654.000000
+Violation: 1018.000000
+Violation: 44.000000
+Violation: 358.000000
+Violation: 647.000000
+Violation: 1044.000000
+Violation: 271.000000
+Violation: 8.000000
+Violation: 306.000000
+Violation: 88.000000
+Violation: 300.000000
+Violation: 78.000000
+Violation: 10.000000
+Violation: 1192.000000
+Violation: 232.000000
+Violation: 158.000000
+Violation: 254.000000
+Violation: 1105.000000
+Violation: 1392.000000
+Violation: 61.000000
+Violation: 300.000000
+Violation: 177.000000
+took 7.726488
+Optimize a model with 1111 rows, 10797 columns and 132561 nonzeros
+Coefficient statistics:
+  Matrix range     [1e-05, 9e+01]
+  Objective range  [0e+00, 0e+00]
+  Bounds range     [1e+00, 2e+09]
+  RHS range        [1e+00, 6e+01]
+Warning: Model contains large bounds
+         Consider reformulating model or setting NumericFocus parameter
+         to avoid numerical issues.
+
+Concurrent LP optimizer: dual simplex and barrier
+Showing barrier log only...
+
+Presolve removed 155 rows and 420 columns
+Presolve time: 0.08s
+Presolved: 956 rows, 10377 columns, 125081 nonzeros
+
+Ordering time: 0.00s
+
+Barrier statistics:
+ AA' NZ     : 4.881e+04
+ Factor NZ  : 8.322e+04 (roughly 5 MBytes of memory)
+ Factor Ops : 8.336e+06 (less than 1 second per iteration)
+ Threads    : 3
+
+                  Objective                Residual
+Iter       Primal          Dual         Primal    Dual     Compl     Time
+   0   0.00000000e+00 -2.68716614e+07  9.34e+09 0.00e+00  1.60e+06     0s
+   1   0.00000000e+00 -5.98424661e+06  3.62e+09 1.10e-02  6.26e+05     0s
+   2   0.00000000e+00 -2.93868765e+05  3.14e+08 1.53e-16  5.48e+04     0s
+   3   0.00000000e+00 -1.48764884e+03  3.87e+04 1.67e-16  6.81e+00     0s
+   4   0.00000000e+00 -1.24173059e+03  2.64e+04 2.43e-06  4.66e+00     0s
+   5   0.00000000e+00 -1.42650965e+03  2.47e+04 6.83e-05  4.38e+00     0s
+   6   0.00000000e+00 -1.25406339e+03  7.55e+02 6.60e-05  1.75e-01     0s
+   7   0.00000000e+00 -2.52039459e+02  2.32e+02 3.20e-06  4.60e-02     0s
+   8   0.00000000e+00 -1.97295186e+02  1.24e+02 2.81e-06  2.73e-02     0s
+   9   0.00000000e+00 -1.62993490e+02  6.55e+01 2.48e-06  1.72e-02     0s
+  10   0.00000000e+00 -1.17104541e+02  5.20e+01 1.27e-06  1.30e-02     0s
+  11   0.00000000e+00 -6.84536248e+01  1.62e+01 6.80e-07  5.44e-03     0s
+  12   0.00000000e+00 -3.75324470e+01  7.76e+00 3.43e-07  2.72e-03     0s
+  13   0.00000000e+00 -2.93153029e+01  3.92e+00 2.60e-07  1.83e-03     0s
+  14   0.00000000e+00 -2.25317185e+01  2.23e+00 1.95e-07  1.30e-03     0s
+
+Barrier performed 14 iterations in 0.18 seconds
+Barrier solve interrupted - model solved by another algorithm
+
+
+Solved with dual simplex
+Solved in 636 iterations and 0.18 seconds
+Optimal objective  0.000000000e+00

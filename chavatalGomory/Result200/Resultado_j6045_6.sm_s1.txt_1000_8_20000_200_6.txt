@@ -1,0 +1,86 @@
+j6045_6.sm_s1.txt
+Academic license - for non-commercial use only
+Read LP format model from file lp/j6045_6.sm.lp
+Reading time = 0.05 seconds
+: 1011 rows, 4924 columns, 155521 nonzeros
+OKGPU
+nThreads: 640 , nBlocks: 12 
+Number cuts generated in the phase 1: 3
+Number of repeat: 0 
+violation 48.000000
+violation 31.000000
+violation 4.000000
+5376 8
+Number of Cuts in the second phase:102
+Number of repeat: 88 
+Violation: 303.000000
+Violation: 33.000000
+Violation: 135.000000
+Violation: 148.000000
+Violation: 148.000000
+Violation: 155.000000
+Violation: 216.000000
+Violation: 68.000000
+Violation: 110.000000
+Violation: 118.000000
+Violation: 11.000000
+Violation: 108.000000
+Violation: 104.000000
+Violation: 5.000000
+5376 8
+Number of Cuts in the second phase:98
+Number of repeat: 97 
+Violation: 157.000000
+5376 8
+Number of Cuts in the second phase:87
+Number of repeat: 86 
+Violation: 71.000000
+3864 8
+Number of Cuts in the second phase:59
+Number of repeat: 59 
+took 20.108645
+Optimize a model with 1328 rows, 4924 columns and 159562 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+02]
+  Objective range  [0e+00, 0e+00]
+  Bounds range     [1e+00, 1e+02]
+  RHS range        [1e+00, 2e+01]
+
+Concurrent LP optimizer: dual simplex and barrier
+Showing barrier log only...
+
+Presolve removed 191 rows and 194 columns
+Presolve time: 0.05s
+Presolved: 1137 rows, 4730 columns, 149934 nonzeros
+
+Ordering time: 0.00s
+
+Barrier statistics:
+ AA' NZ     : 1.767e+05
+ Factor NZ  : 2.897e+05 (roughly 5 MBytes of memory)
+ Factor Ops : 9.485e+07 (less than 1 second per iteration)
+ Threads    : 3
+
+                  Objective                Residual
+Iter       Primal          Dual         Primal    Dual     Compl     Time
+   0   0.00000000e+00 -5.01625000e+01  1.53e+04 0.00e+00  3.28e+00     0s
+   1   0.00000000e+00 -9.96942077e+01  4.60e+03 2.30e-02  1.02e+00     0s
+   2   0.00000000e+00 -1.48506532e+02  2.11e+03 1.31e-03  4.53e-01     0s
+   3   0.00000000e+00 -1.16069248e+02  1.06e+02 1.07e-15  3.26e-02     0s
+   4   0.00000000e+00 -5.60759770e+01  1.40e+01 6.66e-16  7.88e-03     0s
+   5   0.00000000e+00 -1.89029473e+01  7.86e-01 3.75e-16  1.90e-03     0s
+   6   0.00000000e+00 -2.47038662e-01  5.28e-14 9.37e-17  2.36e-05     0s
+   7   0.00000000e+00 -2.47038662e-04  5.86e-14 1.72e-18  2.36e-08     0s
+   8   0.00000000e+00 -2.47038662e-07  4.62e-14 2.27e-21  2.36e-11     0s
+   9   0.00000000e+00 -2.47815299e-13  3.55e-14 1.61e-24  2.37e-17     0s
+
+Barrier solved model in 9 iterations and 0.19 seconds
+Optimal objective 0.00000000e+00
+
+Crossover log...
+
+    4633 PPushes remaining with PInf 0.0000000e+00                 0s
+
+Solved with dual simplex
+Solved in 1294 iterations and 0.24 seconds
+Optimal objective  0.000000000e+00
