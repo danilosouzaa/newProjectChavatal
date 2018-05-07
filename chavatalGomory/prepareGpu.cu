@@ -44,33 +44,7 @@ int verifyGpu()
     }
 }
 
-void shuffle_Set(int *vec, int nSetConstrains, int n)
-{
-    timeval time;
-    gettimeofday(&time, NULL);
-    srand((time.tv_sec * 1000) + (time.tv_usec / 1000));
-    int i, j, aux ;
-    int *num_temp = (int*)malloc(sizeof(int)*nSetConstrains);
-    int *vec_aux = (int*)malloc(sizeof(int)*nSetConstrains);
-    aux  =  n/nSetConstrains;
-    for(i = 0; i < aux ; i++)
-    {
 
-        for(j = 0 ; j<nSetConstrains; j++)
-        {
-
-            num_temp[j] = rand()%RAND_MAX;
-            vec_aux[j] = vec[i*nSetConstrains + j];
-        }
-        bubble_sort(num_temp,vec_aux,nSetConstrains);
-        for(j = 0 ; j<nSetConstrains; j++)
-        {
-            vec[i*nSetConstrains + j] = vec_aux[j];
-        }
-    }
-    free(num_temp);
-    free(vec_aux);
-}
 
 Cut_gpu* initial_runGPU(Cut_gpu *h_cut, Cut_gpu_aux *cut_aux, int numberMaxConst, int maxDenominator, int precision, int type, int nThreads, int nBlocks)
 {

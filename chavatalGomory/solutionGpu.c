@@ -676,8 +676,8 @@ Cut_gpu* createCutsStrongPhaseTwo(Cut_gpu *h_cut, solutionGpu *h_solution, int n
 
                 value_violation[cont_aux] -= (rhs_temp[cont_aux])*precision;
                 value_violation_r1[cont_aux] -= rhs_temp[cont_aux]*precision;
-                printf("Violation Initial: %lf\n",value_violation[cont_aux]);
-                printf("Violation reforço 1: %lf\n",value_violation_r1[cont_aux]);
+               // printf("Violation: %g\n",value_violation[cont_aux]);
+                //printf("Violation reforço 1: %lf\n",value_violation_r1[cont_aux]);
 //
 //                for(ite = 0; ite<h_cut->numberVariables; ite++ )
 //                {
@@ -793,7 +793,7 @@ Cut_gpu* createCutsStrongPhaseTwo(Cut_gpu *h_cut, solutionGpu *h_solution, int n
                         lhs += (long double)Coef_ref[ite]*(long double)h_cut->xAsterisc[ite];
                     }
                     violation_mult[cont_aux] = lhs - (rhs_temp[cont_aux]*precision);
-                    printf("Violation 2: %lf \n",violation_mult[cont_aux]);
+                    //printf("Violation 2: %lf \n",violation_mult[cont_aux]);
 
 //                    printf("reforço 2\n");
 //                    for(ite = 0; ite<h_cut->numberVariables; ite++ )
@@ -819,6 +819,7 @@ Cut_gpu* createCutsStrongPhaseTwo(Cut_gpu *h_cut, solutionGpu *h_solution, int n
                     tam = 0;
                     if(verifyDominanceCG(Coef_ref,rhs_temp[cont_aux],Coef1,rhs1,h_cut->numberVariables)==1)
                     {
+                        value_violation[cont_aux] = violation_mult[cont_aux];
                         for(j=0; j<h_cut->numberVariables; j++)
                         {
                             if(Coef_ref[j]!=0)
@@ -915,9 +916,7 @@ Cut_gpu* createCutsStrongPhaseTwo(Cut_gpu *h_cut, solutionGpu *h_solution, int n
     free(Coef2);
     free(Coef_mult1);
     free(Coef_ref);
-    free(violation_mult);
-    free(value_violation);
-    free(value_violation_r1);
+
     free(v_aux);
     free(p_frac);
     cont_aux = aux;
@@ -997,7 +996,7 @@ Cut_gpu* createCutsStrongPhaseTwo(Cut_gpu *h_cut, solutionGpu *h_solution, int n
         }
     }
 
-    printf("Number of repeat Strengthening: %d \n", cont_aux);
+    printf("Number of repeat: %d \n", cont_aux);
 
     Cut_gpu* new_h_cut;
 
@@ -1009,10 +1008,10 @@ Cut_gpu* createCutsStrongPhaseTwo(Cut_gpu *h_cut, solutionGpu *h_solution, int n
     {
         if(validated[i]==0)
         {
-//            if(i>=h_cut->numberConstrains)
-//            {
-//                printf("violation %f\n",violation[i-h_cut->numberConstrains]);
-//            }
+            if(i>=h_cut->numberConstrains)
+            {
+                printf("violation %f\n",value_violation[i-h_cut->numberConstrains]);
+            }
             new_h_cut->rightSide[aux] = cuts_generated->rightSide[i];
             new_h_cut->typeConstraints[aux] = cuts_generated->typeConstraints[i];
             for(j = cuts_generated->ElementsConstraints[i]; j < cuts_generated->ElementsConstraints[i+1]; j++)
@@ -1031,6 +1030,10 @@ Cut_gpu* createCutsStrongPhaseTwo(Cut_gpu *h_cut, solutionGpu *h_solution, int n
     {
         new_h_cut->xAsterisc[i] = cuts_generated->xAsterisc[i];
     }
+
+    free(violation_mult);
+    free(value_violation);
+    free(value_violation_r1);
 
     free(cuts_generated);
     free(validated);
@@ -1774,4 +1777,32 @@ int CutP_maxDivisorCommonRec(int m, int n)
         return CutP_maxDivisorCommonRec( n, resto );
     }
 
+}
+
+void shuffle_Set(int *vec, int nSetConstrains, int n)
+{
+    timeval_t time;
+    gettimeofday(&time, NULL);
+    srand((time.tv_sec * 1000) + (time.tv_usec / 1000));
+    int i, j, aux ;
+    int *num_temp = (int*)malloc(sizeof(int)*nSetConstrains);
+    int *vec_aux = (int*)malloc(sizeof(int)*nSetConstrains);
+    aux  =  n/nSetConstrains;
+    for(i = 0; i < aux ; i++)
+    {
+
+        for(j = 0 ; j<nSetConstrains; j++)
+        {
+
+            num_temp[j] = rand()%RAND_MAX;
+            vec_aux[j] = vec[i*nSetConstrains + j];
+        }
+        bubble_sort(num_temp,vec_aux,nSetConstrains);
+        for(j = 0 ; j<nSetConstrains; j++)
+        {
+            vec[i*nSetConstrains + j] = vec_aux[j];
+        }
+    }
+    free(num_temp);
+    free(vec_aux);
 }

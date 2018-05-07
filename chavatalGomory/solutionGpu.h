@@ -33,6 +33,11 @@ typedef struct {
     TSPAux *SPAux;
 } solutionGpu;
 
+typedef struct{
+    long    tv_sec;         /* seconds */
+    long    tv_usec;        /* and microseconds */
+}timeval_t;
+
 solutionGpu* allocationStructSolution2(Cut_gpu *c, int numberMaxConst, int nRuns);
 
 solutionGpu* allocationStructSolution1(Cut_gpu *c, int nRuns);
@@ -74,6 +79,8 @@ int returnK(long double fa_zero);
 void calcSetConstraint (int *setConstraint, int *pos_R1, int numberMaxConst,int numberConstrains, int *resR1, int *resNR1, int sizeR1, int sizeNR1, int *Similar, float *Folga, int nRuns, int szR );
 
 int verifyDominanceCG(int *v1, int rhs1, int *v2, int rhs2, int sz);
+
+void shuffle_Set(int *vec, int nSetConstrains, int n);
 
 EXTERN_C_END
 

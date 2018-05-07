@@ -23,7 +23,6 @@ Cut_gpu* second_phase_runGPU(Cut_gpu *h_cut, Cut_gpu_aux *cut_aux, int numberMax
 
 Cut_gpu* phase_zeroHalf(Cut_gpu *h_cut, Cut_gpu_aux *cut_aux,int nConstraintsPerSet);
 
-void shuffle_Set(int *vec, int nSetConstrains, int n);
 
 void returnDimension(int *nB, int *nT, int nRuns);
 
