@@ -72,6 +72,7 @@ __global__ void runGPUR1(Cut_gpu *d_cut, solutionGpu *d_solution, unsigned int *
         }
     }
     __syncthreads();
+    // Vetor coef Ordenado por maior, tirar os multiplos";
 
     int res = constraints[threadIdx.x%pos];
     int *Coef = (int*)malloc(sizeof(int)*(d_cut->numberVariables));

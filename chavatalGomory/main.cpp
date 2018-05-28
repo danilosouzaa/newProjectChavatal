@@ -130,7 +130,7 @@ int main(int argc, char *argv[])
     ccg_aux = reallocCutR2(ccg,ccg_aux,&contr2);
     //ccg = phase_zeroHalf(ccg, ccg_aux,2);
 #else
-    printf("GPU\n");
+    printf("CPU\n");
 
     int pos_R1 = 0;
 
@@ -145,7 +145,8 @@ int main(int argc, char *argv[])
 //        ccg_aux = reallocCut(ccg,ccg_aux, &contr1);
 //    n_cuts = ccg->numberConstrains;
 
-    ccg = second_phase_runCPU(ccg, ccg_aux, maxContraints,nRuns,maxDenominator,p, szR,600000);
+
+    ccg = second_phase_runCPU(ccg, ccg_aux, maxContraints,nRuns,maxDenominator,p, szR,21600);
     //printf("depois fase 2: %d - %d\n",ccg->numberConstrains, pos_R1);
 //    ccg_aux = reallocCutR2(ccg,ccg_aux,&contr2);
     //ccg = phase_zeroHalf(ccg, ccg_aux,2);

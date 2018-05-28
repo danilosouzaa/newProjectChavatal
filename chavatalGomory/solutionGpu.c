@@ -1734,7 +1734,7 @@ void calcSetConstraint (int *setConstraint, int *pos_R1, int numberMaxConst,int 
 this function uses CutP_maxDivisorCommonRec*/
 int CutP_maxDivisorCommonVector(int coefs[], int nElem)
 {
-
+    nElem--;
     int n = coefs[nElem];
     int mdc = 1;
     while(nElem > 0)
