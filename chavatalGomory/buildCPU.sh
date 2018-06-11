@@ -11,9 +11,9 @@ CC=gcc
 CPP=g++
 
 
-CFLAGS="-Ofast -flto -fopenmp -std=c99 -I/opt/gurobi752/linux64/include/"
-CPPFLAGS="-Ofast -flto -fopenmp -DGRB -I/opt/gurobi752/linux64/include/ "
-LDFLAGS="-Ofast -flto -fopenmp -lpthread -lm -L/opt/gurobi752/linux64/lib/ -lgurobi75"
+CFLAGS="-Ofast -flto -fopenmp -std=c99 -I/opt/gurobi752-imcoelho/linux64/include/"
+CPPFLAGS="-Ofast -flto -fopenmp -DGRB -I/opt/gurobi752-imcoelho/linux64/include/ "
+LDFLAGS="-Ofast -flto -fopenmp -lpthread -lm -L/opt/gurobi752-imcoelho/linux64/lib/ -lgurobi75"
 CSOURCES="cut_gpu.c Instance.c prepareCPU.c solutionGpu.c "
 CPPSOURCES=" lp.cpp main.cpp"
 BINDIR=./bin/opt/
@@ -45,4 +45,4 @@ echo linking ...
     printf "\t$command\n"
     $command
 
-cp bin/opt/chavExecCPU ./
+cp bin/opt/chavExecCPU ./chavExecCPU3
